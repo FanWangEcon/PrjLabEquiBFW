@@ -1,7 +1,7 @@
 ---
 always_allow_html: 'true'
 core:
-- code: '[bfw_mp_func_demand()](https://github.com/FanWangEcon/PrjOptiSNW/blob/master/PrjLabEquiBFW/func/bfw_mp_func_demand.m)
+- code: '[bfw_mp_func_demand()](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/func/bfw_mp_func_demand.m)
 
     '
   package: PrjLabEquiBFW
@@ -29,7 +29,7 @@ urlcolor: blue
 ## CES Demand Core Functions
 
 This is the example vignette for function:
-[**bfw_mp_func_demand**](https://github.com/FanWangEcon/PrjOptiSNW/tree/master/PrjLabEquiBFW/func/bfw_mp_func_demand.m)
+[**bfw_mp_func_demand**](https://github.com/FanWangEcon/PrjLabEquiBFW/tree/main/PrjLabEquiBFW/func/bfw_mp_func_demand.m)
 from the [**PrjLabEquiBFW
 Package**](https://fanwangecon.github.io/PrjLabEquiBFW/)**.** This
 function generates a container map with key CES demand-side equation for

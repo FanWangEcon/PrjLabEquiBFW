@@ -13,5 +13,8 @@ rmd_files:
   - PrjLabEquiBFW/doc/func/main.Rmd
   - PrjLabEquiBFW/doc/func/bfwx_mp_func_demand.Rmd
 
+  - PrjLabEquiBFW/doc/solvedemand/main.Rmd
+  - PrjLabEquiBFW/doc/solvedemand/bfwx_crs_nested_ces.Rmd
+
   - README_appendix.md
   - title.Rmd

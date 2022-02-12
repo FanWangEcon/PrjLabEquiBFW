@@ -6,7 +6,7 @@
   core :
     - package: PrjLabEquiBFW
       code: |
-        [bfw_mp_func_demand()](https://github.com/FanWangEcon/PrjOptiSNW/blob/master/PrjLabEquiBFW/func/bfw_mp_func_demand.m)
+        [bfw_mp_func_demand()](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/func/bfw_mp_func_demand.m)
   date: 2022-02-12
   date_start: 2022-02-12
   output:

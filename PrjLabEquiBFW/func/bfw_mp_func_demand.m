@@ -1,11 +1,11 @@
 %% BFW_MP_FUNC_DEMAND Core CES Demand Side Anonymous Functions
-% BFW_MP_FUNC_DEMAND generates a container map with key CES demand-side equation for a particular sub-nest.
-%
-% MP_FUNC_DEMAND = BFW_MP_FUNC_DEMAND() get default parameters
-%
-% MP_FUNC_DEMAND = BFW_MP_FUNC_DEMAND(BL_VERBOSE) prints details
-%
-% See also BFWX_MP_FUNC_DEMAND
+%   BFW_MP_FUNC_DEMAND generates a container map with key CES demand-side equation for a particular sub-nest.
+%   
+%   MP_FUNC_DEMAND = BFW_MP_FUNC_DEMAND() get default parameters
+%   
+%   MP_FUNC_DEMAND = BFW_MP_FUNC_DEMAND(BL_VERBOSE) prints details
+%   
+%   See also BFWX_MP_FUNC_DEMAND
 %
 
 %%
@@ -24,7 +24,7 @@ function varargout = bfw_mp_func_demand(varargin)
 
     else
 
-        bl_verbose = true;
+        bl_verbose = false;
 
     end
 

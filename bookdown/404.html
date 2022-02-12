@@ -5,20 +5,29 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Page not found | BFW Equilibrium Gender LFP and Wage Code Companion</title>
-  <meta name="description" content="This function generates a container map with key CES demand-side equation for a particular sub-nest." />
+  <meta name="description" content="<p>This function solves optimal choices in Constant Elasticity of Substitution problems with constant returns and two inputs in each sub-nest.
+Takes as inputs share and elasticity parameters across layers of sub-nests, as well as input unit costs at the bottom-most layer.
+Works for CES problems with up to four nest layers, and allows for uneven branches, so that some branches go up to four layers, but others have less layers.
+Works with BFW (2022) nested labor input problem.</p>" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Page not found | BFW Equilibrium Gender LFP and Wage Code Companion" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="This function generates a container map with key CES demand-side equation for a particular sub-nest." />
+  <meta property="og:description" content="<p>This function solves optimal choices in Constant Elasticity of Substitution problems with constant returns and two inputs in each sub-nest.
+Takes as inputs share and elasticity parameters across layers of sub-nests, as well as input unit costs at the bottom-most layer.
+Works for CES problems with up to four nest layers, and allows for uneven branches, so that some branches go up to four layers, but others have less layers.
+Works with BFW (2022) nested labor input problem.</p>" />
   <meta name="github-repo" content="fanwangecon/PrjLabEquiBFW" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Page not found | BFW Equilibrium Gender LFP and Wage Code Companion" />
   
-  <meta name="twitter:description" content="This function generates a container map with key CES demand-side equation for a particular sub-nest." />
+  <meta name="twitter:description" content="<p>This function solves optimal choices in Constant Elasticity of Substitution problems with constant returns and two inputs in each sub-nest.
+Takes as inputs share and elasticity parameters across layers of sub-nests, as well as input unit costs at the bottom-most layer.
+Works for CES problems with up to four nest layers, and allows for uneven branches, so that some branches go up to four layers, but others have less layers.
+Works with BFW (2022) nested labor input problem.</p>" />
   
 
 <meta name="author" content="Sonia R. Bhalotra, Manuel Fernández, and Fan Wang" />
@@ -115,11 +124,23 @@ div.csl-indent {
 <li class="chapter" data-level="2.1.1" data-path="core-functions.html"><a href="core-functions.html#default-test"><i class="fa fa-check"></i><b>2.1.1</b> Default Test</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="3" data-path="demand.html"><a href="demand.html"><i class="fa fa-check"></i><b>3</b> Demand</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="demand.html"><a href="demand.html#solving-nested-ces-demand-problems-crs"><i class="fa fa-check"></i><b>3.1</b> Solving Nested CES Demand Problems (CRS)</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="demand.html"><a href="demand.html#key-inputs-and-outputs-for-bfw_mp_func_demand"><i class="fa fa-check"></i><b>3.1.1</b> Key Inputs and Outputs for <span><strong>bfw_mp_func_demand</strong></span></a></li>
+<li class="chapter" data-level="3.1.2" data-path="demand.html"><a href="demand.html#single-nest-layer-two-inputs-ces-problem"><i class="fa fa-check"></i><b>3.1.2</b> Single Nest Layer Two Inputs CES Problem</a></li>
+<li class="chapter" data-level="3.1.3" data-path="demand.html"><a href="demand.html#single-nest-layer-two-inputs-ces-problem-vary-share-and-elasticity"><i class="fa fa-check"></i><b>3.1.3</b> Single Nest Layer Two Inputs CES Problem, Vary Share and Elasticity</a></li>
+<li class="chapter" data-level="3.1.4" data-path="demand.html"><a href="demand.html#doubly-nest-layer-two-inputs-each-sub-nest-ces-problem"><i class="fa fa-check"></i><b>3.1.4</b> Doubly Nest Layer Two Inputs Each Sub-nest CES Problem</a></li>
+<li class="chapter" data-level="3.1.5" data-path="demand.html"><a href="demand.html#doubly-nest-layer-two-inputs-each-sub-nest-ces-problemsolution-check"><i class="fa fa-check"></i><b>3.1.5</b> Doubly Nest Layer Two Inputs Each Sub-nest CES Problem–Solution Check</a></li>
+</ul></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="index-and-code-links.html"><a href="index-and-code-links.html"><i class="fa fa-check"></i><b>A</b> Index and Code Links</a>
 <ul>
 <li class="chapter" data-level="A.1" data-path="index-and-code-links.html"><a href="index-and-code-links.html#introduction-links"><i class="fa fa-check"></i><b>A.1</b> Introduction links</a></li>
 <li class="chapter" data-level="A.2" data-path="index-and-code-links.html"><a href="index-and-code-links.html#core-functions-links"><i class="fa fa-check"></i><b>A.2</b> Core Functions links</a></li>
+<li class="chapter" data-level="A.3" data-path="index-and-code-links.html"><a href="index-and-code-links.html#demand-links"><i class="fa fa-check"></i><b>A.3</b> Demand links</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://fanwangecon.github.io/PrjLabEquiBFW/bookdown/index.html" target="blank">PrjLabEquiBFW Bookdown</a></li>
@@ -207,6 +228,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
