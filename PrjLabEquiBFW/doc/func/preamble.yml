@@ -1,0 +1,22 @@
+- file: bfwx_mp_func_demand
+  title: "CES Demand Core Functions"
+  titleshort: "CES Demand Core Functions"
+  description: |
+    This function generates a container map with key CES demand-side equation for a particular sub-nest.
+  core :
+    - package: PrjLabEquiBFW
+      code: |
+        [bfw_mp_func_demand()](https://github.com/FanWangEcon/PrjOptiSNW/blob/master/PrjLabEquiBFW/func/bfw_mp_func_demand.m)
+  date: 2022-02-12
+  date_start: 2022-02-12
+  output:
+    pdf_document:
+      pandoc_args: '../../../_output_kniti_pdf.yaml'
+      includes:
+        in_header: '../../../preamble.tex'
+    html_document:
+      pandoc_args: '../../../_output_kniti_html.yaml'
+      includes:
+        in_header: '../../../hdga.html'
+  always_allow_html: true
+  urlcolor: blue

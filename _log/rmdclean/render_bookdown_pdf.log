@@ -1,0 +1,14 @@
+  |                                                                                                                                                                                                                       |                                                                                                                                                                                                               |   0%  |                                                                                                                                                                                                                       |.....................................................................                                                                                                                                          |  33%
+   inline R code fragments
+
+  |                                                                                                                                                                                                                       |..........................................................................................................................................                                                                     |  67%
+label: global_options (with options) 
+List of 1
+ $ include: logi FALSE
+
+  |                                                                                                                                                                                                                       |...............................................................................................................................................................................................................| 100%
+   inline R code fragments
+
+
+"C:/Program Files/RStudio/bin/pandoc/pandoc" +RTS -K512m -RTS BFW-Equilibrium-Gender-LFP-and-Wage-Code-Companion.knit.md --to latex --from markdown+autolink_bare_uris+tex_math_single_backslash --output BFW-Equilibrium-Gender-LFP-and-Wage-Code-Companion.tex --lua-filter "C:\PROGRA~1\R\R-41~1.2\library\bookdown\RMARKD~1\lua\CUSTOM~1.LUA" --lua-filter "C:\PROGRA~1\R\R-41~1.2\library\RMARKD~1\RMARKD~1\lua\PAGEBR~1.LUA" --lua-filter "C:\PROGRA~1\R\R-41~1.2\library\RMARKD~1\RMARKD~1\lua\LATEX-~1.LUA" --metadata-file "C:\Users\fan\AppData\Local\Temp\RtmpYN7eIz\filea17016a75288" --self-contained --table-of-contents --toc-depth 2 --number-sections --highlight-style tango --pdf-engine xelatex --natbib --include-in-header preamble_book.tex --variable graphics --wrap preserve --variable tables=yes --standalone -Mhas-frontmatter=false 
+[1] "bookdown::render_book, pdf, took:7.46022796630859"

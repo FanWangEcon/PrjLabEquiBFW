@@ -1,0 +1,25 @@
+---
+always_allow_html: 'true'
+date: '2022-02-12'
+date_start: '2022-02-12'
+description: 'The Labor Demand and Supply Problem
+
+  '
+file: bfwx_intro
+output:
+  html_document:
+    includes:
+      in_header: ../../../hdga.html
+    pandoc_args: ../../../_output_kniti_html.yaml
+  pdf_document:
+    includes:
+      in_header: ../../../preamble.tex
+    pandoc_args: ../../../_output_kniti_pdf.yaml
+title: The Labor Demand and Supply Problem
+titleshort: The Labor Demand and Supply Problem
+urlcolor: blue
+---
+
+## Bhalotra, Fernández, and Wang (2022)
+
+In Bhalotra, Fernández, and Wang (2022).

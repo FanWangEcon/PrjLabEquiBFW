@@ -39,26 +39,3 @@ toolboxFile = 'C:/Downloads/PrjLabEquiBFW/PrjLabEquiBFW.mltbx';
 agreeToLicense = true;
 installedToolbox = matlab.addons.toolbox.installToolbox(toolboxFile, agreeToLicense)
 ```
-
-# 1  Introduction
-
-1. [The Labor Demand and Supply Problem](https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/intro/htmlpdfm/bfwx_intro.html): [**mlx**](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/intro/bfwx_intro.mlx) \| [**m**](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/intro/htmlpdfm/bfwx_intro.m) \| [**pdf**](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/intro/htmlpdfm/bfwx_intro.pdf) \| [**html**](https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/intro/htmlpdfm/bfwx_intro.html)
-	+ The Labor Demand and Supply Problem
-
-# 2  Core Functions
-
-1. [CES Demand Core Functions](https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/func/htmlpdfm/bfwx_mp_func_demand.html): [**mlx**](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/func/bfwx_mp_func_demand.mlx) \| [**m**](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/func/htmlpdfm/bfwx_mp_func_demand.m) \| [**pdf**](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/func/htmlpdfm/bfwx_mp_func_demand.pdf) \| [**html**](https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/func/htmlpdfm/bfwx_mp_func_demand.html)
-	+ This function generates a container map with key CES demand-side equation for a particular sub-nest.
-	+ **PrjLabEquiBFW**: *[bfw_mp_func_demand()](https://github.com/FanWangEcon/PrjOptiSNW/blob/master/PrjLabEquiBFW/func/bfw_mp_func_demand.m)*
-
-----
-Please contact [![](https://img.shields.io/github/followers/fanwangecon?label=FanWangEcon&style=social)](https://github.com/FanWangEcon) [![](https://img.shields.io/twitter/follow/fanwangecon?label=%20&style=social)](https://twitter.com/fanwangecon) for issues or problems.
-
-[![DOI](https://zenodo.org/badge/273278814.svg)](https://zenodo.org/badge/latestdoi/273278814)
-
-![RepoSize](https://img.shields.io/github/repo-size/fanwangecon/PrjLabEquiBFW)
-![CodeSize](https://img.shields.io/github/languages/code-size/fanwangecon/PrjLabEquiBFW)
-![Language](https://img.shields.io/github/languages/top/fanwangecon/PrjLabEquiBFW)
-![Release](https://img.shields.io/github/downloads/fanwangecon/PrjLabEquiBFW/total)
-![License](https://img.shields.io/github/license/fanwangecon/PrjLabEquiBFW)
-

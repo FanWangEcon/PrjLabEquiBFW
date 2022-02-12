@@ -1,0 +1,18 @@
+- file: bfwx_intro
+  title: "The Labor Demand and Supply Problem"
+  titleshort: "The Labor Demand and Supply Problem"
+  description: |
+    The Labor Demand and Supply Problem
+  date: 2022-02-12
+  date_start: 2022-02-12
+  output:
+    pdf_document:
+      pandoc_args: '../../../_output_kniti_pdf.yaml'
+      includes:
+        in_header: '../../../preamble.tex'
+    html_document:
+      pandoc_args: '../../../_output_kniti_html.yaml'
+      includes:
+        in_header: '../../../hdga.html'
+  always_allow_html: true
+  urlcolor: blue

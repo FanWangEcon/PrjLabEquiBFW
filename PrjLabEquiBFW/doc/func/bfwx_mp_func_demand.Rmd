@@ -1,0 +1,62 @@
+---
+always_allow_html: 'true'
+core:
+- code: '[bfw_mp_func_demand()](https://github.com/FanWangEcon/PrjOptiSNW/blob/master/PrjLabEquiBFW/func/bfw_mp_func_demand.m)
+
+    '
+  package: PrjLabEquiBFW
+date: '2022-02-12'
+date_start: '2022-02-12'
+description: 'This function generates a container map with key CES demand-side equation
+  for a particular sub-nest.
+
+  '
+file: bfwx_mp_func_demand
+output:
+  html_document:
+    includes:
+      in_header: ../../../hdga.html
+    pandoc_args: ../../../_output_kniti_html.yaml
+  pdf_document:
+    includes:
+      in_header: ../../../preamble.tex
+    pandoc_args: ../../../_output_kniti_pdf.yaml
+title: CES Demand Core Functions
+titleshort: CES Demand Core Functions
+urlcolor: blue
+---
+
+## CES Demand Core Functions
+
+This is the example vignette for function:
+[**bfw_mp_func_demand**](https://github.com/FanWangEcon/PrjOptiSNW/tree/master/PrjLabEquiBFW/func/bfw_mp_func_demand.m)
+from the [**PrjLabEquiBFW
+Package**](https://fanwangecon.github.io/PrjLabEquiBFW/)**.** This
+function generates a container map with key CES demand-side equation for
+a particular sub-nest.
+
+### Default Test
+
+Default test
+
+    bl_verbose = true;
+    mp_func_demand = bfw_mp_func_demand(bl_verbose);
+
+    ----------------------------------------
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    CONTAINER NAME: mp_func Functions
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                                    i      idx                                                           functionString                                                      
+                                   ____    ____    __________________________________________________________________________________________________________________________
+
+        fc_OMEGA                   "1"     "1"     "@(p1,p2,rho,beta_1,beta_2)p1.*fc_d1(p1,p2,1,1,rho,beta_1,beta_2)+p2.*fc_d2(p1,p2,1,1,rho,beta_1,beta_2)"                 
+        fc_d1                      "2"     "2"     "@(p1,p2,Y,Z,rho,beta_1,beta_2)(Y/Z).*(beta_1+beta_2.*((p1./p2).*(beta_2./beta_1)).^(rho/(1-rho))).^(-1/rho)"             
+        fc_d2                      "3"     "3"     "@(p1,p2,Y,Z,rho,beta_1,beta_2)(Y/Z).*(beta_1.*((p2./p1).*(beta_1./beta_2)).^(rho/(1-rho))+beta_2).^(-1/rho)"             
+        fc_lagrange_x1             "4"     "4"     "@(p1,rho,beta_1,beta_2,x_1,x_2)p1/(((beta_1*x_1^(rho)+beta_2*x_2^(rho))^((1/rho)-1))*(beta_1*x_1^(rho-1)))"              
+        fc_lagrange_x2             "5"     "5"     "@(p2,rho,beta_1,beta_2,x_1,x_2)p2/(((beta_1*x_1^(rho)+beta_2*x_2^(rho))^((1/rho)-1))*(beta_2*x_2^(rho-1)))"              
+        fc_output_nest             "6"     "6"     "@(q1,q2,rho,beta_1,beta_2)((beta_1)*q1^(rho)+beta_2*q2^(rho))^(1/rho)"                                                   
+        fc_p1_foc                  "7"     "7"     "@(lagrangem,rho,beta_1,beta_2,x_1,x_2)lagrangem*(((beta_1*x_1^(rho)+beta_2*x_2^(rho))^((1/rho)-1))*(beta_1*x_1^(rho-1)))"
+        fc_p2_foc                  "8"     "8"     "@(lagrangem,rho,beta_1,beta_2,x_1,x_2)lagrangem*(((beta_1*x_1^(rho)+beta_2*x_2^(rho))^((1/rho)-1))*(beta_2*x_2^(rho-1)))"
+        fc_share_given_elas_foc    "9"     "9"     "@(rho,p1,p2,x1,x2)fc_share_given_elas_foc_Q(rho,p1,p2,x1,x2)/(1+fc_share_given_elas_foc_Q(rho,p1,p2,x1,x2))"             
+        fc_w1dw2                   "10"    "10"    "@(x_1,x_2,rho,beta_1,beta_2)(x_2/x_1)^(1-rho)*(beta_1/beta_2)"                                                           
+        fc_yz_ratio                "11"    "11"    "@(p1,p2,q1,q2,rho,beta_1,beta_2)fc_revenue(p1,p2,q1,q2)/fc_OMEGA(p1,p2,rho,beta_1,beta_2)"                               

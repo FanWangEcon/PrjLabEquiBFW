@@ -1,0 +1,240 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+]{book}
+\title{BFW Equilibrium Gender LFP and Wage Code Companion}
+\author{Sonia R. Bhalotra, Manuel Fernández, and Fan Wang}
+\date{2022-02-12}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={BFW Equilibrium Gender LFP and Wage Code Companion},
+  pdfauthor={Sonia R. Bhalotra, Manuel Fernández, and Fan Wang},
+  colorlinks=true,
+  linkcolor={Maroon},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={blue},
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{bbm}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+% \floatplacement{figure}{H}
+\usepackage[labelformat = empty]{caption}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	left=1.0in,
+	right=1.0in,
+	top=1.0in,
+	bottom=1.0in,
+}
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
+
+\begin{document}
+\maketitle
+
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\hypertarget{preface}{%
+\chapter*{Preface}\label{preface}}
+\addcontentsline{toc}{chapter}{Preface}
+
+This is a work-in-progress Matlab package consisting of functions that solve the equilibrium gender labor force participation and wage model in \href{https://www.iza.org/person/2905/sonia-r-bhalotra}{Bhalotra}, \href{https://sites.google.com/view/manuelfernandezsierra}{Fernández} and \href{https://fanwangecon.github.io/}{Wang} (2022). Tested with \href{https://www.mathworks.com/products/matlab.html}{Matlab} 2021b \citep{matlab}.
+
+All functions are parts of a matlab toolbox that can be installed:
+
+\begin{quote}
+Download and install the Matlab toolbox: \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW.mltbx}{PrjLabEquiBFW.mltbx}
+\end{quote}
+
+The Code Companion can also be accessed via the bookdown site and PDF linked below:
+
+\begin{quote}
+\href{https://fanwangecon.github.io/PrjLabEquiBFW/bookdown/BFW-Equilibrium-Gender-LFP-and-Wage-Code-Companion.pdf}{\textbf{bookdown pdf}}, \href{https://www.mathworks.com/matlabcentral/fileexchange/80164-PrjLabEquiBFW}{\textbf{MathWorks File Exchange}}
+\end{quote}
+
+This bookdown file is a collection of mlx based vignettes for functions that are available from \href{https://github.com/FanWangEcon/PrjLabEquiBFW}{PrjLabEquiBFW}. Each Vignette file contains various examples for invoking each function.
+
+The package relies on \href{https://fanwangecon.github.io/MEconTools/}{MEconTools}, which needs to be installed first. The package does not include allocation functions, only simulation code to generate the value of each stimulus check increments for households.
+
+The site is built using \href{https://bookdown.org/}{Bookdown} \citep{R-bookdown}.
+
+Please contact \href{https://fanwangecon.github.io/}{FanWangEcon} for issues or problems.
+
+\hypertarget{introduction}{%
+\chapter{Introduction}\label{introduction}}
+
+\hypertarget{bhalotra-fernuxe1ndez-and-wang-2022}{%
+\section{Bhalotra, Fernández, and Wang (2022)}\label{bhalotra-fernuxe1ndez-and-wang-2022}}
+
+In Bhalotra, Fernández, and Wang (2022).
+
+\hypertarget{core-functions}{%
+\chapter{Core Functions}\label{core-functions}}
+
+\hypertarget{ces-demand-core-functions}{%
+\section{CES Demand Core Functions}\label{ces-demand-core-functions}}
+
+This is the example vignette for function:
+\href{https://github.com/FanWangEcon/PrjOptiSNW/tree/master/PrjLabEquiBFW/func/bfw_mp_func_demand.m}{\textbf{bfw\_mp\_func\_demand}}
+from the \href{https://fanwangecon.github.io/PrjLabEquiBFW/}{\textbf{PrjLabEquiBFW
+Package}}\textbf{.} This
+function generates a container map with key CES demand-side equation for
+a particular sub-nest.
+
+\hypertarget{default-test}{%
+\subsection{Default Test}\label{default-test}}
+
+Default test
+
+\begin{verbatim}
+bl_verbose = true;
+mp_func_demand = bfw_mp_func_demand(bl_verbose);
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_func Functions
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                                i      idx                                                           functionString                                                      
+                               ____    ____    __________________________________________________________________________________________________________________________
+
+    fc_OMEGA                   "1"     "1"     "@(p1,p2,rho,beta_1,beta_2)p1.*fc_d1(p1,p2,1,1,rho,beta_1,beta_2)+p2.*fc_d2(p1,p2,1,1,rho,beta_1,beta_2)"                 
+    fc_d1                      "2"     "2"     "@(p1,p2,Y,Z,rho,beta_1,beta_2)(Y/Z).*(beta_1+beta_2.*((p1./p2).*(beta_2./beta_1)).^(rho/(1-rho))).^(-1/rho)"             
+    fc_d2                      "3"     "3"     "@(p1,p2,Y,Z,rho,beta_1,beta_2)(Y/Z).*(beta_1.*((p2./p1).*(beta_1./beta_2)).^(rho/(1-rho))+beta_2).^(-1/rho)"             
+    fc_lagrange_x1             "4"     "4"     "@(p1,rho,beta_1,beta_2,x_1,x_2)p1/(((beta_1*x_1^(rho)+beta_2*x_2^(rho))^((1/rho)-1))*(beta_1*x_1^(rho-1)))"              
+    fc_lagrange_x2             "5"     "5"     "@(p2,rho,beta_1,beta_2,x_1,x_2)p2/(((beta_1*x_1^(rho)+beta_2*x_2^(rho))^((1/rho)-1))*(beta_2*x_2^(rho-1)))"              
+    fc_output_nest             "6"     "6"     "@(q1,q2,rho,beta_1,beta_2)((beta_1)*q1^(rho)+beta_2*q2^(rho))^(1/rho)"                                                   
+    fc_p1_foc                  "7"     "7"     "@(lagrangem,rho,beta_1,beta_2,x_1,x_2)lagrangem*(((beta_1*x_1^(rho)+beta_2*x_2^(rho))^((1/rho)-1))*(beta_1*x_1^(rho-1)))"
+    fc_p2_foc                  "8"     "8"     "@(lagrangem,rho,beta_1,beta_2,x_1,x_2)lagrangem*(((beta_1*x_1^(rho)+beta_2*x_2^(rho))^((1/rho)-1))*(beta_2*x_2^(rho-1)))"
+    fc_share_given_elas_foc    "9"     "9"     "@(rho,p1,p2,x1,x2)fc_share_given_elas_foc_Q(rho,p1,p2,x1,x2)/(1+fc_share_given_elas_foc_Q(rho,p1,p2,x1,x2))"             
+    fc_w1dw2                   "10"    "10"    "@(x_1,x_2,rho,beta_1,beta_2)(x_2/x_1)^(1-rho)*(beta_1/beta_2)"                                                           
+    fc_yz_ratio                "11"    "11"    "@(p1,p2,q1,q2,rho,beta_1,beta_2)fc_revenue(p1,p2,q1,q2)/fc_OMEGA(p1,p2,rho,beta_1,beta_2)"                               
+\end{verbatim}
+
+\hypertarget{appendix-appendix}{%
+\appendix}
+
+
+\hypertarget{index-and-code-links}{%
+\chapter{Index and Code Links}\label{index-and-code-links}}
+
+\hypertarget{introduction-links}{%
+\section{Introduction links}\label{introduction-links}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/intro/htmlpdfm/bfwx_intro.html}{The Labor Demand and Supply Problem}: \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/intro/bfwx_intro.mlx}{\textbf{mlx}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/intro/htmlpdfm/bfwx_intro.m}{\textbf{m}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/intro/htmlpdfm/bfwx_intro.pdf}{\textbf{pdf}} \textbar{} \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/intro/htmlpdfm/bfwx_intro.html}{\textbf{html}}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The Labor Demand and Supply Problem
+  \end{itemize}
+\end{enumerate}
+
+\hypertarget{core-functions-links}{%
+\section{Core Functions links}\label{core-functions-links}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/func/htmlpdfm/bfwx_mp_func_demand.html}{CES Demand Core Functions}: \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/func/bfwx_mp_func_demand.mlx}{\textbf{mlx}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/func/htmlpdfm/bfwx_mp_func_demand.m}{\textbf{m}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/func/htmlpdfm/bfwx_mp_func_demand.pdf}{\textbf{pdf}} \textbar{} \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/func/htmlpdfm/bfwx_mp_func_demand.html}{\textbf{html}}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This function generates a container map with key CES demand-side equation for a particular sub-nest.
+  \item
+    \textbf{PrjLabEquiBFW}: \emph{\href{https://github.com/FanWangEcon/PrjOptiSNW/blob/master/PrjLabEquiBFW/func/bfw_mp_func_demand.m}{bfw\_mp\_func\_demand()}}
+  \end{itemize}
+\end{enumerate}
+
+  \bibliography{book.bib,packages.bib}
+
+\end{document}

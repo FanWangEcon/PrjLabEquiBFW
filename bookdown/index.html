@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>BFW Equilibrium Gender LFP and Wage Code Companion</title>
+  <meta name="description" content="This function generates a container map with key CES demand-side equation for a particular sub-nest." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="BFW Equilibrium Gender LFP and Wage Code Companion" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This function generates a container map with key CES demand-side equation for a particular sub-nest." />
+  <meta name="github-repo" content="fanwangecon/PrjLabEquiBFW" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="BFW Equilibrium Gender LFP and Wage Code Companion" />
+  
+  <meta name="twitter:description" content="This function generates a container map with key CES demand-side equation for a particular sub-nest." />
+  
+
+<meta name="author" content="Sonia R. Bhalotra, Manuel Fernández, and Fan Wang" />
+
+
+<meta name="date" content="2022-02-12" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="introduction.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-92953468-12"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-92953468-12');
+</script>
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">BFW Equilibrium Gender LFP and Wage Code Companion</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#bhalotra-fernández-and-wang-2022"><i class="fa fa-check"></i><b>1.1</b> Bhalotra, Fernández, and Wang (2022)</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="core-functions.html"><a href="core-functions.html"><i class="fa fa-check"></i><b>2</b> Core Functions</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="core-functions.html"><a href="core-functions.html#ces-demand-core-functions"><i class="fa fa-check"></i><b>2.1</b> CES Demand Core Functions</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="core-functions.html"><a href="core-functions.html#default-test"><i class="fa fa-check"></i><b>2.1.1</b> Default Test</a></li>
+</ul></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="index-and-code-links.html"><a href="index-and-code-links.html"><i class="fa fa-check"></i><b>A</b> Index and Code Links</a>
+<ul>
+<li class="chapter" data-level="A.1" data-path="index-and-code-links.html"><a href="index-and-code-links.html#introduction-links"><i class="fa fa-check"></i><b>A.1</b> Introduction links</a></li>
+<li class="chapter" data-level="A.2" data-path="index-and-code-links.html"><a href="index-and-code-links.html#core-functions-links"><i class="fa fa-check"></i><b>A.2</b> Core Functions links</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://fanwangecon.github.io/PrjLabEquiBFW/bookdown/index.html" target="blank">PrjLabEquiBFW Bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">BFW Equilibrium Gender LFP and Wage Code Companion</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">BFW Equilibrium Gender LFP and Wage Code Companion</h1>
+<p class="author"><em>Sonia R. Bhalotra, Manuel Fernández, and Fan Wang</em></p>
+<p class="date"><em>2022-02-12</em></p>
+</div>
+<div id="preface" class="section level1 unnumbered">
+<h1>Preface</h1>
+<p><a href="https://github.com/FanWangEcon/PrjLabEquiBFW/stargazers"><img src="https://img.shields.io/github/stars/fanwangecon/PrjLabEquiBFW?style=social" alt="Star" /></a> <a href="https://github.com/FanWangEcon/PrjLabEquiBFW/network/members"><img src="https://img.shields.io/github/forks/fanwangecon/PrjLabEquiBFW?style=social" alt="Fork" /></a> <a href="https://github.com/FanWangEcon/PrjLabEquiBFW/watchers"><img src="https://img.shields.io/github/watchers/fanwangecon/PrjLabEquiBFW?style=social" alt="Star" /></a> <a href="https://zenodo.org/badge/latestdoi/273278814"><img src="https://zenodo.org/badge/273278814.svg" alt="DOI" /></a></p>
+<p>This is a work-in-progress Matlab package consisting of functions that solve the equilibrium gender labor force participation and wage model in <a href="https://www.iza.org/person/2905/sonia-r-bhalotra">Bhalotra</a>, <a href="https://sites.google.com/view/manuelfernandezsierra">Fernández</a> and <a href="https://fanwangecon.github.io/">Wang</a> (2022). Tested with <a href="https://www.mathworks.com/products/matlab.html">Matlab</a> 2021b <span class="citation">(<a href="#ref-matlab" role="doc-biblioref">The MathWorks Inc 2021</a>)</span>.</p>
+<p>All functions are parts of a matlab toolbox that can be installed:</p>
+<blockquote>
+<p>Download and install the Matlab toolbox: <a href="https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW.mltbx">PrjLabEquiBFW.mltbx</a></p>
+</blockquote>
+<p>The Code Companion can also be accessed via the bookdown site and PDF linked below:</p>
+<blockquote>
+<p><a href="https://fanwangecon.github.io/PrjLabEquiBFW/bookdown/BFW-Equilibrium-Gender-LFP-and-Wage-Code-Companion.pdf"><strong>bookdown pdf</strong></a>, <a href="https://www.mathworks.com/matlabcentral/fileexchange/80164-PrjLabEquiBFW"><strong>MathWorks File Exchange</strong></a></p>
+</blockquote>
+<p>This bookdown file is a collection of mlx based vignettes for functions that are available from <a href="https://github.com/FanWangEcon/PrjLabEquiBFW">PrjLabEquiBFW</a>. Each Vignette file contains various examples for invoking each function.</p>
+<p>The package relies on <a href="https://fanwangecon.github.io/MEconTools/">MEconTools</a>, which needs to be installed first. The package does not include allocation functions, only simulation code to generate the value of each stimulus check increments for households.</p>
+<p>The site is built using <a href="https://bookdown.org/">Bookdown</a> <span class="citation">(<a href="#ref-R-bookdown" role="doc-biblioref">Xie 2020</a>)</span>.</p>
+<p>Please contact <a href="https://fanwangecon.github.io/">FanWangEcon</a> for issues or problems.</p>
+<p><a href="https://github.com/FanWangEcon/PrjLabEquiBFW/commits/master"><img src="https://img.shields.io/github/last-commit/fanwangecon/PrjLabEquiBFW" /></a> <a href="https://github.com/FanWangEcon/PrjLabEquiBFW/graphs/commit-activity"><img src="https://img.shields.io/github/commit-activity/m/fanwangecon/PrjLabEquiBFW" /></a> <a href="https://github.com/FanWangEcon/PrjLabEquiBFW/issues"><img src="https://img.shields.io/github/issues/fanwangecon/PrjLabEquiBFW" /></a> <a href="https://github.com/FanWangEcon/PrjLabEquiBFW/pulls"><img src="https://img.shields.io/github/issues-pr/fanwangecon/PrjLabEquiBFW" /></a></p>
+
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-matlab" class="csl-entry">
+The MathWorks Inc. 2021. <em>MATLAB</em>. <a href="https://www.mathworks.com/products/matlab.html">https://www.mathworks.com/products/matlab.html</a>.
+</div>
+<div id="ref-R-bookdown" class="csl-entry">
+Xie, Yihui. 2020. <em>Bookdown: Authoring Books and Technical Documents with r Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="introduction.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": [["BFW-Equilibrium-Gender-LFP-and-Wage-Code-Companion.pdf", "PDF"]],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

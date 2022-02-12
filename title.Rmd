@@ -1,0 +1,5 @@
+---
+title: "BFW Equilibrium Gender LFP and Wage Code Companion"
+author: "Sonia R. Bhalotra, Manuel Fernández, and Fan Wang"
+date: '`r format(Sys.Date(), "%Y-%m-%d")`'
+---

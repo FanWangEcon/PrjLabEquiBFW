@@ -1,0 +1,17 @@
+book_filename: "BFW Equilibrium Gender LFP and Wage Code Companion"
+output_dir: "bookdown"
+language:
+  ui:
+    chapter_name: "Chapter "
+delete_merged_file: true
+rmd_files:
+  - index.Rmd
+
+  - PrjLabEquiBFW/doc/intro/main.Rmd
+  - PrjLabEquiBFW/doc/intro/bfwx_intro.Rmd
+
+  - PrjLabEquiBFW/doc/func/main.Rmd
+  - PrjLabEquiBFW/doc/func/bfwx_mp_func_demand.Rmd
+
+  - README_appendix.md
+  - title.Rmd

@@ -1,0 +1,6 @@
+theme: jekyll-theme-slate
+title: Bhalotra, Fernández, and Wang (2021)
+google_analytics: UA-92953468-12
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
