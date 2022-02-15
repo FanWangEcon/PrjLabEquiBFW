@@ -1,8 +1,14 @@
 %% BFW_CRS_NESTED_CES Solve Nested CES Demand Problems with Constant Returns
-%    This function solves optimal expenditure minimization demands given
-%    constant elasticity of substitution. Works for CES problems with up to
-%    four nest layers. Only works when there are two inputs in each
-%    sub-nest. These inputs can be any inputs, labor inputs or not. 
+%    This function solves optimal choices given CES production function
+%    under cost minimization. Works with Constant Elasticity of
+%    Substitution problems with constant returns, up to four nest layers,
+%    and two inputs in each sub-nest. Takes as inputs share and elasticity
+%    parameters across layers of sub-nests, as well as input unit costs at
+%    the bottom-most layer. Works with Constant Elasticity of Substitution
+%    problems with constant returns, up to four nest layers, and two inputs
+%    in each sub-nest. Allows for uneven branches, so that some branches go
+%    up to four layers, but others have less layers, works with BFW (2022)
+%    nested labor input problem.
 %
 %    The function is written to be independently invocable in terms of
 %    parameters, all parameters are specified through input cell arrays.
@@ -24,31 +30,31 @@
 %    input of the two inputs for each nest. The structure for this is
 %    similar to CL_MN_PRHO.
 %    * CL_MN_PRICE cell array of wages for both wages for the first and
-%    second nest, the last index in each element of the cell array
-%    indicates first (1) or second (2) wage. For example, suppose we have
-%    four layers, with 2 branches at each layer, as in the example for
-%    CL_MN_PRHO, then we have 2, 4, 8, and 16 wage values at the 1st, 2nd,
-%    3rd, and 4th nest layers: size(CL_MN_PRICE{1})=[1,2],
-%    size(CL_MN_PRICE{2})=[2,2], size(CL_MN_PRICE{3})=[2,2,2],
-%    size(CL_MN_PRICE{4})=[2,2,2,2]. Note that only the last layer of wage
-%    needs to be specified, in this case, the 16 wages at the 4th layer.
-%    Given optimal solutions, we solve for the 2, 4, and 8 aggregate wages
-%    at the higher nest layers. If some branches are deeper than other
-%    branches, then can specific NA for non-reached layers along some
-%    branches.
+%    second inputs of the bottom-most layer of sub-nests. The last index in
+%    each element of the cell array indicates first (1) or second (2) wage.
+%    For example, suppose we have four layers, with 2 branches at each
+%    layer, as in the example for CL_MN_PRHO, then we have 2, 4, 8, and 16
+%    wage values at the 1st, 2nd, 3rd, and 4th nest layers:
+%    size(CL_MN_PRICE{1})=[1,2], size(CL_MN_PRICE{2})=[2,2],
+%    size(CL_MN_PRICE{3})=[2,2,2], size(CL_MN_PRICE{4})=[2,2,2,2]. Note
+%    that only the last layer of wage needs to be specified, in this case,
+%    the 16 wages at the 4th layer. Given optimal solutions, we solve for
+%    the 2, 4, and 8 aggregate wages at the higher nest layers. If some
+%    branches are deeper than other branches, then can specific NA for
+%    non-reached layers along some branches.
 %    * BL_BFW_MODEL boolean true by default if true then will output
 %    outcomes specific to the BFW 2022 problem.
 %
 %    [CL_MN_YZ_CHOICES, CL_MN_PRICE] = BFW_CRS_NESTED_CES(FL_YZ,
 %    CL_MN_PRHO, CL_MN_PSHARE, CL_MN_PRICE, BL_VERBOSE) Solve for the
-%    specific optimal expenditure minimization constant-returns nested CES
-%    problem from BFW 2022 and generate all aggregate prices and aggregate
+%    optimal expenditure minimization constant-returns nested CES problem
+%    from BFW 2022 and generate all aggregate prices and aggregate
 %    quantities. CL_MN_YZ_CHOICES has the same dimension as CL_MN_PRICE,
 %    suppose there are four layers, the CL_MN_PRICE{4} results at the
 %    lowest layer includes quantity choices that might be observed in the
 %    data. CL_MN_PRICE cell values at non-bottom layers include aggregate
 %    quantity outcomes. CL_MN_PRICE includes at the lowest layer observed
-%    wages, however, also includes higher layer aggregate solved waves.
+%    wages, however, also includes higher layer aggregate solved wages.
 %    CL_MN_PRHO and CL_MN_PSHARE are identical to inputs.
 %
 %    [CL_MN_YZ_CHOICES, CL_MN_PRICE, CL_MN_PRHO, CL_MN_PSHARE] =
@@ -63,11 +69,7 @@
 %    with up to four layers. MP_FUNC is the map container of demand
 %    function components from BFW_MP_FUNC_DEMAND().
 %
-%    [CL_MN_YZ_CHOICES, CL_MN_PRICE, CL_MN_PRHO, CL_MN_PSHARE] =
-%    BFW_CRS_NESTED_CES(FL_YZ, CL_MN_PRHO, CL_MN_PSHARE, CL_MN_PRICE,
-%    BL_VERBOSE)
-%
-%    see also BFWX_CRS_NESTED_CES
+%    see also BFW_CRS_NESTED_CES_MPL, BFWX_CRS_NESTED_CES
 %
 
 %%
@@ -78,12 +80,13 @@ if (~isempty(varargin))
 
     bl_verbose = false;
     bl_bfw_model = true;
-    mp_func = bfw_mp_func_demand();
     if (length(varargin)==4)
         [fl_yz, cl_mn_prho, cl_mn_pshare, cl_mn_price] = varargin{:};
+        mp_func = bfw_mp_func_demand();
     elseif (length(varargin)==5)
         [fl_yz, cl_mn_prho, cl_mn_pshare, cl_mn_price, ...
             bl_verbose] = varargin{:};
+        mp_func = bfw_mp_func_demand();
     elseif (length(varargin)==6)
         [fl_yz, cl_mn_prho, cl_mn_pshare, cl_mn_price, ...
             mp_func, bl_verbose] = varargin{:};

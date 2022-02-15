@@ -1,22 +1,26 @@
 ---
 always_allow_html: 'true'
 core:
-- code: '[bfw_mp_func_demand()](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/solvedemand/bfw_mp_func_demand.m)
+- code: '[bfw_crs_nested_ces()](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/solvedemand/bfw_crs_nested_ces.m)
 
     '
   package: PrjLabEquiBFW
 date: '2022-02-12'
 date_start: '2022-02-12'
-description: 'This function solves optimal choices in Constant Elasticity of Substitution
-  problems with constant returns and two inputs in each sub-nest.
+description: 'This function solves optimal choices given CES production function under
+  cost minimization.
+
+  Works with Constant Elasticity of Substitution problems with constant returns, up
+  to four nest layers, and two inputs in each sub-nest.
 
   Takes as inputs share and elasticity parameters across layers of sub-nests, as well
   as input unit costs at the bottom-most layer.
 
-  Works for CES problems with up to four nest layers, and allows for uneven branches,
-  so that some branches go up to four layers, but others have less layers.
+  Works with Constant Elasticity of Substitution problems with constant returns, up
+  to four nest layers, and two inputs in each sub-nest.
 
-  Works with BFW (2022) nested labor input problem.
+  Allows for uneven branches, so that some branches go up to four layers, but others
+  have less layers, works with BFW (2022) nested labor input problem.
 
   '
 file: bfwx_crs_nested_ces
@@ -29,24 +33,27 @@ output:
     includes:
       in_header: ../../../preamble.tex
     pandoc_args: ../../../_output_kniti_pdf.yaml
-title: Solving Nested CES Demand Problems (CRS)
-titleshort: Solving Nested CES Demand Problems (CRS)
+title: Solve Nested-CES Optimal Demand (CRS)
+titleshort: Solve Nested CES Optimal Demand (CRS)
 urlcolor: blue
 ---
 
-## Solving Nested CES Demand Problems (CRS)
+## Solve Nested CES Optimal Demand (CRS)
 
-Taking advantage of
+Testing the
 [**bfw_crs_nested_ces**](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/solvedemand/bfw_crs_nested_ces.m)
-from the [**PrjLabEquiBFW
+function from the [**PrjLabEquiBFW
 Package**](https://fanwangecon.github.io/PrjLabEquiBFW/)**.** This
-function solves optimal choices in Constant Elasticity of Substitution
-problems with constant returns and two inputs in each sub-nest. Takes as
-inputs share and elasticity parameters across layers of sub-nests, as
-well as input unit costs at the bottom-most layer. Works for CES
-problems with up to four nest layers, and allows for uneven branches, so
-that some branches go up to four layers, but others have less layers.
-Works with BFW (2022) nested labor input problem.
+function solves optimal choices given CES production function under cost
+minimization. Works with Constant Elasticity of Substitution problems
+with constant returns, up to four nest layers, and two inputs in each
+sub-nest. Takes as inputs share and elasticity parameters across layers
+of sub-nests, as well as input unit costs at the bottom-most layer.
+Works with Constant Elasticity of Substitution problems with constant
+returns, up to four nest layers, and two inputs in each sub-nest. Allows
+for uneven branches, so that some branches go up to four layers, but
+others have less layers, works with BFW (2022) nested labor input
+problem.
 
 ### Key Inputs and Outputs for [**bfw_mp_func_demand**](https://github.com/FanWangEcon/PrjLabEquiBFW/tree/main/PrjLabEquiBFW/func/bfw_mp_func_demand.m) 
 
@@ -101,7 +108,7 @@ Here are the key outputs for the CES demand solver function:
     however, also includes higher layer aggregate solved waves.
     CL_MN_PRHO and CL_MN_PSHARE are identical to inputs.
 
-### Single Nest Layer Two Inputs CES Problem
+### Single Nest Layer Two Inputs CES Problem (Demand)
 
 In this first example, we solve a constant returns to scale problem with
 a single nest, meaning just two inputs and a single output.
@@ -117,12 +124,12 @@ a single nest, meaning just two inputs and a single output.
     % equal share, similar "productivity"
     cl_mn_pshare = {[0.5]};
     % wages for the two inputs, identical wage
-    cl_mn_price = {[1, 1]};
+    cl_mn_price = {[1.5, 0.75]};
     % print option
     bl_verbose = true;
     mp_func = bfw_mp_func_demand();
     bl_bfw_model = false;
-    [cl_mn_yz_choices, cl_mn_price, cl_mn_prho, cl_mn_pshare] = ...
+    [cl_mn_yz_choices, cl_mn_price] = ...
         bfw_crs_nested_ces(fl_yz, cl_mn_prho, cl_mn_pshare, cl_mn_price, ...
         mp_func, bl_verbose, bl_bfw_model);
 
@@ -130,23 +137,23 @@ a single nest, meaning just two inputs and a single output.
     xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
     CONTAINER NAME: mp_container_map ND Array (Matrix etc)
     xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-                    i    idx    ndim    numel    rowN    colN    sum    mean    std    coefvari    min    max
-                    _    ___    ____    _____    ____    ____    ___    ____    ___    ________    ___    ___
+                    i    idx    ndim    numel    rowN    colN     sum       mean       std      coefvari      min       max  
+                    _    ___    ____    _____    ____    ____    ______    ______    _______    ________    _______    ______
 
-        price_c1    1     2      2        2       1       2       2      1       0        0         1      1 
-        yz_c1       2     4      2        2       1       2       2      1       0        0         1      1 
+        price_c1    1     2      2        2       1       2        2.25     1.125    0.53033     0.4714        0.75       1.5
+        yz_c1       2     4      2        2       1       2      2.1343    1.0671    0.55403    0.51918     0.67537    1.4589
 
     xxx TABLE:price_c1 xxxxxxxxxxxxxxxxxx
-              c1    c2
-              __    __
+              c1      c2 
+              ___    ____
 
-        r1    1     1 
+        r1    1.5    0.75
 
     xxx TABLE:yz_c1 xxxxxxxxxxxxxxxxxx
-              c1    c2
-              __    __
+                c1         c2  
+              _______    ______
 
-        r1    1     1 
+        r1    0.67537    1.4589
 
     ----------------------------------------
     xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -158,7 +165,7 @@ a single nest, meaning just two inputs and a single output.
         prho_c1      1     1      0.1 
         pshare_c1    2     3      0.5 
 
-### Single Nest Layer Two Inputs CES Problem, Vary Share and Elasticity
+### Single Nest Layer Two Inputs CES Problem, Vary Share and Elasticity (Demand)
 
 In this second example, we test over different rho values, explore
 optimal relative choices, as share and elasticity change. In this
@@ -221,13 +228,13 @@ requirement is met.
         end
     end
 
-Key results: (1) As share of input 1 goes to zero, optimal choice goes
-to zero when inputs are elastic; (2) When inputs are inelasticty, even
-very low share input 1 asymptote to equal input 2; (3) When input 1 is
-more productive (higher share), actually hire less as productivity
-(share) increases, becasue less of it is needed to achieve production
-for high rho, elastictic production function; (4) For inelastic
-production, monotonic relationship between input and shares.
+Key results: (1) As share parameter of input 1 goes to zero, optimal
+choice goes to zero when inputs are elastic; (2) When inputs are
+inelasticty, even very low share input 1 asymptote to equal input 2; (3)
+When input 1 is more productive (higher share), actually hire less as
+productivity (share) increases, becasue less of it is needed to achieve
+production for high rho, elastictic production function; (4) For
+inelastic production, monotonic relationship between input and shares.
 
     % Visualize
     % Generate some Data
@@ -254,7 +261,7 @@ production, monotonic relationship between input and shares.
 
 ![](img/bfwx_crs_nested_ces_images/figure_0.png){width=500px}
 
-### Doubly Nest Layer Two Inputs Each Sub-nest CES Problem
+### Doubly Nest Layer Two Inputs Each Sub-nest CES Problem (Demand)
 
 In this third example, solve for optimal choices for a doubly nested
 problem. Below, we first solve for the optimal choices, then we do a
@@ -362,7 +369,7 @@ expected.
     nest 2 input 1, fl_opti_x21=2.2044  
     nest 2 input 2, fl_opti_x22=0.70496 
 
-### Doubly Nest Layer Two Inputs Each Sub-nest CES Problem--Solution Check
+### Doubly Nest Layer Two Inputs Each Sub-nest CES Problem--Solution Check (Demand)
 
 Checking output equality, if there are problems, would output an error.
 
@@ -491,3 +498,396 @@ problems, would output an error.
     if (~if_is_close(fl_rela_wage_x11_x21, log(fl_wage_x11/fl_wage_x21)))
         error('There is an error, relative price x11 and x21 does not satisfy cross optimality across nests')
     end
+
+### BFW (2022) Nested Three Branch (Four Layer) Problem (Demand)
+
+The model BFW 2022 has three branches and four layers. one of the
+branches go down only three layers, the other two branches go down four
+layers.
+
+First, we prepare the various inputs:
+
+    % Controls
+    bl_verbose = true;
+    bl_bfw_model = true;
+
+    % Given rho and beta, solve for equilibrium quantities
+    bl_log_wage = false;
+    mp_func = bfw_mp_func_demand(bl_log_wage);
+
+    % Following instructions in: PrjFLFPMexicoBFW\solvedemand\README.md
+
+    % Nests/layers
+    it_nests = 4;
+
+    % Input cell of mn matrixes
+    it_prho_cl = 1;
+    it_pshare_cl = 2;
+    it_price_cl = 3;
+    for it_cl_ctr = [1,2,3]
+
+        cl_mn_cur = cell(it_nests,1);
+
+        % Fill each cell element with NaN mn array
+        for it_cl_mn = 1:it_nests
+
+            bl_price = (it_cl_ctr == it_price_cl);
+
+            if (~bl_price && it_cl_mn == 1)
+                mn_nan = NaN;
+            elseif (~bl_price && it_cl_mn == 2) || (bl_price && it_cl_mn == 1)
+                mn_nan = [NaN, NaN];
+            elseif (~bl_price && it_cl_mn == 3) || (bl_price && it_cl_mn == 2)
+                mn_nan = NaN(2,2);
+            elseif (~bl_price && it_cl_mn == 4) || (bl_price && it_cl_mn == 3)
+                mn_nan = NaN(2,2,2);
+            elseif (~bl_price && it_cl_mn == 5) || (bl_price && it_cl_mn == 4)
+                mn_nan = NaN(2,2,2,2);
+            elseif (~bl_price && it_cl_mn == 6) || (bl_price && it_cl_mn == 5)
+                mn_nan = NaN(2,2,2,2,2);
+            end
+            cl_mn_cur{it_cl_mn} = mn_nan;
+        end
+
+        % Name cell arrays
+        if (it_cl_ctr == it_prho_cl)
+            cl_mn_prho = cl_mn_cur;
+        elseif (it_cl_ctr == it_pshare_cl)
+            cl_mn_pshare = cl_mn_cur;
+        elseif (it_cl_ctr == it_price_cl)
+            cl_mn_price = cl_mn_cur;
+        end
+    end
+
+    % Initialize share matrix
+    rng(123);
+    for it_cl_mn = 1:it_nests
+        mn_pshare = cl_mn_pshare{it_cl_mn};
+        if it_cl_mn == 4
+            mn_pshare(2,:,:) = rand(2,2);
+        else
+            mn_pshare = rand(size(mn_pshare));
+        end
+        cl_mn_pshare{it_cl_mn} = mn_pshare;
+    end
+
+    % Initialize rho matrix
+    rng(456);
+    for it_cl_mn = 1:it_nests
+        mn_prho = cl_mn_prho{it_cl_mn};
+        if it_cl_mn == 4
+            mn_prho(2,:,:) = rand(2,2);
+        else
+            mn_prho = rand(size(mn_prho));
+        end
+        % Scalling rho between 0.7500 and -3.0000
+        % 1 - 2.^(linspace(-2,2,5))
+        mn_prho = 1 - 2.^(mn_prho*(4) - 2);
+        cl_mn_prho{it_cl_mn} = mn_prho;
+    end
+
+    % Initialize wage matrix
+    rng(789);
+    for it_cl_mn = 1:it_nests
+        mn_price = cl_mn_price{it_cl_mn};
+        if it_cl_mn == 3
+            mn_price(1,:,:) = rand(2,2);
+        elseif it_cl_mn == 4
+            mn_price(2,:,:,:) = rand(2,2,2);
+        end
+        % Scalling rho between 3 amd 5
+        mn_price = mn_price*(2) + 3;
+        cl_mn_price{it_cl_mn} = mn_price;
+    end
+
+    % Initialize yz matrix
+    rng(101112);
+    fl_yz = rand();
+
+Second, display created inputs:
+
+    disp(['fl_yz=' num2str(fl_yz)]);
+
+    fl_yz=0.89726
+
+    celldisp(cl_mn_prho);
+
+    cl_mn_prho
+     
+    cl_mn_prho{1} =
+     
+        0.5017
+
+     
+     
+    cl_mn_prho{2} =
+     
+        0.6071   -1.1955
+
+     
+     
+    cl_mn_prho{3} =
+     
+       -1.3523   -0.3346
+       -0.4167   -1.9136
+
+     
+     
+    cl_mn_prho{4} =
+     
+
+    (:,:,1) =
+
+           NaN       NaN
+       -1.0512    0.5869
+
+
+    (:,:,2) =
+
+           NaN       NaN
+        0.6209    0.1633
+
+     
+
+    celldisp(cl_mn_pshare);
+
+    cl_mn_pshare
+     
+    cl_mn_pshare{1} =
+     
+        0.6965
+
+     
+     
+    cl_mn_pshare{2} =
+     
+        0.2861    0.2269
+
+     
+     
+    cl_mn_pshare{3} =
+     
+        0.5513    0.4231
+        0.7195    0.9808
+
+     
+     
+    cl_mn_pshare{4} =
+     
+
+    (:,:,1) =
+
+           NaN       NaN
+        0.6848    0.4809
+
+
+    (:,:,2) =
+
+           NaN       NaN
+        0.3921    0.3432
+
+     
+
+    celldisp(cl_mn_price);
+
+    cl_mn_price
+     
+    cl_mn_price{1} =
+     
+       NaN   NaN
+
+     
+     
+    cl_mn_price{2} =
+     
+       NaN   NaN
+       NaN   NaN
+
+     
+     
+    cl_mn_price{3} =
+     
+
+    (:,:,1) =
+
+        3.6467    3.4605
+           NaN       NaN
+
+
+    (:,:,2) =
+
+        4.5876    4.2488
+           NaN       NaN
+
+     
+     
+    cl_mn_price{4} =
+     
+
+    (:,:,1,1) =
+
+           NaN       NaN
+        4.9508    4.5178
+
+
+    (:,:,2,1) =
+
+           NaN       NaN
+        3.0212    3.0495
+
+
+    (:,:,1,2) =
+
+           NaN       NaN
+        3.2221    4.0763
+
+
+    (:,:,2,2) =
+
+           NaN       NaN
+        3.0909    4.1031
+
+     
+
+Third, call function and solve for optimal demand:
+
+    % Call function
+    [cl_mn_yz_choices, cl_mn_price, cl_mn_prho, cl_mn_pshare] = ...
+        bfw_crs_nested_ces(fl_yz, cl_mn_prho, cl_mn_pshare, cl_mn_price, ...
+        mp_func, bl_verbose, bl_bfw_model);
+
+    ----------------------------------------
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    CONTAINER NAME: mp_container_map ND Array (Matrix etc)
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                                i     idx    ndim    numel    rowN    colN      sum         mean        std       coefvari      min         max   
+                                __    ___    ____    _____    ____    ____    ________    ________    ________    ________    ________    ________
+
+        mt_fl_labor_demanded     1     1      2       12       4       3        5.4455     0.45379     0.85359       1.881    0.020122      2.3642
+        prho_c2                  2     3      2        2       1       2      -0.58844    -0.29422      1.2746     -4.3323     -1.1955     0.60709
+        prho_c3                  3     4      2        4       2       2       -4.0173     -1.0043     0.76195    -0.75868     -1.9136    -0.33464
+        prho_c4                  4     5      3        8       2       4           NaN         NaN         NaN         NaN     -1.0512     0.62089
+        price_c1                 5     6      2        2       1       2        35.345      17.673      7.0394     0.39832      12.695       22.65
+        price_c2                 6     7      2        4       2       2        40.906      10.226      2.7834     0.27217      7.7015      13.522
+        price_c3                 7     8      3        8       2       4        45.403      5.6754      2.0037     0.35305      3.4605      8.5114
+        price_c4                 8     9      4       16       2       8           NaN         NaN         NaN         NaN      3.0212      4.9508
+        pshare_c2                9    11      2        2       1       2       0.51299      0.2565    0.041923     0.16344     0.22685     0.28614
+        pshare_c3               10    12      2        4       2       2        2.6747     0.66866     0.24087     0.36023     0.42311     0.98076
+        pshare_c4               11    13      3        8       2       4           NaN         NaN         NaN         NaN     0.34318     0.68483
+        yz_c1                   12    14      2        2       1       2        1.6003     0.80016      1.0053      1.2564    0.089284       1.511
+        yz_c2                   13    15      2        4       2       2         2.645     0.66124      1.0849      1.6407    0.057461      2.2864
+        yz_c3                   14    16      3        8       2       4        5.1962     0.64953      1.0063      1.5492     0.03298      2.3642
+        yz_c4                   15    17      4       16       2       8           NaN         NaN         NaN         NaN    0.020122     0.14469
+
+    xxx TABLE:mt_fl_labor_demanded xxxxxxxxxxxxxxxxxx
+                 c1          c2         c3   
+              ________    ________    _______
+
+        r1    0.020122    0.024929     2.1857
+        r2    0.060227    0.037985     2.3642
+        r3    0.069088    0.093774    0.21107
+        r4    0.058349     0.14469    0.17539
+
+    xxx TABLE:prho_c2 xxxxxxxxxxxxxxxxxx
+                c1         c2   
+              _______    _______
+
+        r1    0.60709    -1.1955
+
+    xxx TABLE:prho_c3 xxxxxxxxxxxxxxxxxx
+                 c1          c2   
+              ________    ________
+
+        r1     -1.3523    -0.33464
+        r2    -0.41668     -1.9136
+
+    xxx TABLE:prho_c4 xxxxxxxxxxxxxxxxxx
+                c1         c2         c3         c4   
+              _______    _______    _______    _______
+
+        r1        NaN        NaN        NaN        NaN
+        r2    -1.0512    0.58694    0.62089    0.16334
+
+    xxx TABLE:price_c1 xxxxxxxxxxxxxxxxxx
+                c1       c2  
+              ______    _____
+
+        r1    12.695    22.65
+
+    xxx TABLE:price_c2 xxxxxxxxxxxxxxxxxx
+                c1        c2  
+              ______    ______
+
+        r1    8.1518    7.7015
+        r2    13.522     11.53
+
+    xxx TABLE:price_c3 xxxxxxxxxxxxxxxxxx
+                c1        c2        c3        c4  
+              ______    ______    ______    ______
+
+        r1    3.6467    3.4605    4.5876    4.2488
+        r2    8.1184    8.5114    5.7986    7.0309
+
+    xxx TABLE:price_c4 xxxxxxxxxxxxxxxxxx
+                c1        c2        c3        c4        c5        c6        c7        c8  
+              ______    ______    ______    ______    ______    ______    ______    ______
+
+        r1       NaN       NaN       NaN       NaN       NaN       NaN       NaN       NaN
+        r2    4.9508    4.5178    3.0212    3.0495    3.2221    4.0763    3.0909    4.1031
+
+    xxx TABLE:pshare_c2 xxxxxxxxxxxxxxxxxx
+                c1         c2   
+              _______    _______
+
+        r1    0.28614    0.22685
+
+    xxx TABLE:pshare_c3 xxxxxxxxxxxxxxxxxx
+                c1         c2   
+              _______    _______
+
+        r1    0.55131    0.42311
+        r2    0.71947    0.98076
+
+    xxx TABLE:pshare_c4 xxxxxxxxxxxxxxxxxx
+                c1         c2         c3         c4   
+              _______    _______    _______    _______
+
+        r1        NaN        NaN        NaN        NaN
+        r2    0.68483    0.48093    0.39212    0.34318
+
+    xxx TABLE:yz_c1 xxxxxxxxxxxxxxxxxx
+               c1         c2   
+              _____    ________
+
+        r1    1.511    0.089284
+
+    xxx TABLE:yz_c2 xxxxxxxxxxxxxxxxxx
+                 c1         c2  
+              ________    ______
+
+        r1     0.19312    2.2864
+        r2    0.057461     0.108
+
+    xxx TABLE:yz_c3 xxxxxxxxxxxxxxxxxx
+                c1         c2          c3         c4   
+              _______    _______    ________    _______
+
+        r1    0.21107     2.1857     0.17539     2.3642
+        r2    0.06529    0.11907    0.042587    0.03298
+
+    xxx TABLE:yz_c4 xxxxxxxxxxxxxxxxxx
+                 c1          c2          c3          c4          c5         c6          c7          c8   
+              ________    ________    ________    ________    ________    _______    ________    ________
+
+        r1         NaN         NaN         NaN         NaN         NaN        NaN         NaN         NaN
+        r2    0.069088    0.093774    0.020122    0.024929    0.058349    0.14469    0.060227    0.037985
+
+    ----------------------------------------
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    CONTAINER NAME: mp_container_map Scalars
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                     i    idx     value 
+                     _    ___    _______
+
+        prho_c1      1     2     0.50172
+        pshare_c1    2    10     0.69647

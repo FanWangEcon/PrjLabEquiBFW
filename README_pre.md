@@ -4,7 +4,7 @@ This is a work-in-progress Matlab package consisting of functions that solve the
 
 All functions are parts of a matlab toolbox that can be installed:
 
-> Download and install the Matlab toolbox: [PrjLabEquiBFW.mltbx](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW.mltbx)
+> Download and install the Matlab toolbox: [PrjLabEquiBFW.mltbx](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW.mltbx)
 
 The Code Companion can also be accessed via the bookdown site and PDF linked below:
 
@@ -18,11 +18,11 @@ The site is built using [Bookdown](https://bookdown.org/).
 
 Please contact [FanWangEcon](https://fanwangecon.github.io/) for issues or problems.
 
-[![](https://img.shields.io/github/last-commit/fanwangecon/PrjLabEquiBFW)](https://github.com/FanWangEcon/PrjLabEquiBFW/commits/master) [![](https://img.shields.io/github/commit-activity/m/fanwangecon/PrjLabEquiBFW)](https://github.com/FanWangEcon/PrjLabEquiBFW/graphs/commit-activity) [![](https://img.shields.io/github/issues/fanwangecon/PrjLabEquiBFW)](https://github.com/FanWangEcon/PrjLabEquiBFW/issues) [![](https://img.shields.io/github/issues-pr/fanwangecon/PrjLabEquiBFW)](https://github.com/FanWangEcon/PrjLabEquiBFW/pulls)
+[![](https://img.shields.io/github/last-commit/fanwangecon/PrjLabEquiBFW)](https://github.com/FanWangEcon/PrjLabEquiBFW/commits/main) [![](https://img.shields.io/github/commit-activity/m/fanwangecon/PrjLabEquiBFW)](https://github.com/FanWangEcon/PrjLabEquiBFW/graphs/commit-activity) [![](https://img.shields.io/github/issues/fanwangecon/PrjLabEquiBFW)](https://github.com/FanWangEcon/PrjLabEquiBFW/issues) [![](https://img.shields.io/github/issues-pr/fanwangecon/PrjLabEquiBFW)](https://github.com/FanWangEcon/PrjLabEquiBFW/pulls)
 
 # Installation
 
-In addition to downloading and installing [PrjLabEquiBFW.mltbx](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW.mltbx), can also:
+In addition to downloading and installing [PrjLabEquiBFW.mltbx](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW.mltbx), can also:
 
 ```
 # Clone Package from Git Bash

@@ -71,7 +71,7 @@ if(!is.null(spt_file_current)) {
   sfc_prj='/PrjLabEquiBFW'
   sph_gitpages_root='https://fanwangecon.github.io/'
   sph_github_root='https://github.com/FanWangEcon/'
-  sph_branch='/master'
+  sph_branch='/main'
   sph_pdf='/htmlpdfm'
   sph_html='/htmlpdfm'
   sph_r='/htmlpdfm'
@@ -123,5 +123,5 @@ if (knitr::is_latex_output()) {
     text_end_count <- ""
 } else {
     text_top_count <- "[![Star](https://img.shields.io/github/stars/fanwangecon/PrjLabEquiBFW?style=social)](https://github.com/FanWangEcon/PrjLabEquiBFW/stargazers) [![Fork](https://img.shields.io/github/forks/fanwangecon/PrjLabEquiBFW?style=social)](https://github.com/FanWangEcon/PrjLabEquiBFW/network/members) [![Star](https://img.shields.io/github/watchers/fanwangecon/PrjLabEquiBFW?style=social)](https://github.com/FanWangEcon/PrjLabEquiBFW/watchers) [![DOI](https://zenodo.org/badge/273278814.svg)](https://zenodo.org/badge/latestdoi/273278814)"
-    text_end_count <- "[![](https://img.shields.io/github/last-commit/fanwangecon/PrjLabEquiBFW)](https://github.com/FanWangEcon/PrjLabEquiBFW/commits/master) [![](https://img.shields.io/github/commit-activity/m/fanwangecon/PrjLabEquiBFW)](https://github.com/FanWangEcon/PrjLabEquiBFW/graphs/commit-activity) [![](https://img.shields.io/github/issues/fanwangecon/PrjLabEquiBFW)](https://github.com/FanWangEcon/PrjLabEquiBFW/issues) [![](https://img.shields.io/github/issues-pr/fanwangecon/PrjLabEquiBFW)](https://github.com/FanWangEcon/PrjLabEquiBFW/pulls)"
+    text_end_count <- "[![](https://img.shields.io/github/last-commit/fanwangecon/PrjLabEquiBFW)](https://github.com/FanWangEcon/PrjLabEquiBFW/commits/main) [![](https://img.shields.io/github/commit-activity/m/fanwangecon/PrjLabEquiBFW)](https://github.com/FanWangEcon/PrjLabEquiBFW/graphs/commit-activity) [![](https://img.shields.io/github/issues/fanwangecon/PrjLabEquiBFW)](https://github.com/FanWangEcon/PrjLabEquiBFW/issues) [![](https://img.shields.io/github/issues-pr/fanwangecon/PrjLabEquiBFW)](https://github.com/FanWangEcon/PrjLabEquiBFW/pulls)"
 }

@@ -34,7 +34,7 @@ This is a work-in-progress Matlab package consisting of functions that solve the
 
 All functions are parts of a matlab toolbox that can be installed:
 
-> Download and install the Matlab toolbox: [PrjLabEquiBFW.mltbx](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW.mltbx)
+> Download and install the Matlab toolbox: [PrjLabEquiBFW.mltbx](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW.mltbx)
 
 The Code Companion can also be accessed via the bookdown site and PDF linked below:
 

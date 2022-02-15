@@ -1,30 +1,75 @@
 %% BFW_CRS_NESTED_CES_MPL Given Quantities and Parameters Generate MPL
-%    This function solves optimal expenditure minimization demands given
-%    constant elasticity of substitution.
+%    Given labor quantity demanded, using first-order relative optimality
+%    conditions, find the marginal product of labor given CES production
+%    function. Results match up with correct relative wages, but not wage
+%    levels. Takes as inputs share and elasticity parameters across layers
+%    of sub-nests, as well as quantity demanded at each bottom-most CES
+%    nest layer. Works with Constant Elasticity of Substitution problems
+%    with constant returns, up to four nest layers, and two inputs in each
+%    sub-nest. Allows for uneven branches, so that some branches go up to
+%    four layers, but others have less layers, works with BFW (2022) nested
+%    labor input problem.
 %
-%    These functions are written to be independently invocable in terms of
+%    The function is written to be independently invocable in terms of
 %    parameters, all parameters are specified through input cell arrays.
 %    The functional form for CRS nested CES is invariant given parameters,
 %    and that does not need to be provided.
 %
 %    The share parameter is for the wage input in the first index position.
 %
-%    * FL_YZ float output divided by productivity
 %    * CL_MN_PRHO cell array of rho (elasticity) parameter between negative
-%    infinity and 1
+%    infinity and 1. For example, suppose there are four nest layers, and
+%    there are two branches at each layer, then we have 1, 2, 4, and 8
+%    $\rho$ parameter values at the 1st, 2nd, 3rd, and 4th nest layers:
+%    size(CL_MN_PRHO{1})=[1,1], size(CL_MN_PRHO{2})=[1,2],
+%    size(CL_MN_PRHO{3})=[2,2], size(CL_MN_PRHO{4})=[2,2,2]. Note that if
+%    the model has 4 nest layers, not all cells need to be specified, some
+%    branches could be deeper than others.
 %    * CL_MN_PSHARE cell array of share (between 0 and 1) for the first
-%    input of the two inputs for each nest
-%    * CL_MN_YZ_CHOICES cell array of labor quantities for both quantities for the first and
-%    second nest, the last index in each element of the cell array
-%    indicates first (1) or second (2) wage
+%    input of the two inputs for each nest. The structure for this is
+%    similar to CL_MN_PRHO.
+%    * CL_MN_YZ_CHOICES cell array of quantity demanded  for the first and
+%    second inputs of the bottom-most layer of sub-nests. The last index in
+%    each element of the cell array indicates first (1) or second (2)
+%    quantities. For example, suppose we have four layers, with 2 branches
+%    at each layer, as in the example for CL_MN_PRHO, then we have 2, 4, 8,
+%    and 16 quantity values at the 1st, 2nd, 3rd, and 4th nest layers:
+%    size(CL_MN_YZ_CHOICES{1})=[1,2], size(CL_MN_YZ_CHOICES{2})=[2,2],
+%    size(CL_MN_YZ_CHOICES{3})=[2,2,2],
+%    size(CL_MN_YZ_CHOICES{4})=[2,2,2,2]. Note that only the last layer of
+%    quantities needs to be specified, in this case, the 16 quantities at
+%    the 4th layer. Given first order conditions, we solve for the 2, 4,
+%    and 8 aggregate quantities at the higher nest layers. If some branches
+%    are deeper than other branches, then can specific NA for non-reached
+%    layers along some branches.
+%    * BL_BFW_MODEL boolean true by default if true then will output
+%    outcomes specific to the BFW 2022 problem.
 %
-%    [CL_MN_YZ_CHOICES, CL_MN_PRICE, CL_MN_PRHO, CL_MN_PSHARE] =
-%    BFW_CRS_NESTED_CES(FL_YZ, CL_MN_PRHO, CL_MN_PSHARE, CL_MN_PRICE,
-%    BL_VERBOSE) Solve for optimal expenditure minimization choices in
-%    constant-returns nested CES problem and generate all aggregate prices
-%    and aggregate quantities.
+%    [CL_MN_YZ_CHOICES, CL_MN_MPL_PRICE] = BFW_CRS_NESTED_CES_MPL(FL_YZ,
+%    CL_MN_PRHO, CL_MN_PSHARE, CL_MN_YZ_CHOICES, BL_VERBOSE) Compute the
+%    Marginal Product of Labor for the specific optimal expenditure
+%    minimization constant-returns nested CES problem from BFW 2022.
+%    CL_MN_MPL_PRICE has the same dimension as CL_MN_YZ_CHOICES, suppose
+%    there are four layers, the CL_MN_MPL_PRICE{4} results at the lowest
+%    layer includes wages that might be observed in the data.
+%    CL_MN_MPL_PRICE cell values at non-bottom layers include aggregate
+%    wages. CL_MN_YZ_CHOICES includes at the lowest layer observed wages,
+%    however, also includes higher layer aggregate solved quantities.
+%    CL_MN_PRHO and CL_MN_PSHARE are identical to inputs.
 %
-%    see also BFWX_CRS_NESTED_CES
+%    [CL_MN_YZ_CHOICES, CL_MN_MPL_PRICE, CL_MN_PRHO, CL_MN_PSHARE] =
+%    BFW_CRS_NESTED_CES_MPL(CL_MN_PRHO, CL_MN_PSHARE, CL_MN_YZ_CHOICES,
+%    BL_VERBOSE) Also returns the initial $\rho$ and $\alpha$ share cell
+%    arrays.
+%
+%    [CL_MN_YZ_CHOICES, CL_MN_MPL_PRICE] =
+%    BFW_CRS_NESTED_CES_MPL(CL_MN_PRHO, CL_MN_PSHARE, CL_MN_YZ_CHOICES,
+%    MP_FUNC, BL_VERBOSE, BL_BFW_MODEL) With BL_BFW_MODEL set to false, the
+%    function solves for a generic CES expenditure minimization problem
+%    with constant-returns with up to four layers. MP_FUNC is the map
+%    container of demand function components from BFW_MP_FUNC_DEMAND().
+%
+%    see also BFW_CRS_NESTED_CES, BFWX_CRS_NESTED_CES_MPL
 %
 
 %%
@@ -34,6 +79,7 @@ function [varargout]=bfw_crs_nested_ces_mpl(varargin)
 if (~isempty(varargin))
 
     bl_verbose = false;
+    bl_bfw_model = true;
     if (length(varargin)==3)
         [cl_mn_prho, cl_mn_pshare, cl_mn_yz_choices] = varargin{:};
         bl_log_wage = false;
@@ -46,6 +92,9 @@ if (~isempty(varargin))
     elseif (length(varargin)==5)
         [cl_mn_prho, cl_mn_pshare, cl_mn_yz_choices, ...
             mp_func, bl_verbose] = varargin{:};
+    elseif (length(varargin)==6)
+        [cl_mn_prho, cl_mn_pshare, cl_mn_yz_choices, ...
+            mp_func, bl_verbose, bl_bfw_model] = varargin{:};
     end
 
 else
@@ -55,10 +104,10 @@ else
 
     % Controls
     bl_verbose = true;
+    bl_bfw_model = true;
 
     % Given rho and beta, solve for equilibrium quantities
-    bl_log_wage = false;
-    mp_func = bfw_mp_func_demand(bl_log_wage);
+    mp_func = bfw_mp_func_demand();
 
     % Following instructions in: PrjFLFPMexicoBFW\solvedemand\README.md
 
@@ -347,25 +396,28 @@ for it_cl_mn = 1:(it_nests)
     end
 end
 
-mt_fl_mpl_wages = NaN(4,3);
-% Manual (1) unskilled (1), male and female
-mt_fl_mpl_wages(3, 1) = cl_mn_mpl_price{4}(2, 1, 1, 1);
-mt_fl_mpl_wages(4, 1) = cl_mn_mpl_price{4}(2, 1, 1, 2);
-% Manual (1) skilled (2)
-mt_fl_mpl_wages(1, 1) = cl_mn_mpl_price{4}(2, 1, 2, 1);
-mt_fl_mpl_wages(2, 1) = cl_mn_mpl_price{4}(2, 1, 2, 2);
-% Routine (2) unskilled (1)
-mt_fl_mpl_wages(3, 2) = cl_mn_mpl_price{4}(2, 2, 1, 1);
-mt_fl_mpl_wages(4, 2) = cl_mn_mpl_price{4}(2, 2, 1, 2);
-% Routine (2) skilled (2)
-mt_fl_mpl_wages(1, 2) = cl_mn_mpl_price{4}(2, 2, 2, 1);
-mt_fl_mpl_wages(2, 2) = cl_mn_mpl_price{4}(2, 2, 2, 2);
-% LVL3 Analytical (1) unskilled (1)
-mt_fl_mpl_wages(3, 3) = cl_mn_mpl_price{3}(1, 1, 1);
-mt_fl_mpl_wages(4, 3) = cl_mn_mpl_price{3}(1, 1, 2);
-% LVL3 Analytical (1) unskilled (2)
-mt_fl_mpl_wages(1, 3) = cl_mn_mpl_price{3}(1, 2, 1);
-mt_fl_mpl_wages(2, 3) = cl_mn_mpl_price{3}(1, 2, 2);
+%% Given results, fill up a labor demand and initial wage matrix
+if (bl_bfw_model)
+    mt_fl_mpl_wages = NaN(4,3);
+    % Manual (1) unskilled (1), male and female
+    mt_fl_mpl_wages(3, 1) = cl_mn_mpl_price{4}(2, 1, 1, 1);
+    mt_fl_mpl_wages(4, 1) = cl_mn_mpl_price{4}(2, 1, 1, 2);
+    % Manual (1) skilled (2)
+    mt_fl_mpl_wages(1, 1) = cl_mn_mpl_price{4}(2, 1, 2, 1);
+    mt_fl_mpl_wages(2, 1) = cl_mn_mpl_price{4}(2, 1, 2, 2);
+    % Routine (2) unskilled (1)
+    mt_fl_mpl_wages(3, 2) = cl_mn_mpl_price{4}(2, 2, 1, 1);
+    mt_fl_mpl_wages(4, 2) = cl_mn_mpl_price{4}(2, 2, 1, 2);
+    % Routine (2) skilled (2)
+    mt_fl_mpl_wages(1, 2) = cl_mn_mpl_price{4}(2, 2, 2, 1);
+    mt_fl_mpl_wages(2, 2) = cl_mn_mpl_price{4}(2, 2, 2, 2);
+    % LVL3 Analytical (1) unskilled (1)
+    mt_fl_mpl_wages(3, 3) = cl_mn_mpl_price{3}(1, 1, 1);
+    mt_fl_mpl_wages(4, 3) = cl_mn_mpl_price{3}(1, 1, 2);
+    % LVL3 Analytical (1) unskilled (2)
+    mt_fl_mpl_wages(1, 3) = cl_mn_mpl_price{3}(1, 2, 1);
+    mt_fl_mpl_wages(2, 3) = cl_mn_mpl_price{3}(1, 2, 2);
+end
 
 %% F. Print
 if bl_verbose

@@ -1,13 +1,15 @@
-%% Solving Nested CES Demand Problems (CRS)
-% Taking advantage of <https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/solvedemand/bfw_crs_nested_ces.m 
-% *bfw_crs_nested_ces*> from the <https://fanwangecon.github.io/PrjLabEquiBFW/ 
-% *PrjLabEquiBFW Package*>*.* This function solves optimal choices in Constant 
-% Elasticity of Substitution problems with constant returns and two inputs in 
-% each sub-nest. Takes as inputs share and elasticity parameters across layers 
-% of sub-nests, as well as input unit costs at the bottom-most layer. Works for 
-% CES problems with up to four nest layers, and allows for uneven branches, so 
-% that some branches go up to four layers, but others have less layers. Works 
-% with BFW (2022) nested labor input problem.
+%% Solve Nested CES Optimal Demand (CRS)
+% Testing the <https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/solvedemand/bfw_crs_nested_ces.m 
+% *bfw_crs_nested_ces*> function from the <https://fanwangecon.github.io/PrjLabEquiBFW/ 
+% *PrjLabEquiBFW Package*>*.* This function solves optimal choices given CES production 
+% function under cost minimization. Works with Constant Elasticity of Substitution 
+% problems with constant returns, up to four nest layers, and two inputs in each 
+% sub-nest. Takes as inputs share and elasticity parameters across layers of sub-nests, 
+% as well as input unit costs at the bottom-most layer. Works with Constant Elasticity 
+% of Substitution problems with constant returns, up to four nest layers, and 
+% two inputs in each sub-nest. Allows for uneven branches, so that some branches 
+% go up to four layers, but others have less layers, works with BFW (2022) nested 
+% labor input problem.
 %% Key Inputs and Outputs for <https://github.com/FanWangEcon/PrjLabEquiBFW/tree/main/PrjLabEquiBFW/func/bfw_mp_func_demand.m *bfw_mp_func_demand*> 
 % Here are the key inputs for the CES demand solver function:
 %% 
@@ -44,9 +46,9 @@
 % * *CL_MN_PRICE* includes at the lowest layer observed wages, however, also 
 % includes higher layer aggregate solved waves. CL_MN_PRHO and CL_MN_PSHARE are 
 % identical to inputs.
-%% Single Nest Layer Two Inputs CES Problem
+%% Single Nest Layer Two Inputs CES Problem (Demand)
 % In this first example, we solve a constant returns to scale problem with a 
-% single nest, meaning just two inputs and a single output.
+% single nest, meaning just two inputs and a single output. 
 
 clc;
 close all;
@@ -59,15 +61,15 @@ cl_mn_prho = {[0.1]};
 % equal share, similar "productivity"
 cl_mn_pshare = {[0.5]};
 % wages for the two inputs, identical wage
-cl_mn_price = {[1, 1]};
+cl_mn_price = {[1.5, 0.75]};
 % print option
 bl_verbose = true;
 mp_func = bfw_mp_func_demand();
 bl_bfw_model = false;
-[cl_mn_yz_choices, cl_mn_price, cl_mn_prho, cl_mn_pshare] = ...
+[cl_mn_yz_choices, cl_mn_price] = ...
     bfw_crs_nested_ces(fl_yz, cl_mn_prho, cl_mn_pshare, cl_mn_price, ...
     mp_func, bl_verbose, bl_bfw_model);
-%% Single Nest Layer Two Inputs CES Problem, Vary Share and Elasticity
+%% Single Nest Layer Two Inputs CES Problem, Vary Share and Elasticity (Demand)
 % In this second example, we test over different rho values, explore optimal 
 % relative choices, as share and elasticity change. In this exercise, we also 
 % check, at every combination of rho and share parameter, whether the FOC condition 
@@ -128,13 +130,13 @@ for it_pshare_ctr = 1:length(ar_pshare)
     end
 end
 %% 
-% Key results: (1) As share of input 1 goes to zero, optimal choice goes to 
-% zero when inputs are elastic; (2) When inputs are inelasticty, even very low 
-% share input 1 asymptote to equal input 2; (3) When input 1 is more productive 
-% (higher share), actually hire less as productivity (share) increases, becasue 
-% less of it is needed to achieve production for high rho, elastictic production 
-% function; (4) For inelastic production, monotonic relationship between input 
-% and shares.
+% Key results: (1) As share parameter of input 1 goes to zero, optimal choice 
+% goes to zero when inputs are elastic; (2) When inputs are inelasticty, even 
+% very low share input 1 asymptote to equal input 2; (3) When input 1 is more 
+% productive (higher share), actually hire less as productivity (share) increases, 
+% becasue less of it is needed to achieve production for high rho, elastictic 
+% production function; (4) For inelastic production, monotonic relationship between 
+% input and shares.
 
 % Visualize
 % Generate some Data
@@ -158,7 +160,7 @@ mp_support_graph('st_rounding') = '6.3f'; % format shock legend
 mp_support_graph('cl_colors') = 'jet'; % any predefined matlab colormap
 % Call function
 ff_graph_grid(mt_value, ar_row_grid, ar_col_grid, mp_support_graph);
-%% Doubly Nest Layer Two Inputs Each Sub-nest CES Problem
+%% Doubly Nest Layer Two Inputs Each Sub-nest CES Problem (Demand)
 % In this third example, solve for optimal choices for a doubly nested problem. 
 % Below, we first solve for the optimal choices, then we do a number of checks, 
 % to make sure that the solutions are correct, as expected. 
@@ -194,7 +196,7 @@ st_print = strjoin(...
 st_out = st_print;
 ar_ch_out = char(strsplit(st_print,";")');
 disp(ar_ch_out);
-%% Doubly Nest Layer Two Inputs Each Sub-nest CES Problem--Solution Check
+%% Doubly Nest Layer Two Inputs Each Sub-nest CES Problem--Solution Check (Demand)
 % Checking output equality, if there are problems, would output an error.
 
 % A. Check output Equality
@@ -322,3 +324,119 @@ fl_rela_wage_x11_x21 = log((fl_pshare_0/(1-fl_pshare_0))* ...
 if (~if_is_close(fl_rela_wage_x11_x21, log(fl_wage_x11/fl_wage_x21)))
     error('There is an error, relative price x11 and x21 does not satisfy cross optimality across nests')
 end
+%% BFW (2022) Nested Three Branch (Four Layer) Problem (Demand)
+% The model BFW 2022 has three branches and four layers. one of the branches 
+% go down only three layers, the other two branches go down four layers.
+% 
+% First, we prepare the various inputs:
+
+% Controls
+bl_verbose = true;
+bl_bfw_model = true;
+
+% Given rho and beta, solve for equilibrium quantities
+bl_log_wage = false;
+mp_func = bfw_mp_func_demand(bl_log_wage);
+
+% Following instructions in: PrjFLFPMexicoBFW\solvedemand\README.md
+
+% Nests/layers
+it_nests = 4;
+
+% Input cell of mn matrixes
+it_prho_cl = 1;
+it_pshare_cl = 2;
+it_price_cl = 3;
+for it_cl_ctr = [1,2,3]
+
+    cl_mn_cur = cell(it_nests,1);
+
+    % Fill each cell element with NaN mn array
+    for it_cl_mn = 1:it_nests
+
+        bl_price = (it_cl_ctr == it_price_cl);
+
+        if (~bl_price && it_cl_mn == 1)
+            mn_nan = NaN;
+        elseif (~bl_price && it_cl_mn == 2) || (bl_price && it_cl_mn == 1)
+            mn_nan = [NaN, NaN];
+        elseif (~bl_price && it_cl_mn == 3) || (bl_price && it_cl_mn == 2)
+            mn_nan = NaN(2,2);
+        elseif (~bl_price && it_cl_mn == 4) || (bl_price && it_cl_mn == 3)
+            mn_nan = NaN(2,2,2);
+        elseif (~bl_price && it_cl_mn == 5) || (bl_price && it_cl_mn == 4)
+            mn_nan = NaN(2,2,2,2);
+        elseif (~bl_price && it_cl_mn == 6) || (bl_price && it_cl_mn == 5)
+            mn_nan = NaN(2,2,2,2,2);
+        end
+        cl_mn_cur{it_cl_mn} = mn_nan;
+    end
+
+    % Name cell arrays
+    if (it_cl_ctr == it_prho_cl)
+        cl_mn_prho = cl_mn_cur;
+    elseif (it_cl_ctr == it_pshare_cl)
+        cl_mn_pshare = cl_mn_cur;
+    elseif (it_cl_ctr == it_price_cl)
+        cl_mn_price = cl_mn_cur;
+    end
+end
+
+% Initialize share matrix
+rng(123);
+for it_cl_mn = 1:it_nests
+    mn_pshare = cl_mn_pshare{it_cl_mn};
+    if it_cl_mn == 4
+        mn_pshare(2,:,:) = rand(2,2);
+    else
+        mn_pshare = rand(size(mn_pshare));
+    end
+    cl_mn_pshare{it_cl_mn} = mn_pshare;
+end
+
+% Initialize rho matrix
+rng(456);
+for it_cl_mn = 1:it_nests
+    mn_prho = cl_mn_prho{it_cl_mn};
+    if it_cl_mn == 4
+        mn_prho(2,:,:) = rand(2,2);
+    else
+        mn_prho = rand(size(mn_prho));
+    end
+    % Scalling rho between 0.7500 and -3.0000
+    % 1 - 2.^(linspace(-2,2,5))
+    mn_prho = 1 - 2.^(mn_prho*(4) - 2);
+    cl_mn_prho{it_cl_mn} = mn_prho;
+end
+
+% Initialize wage matrix
+rng(789);
+for it_cl_mn = 1:it_nests
+    mn_price = cl_mn_price{it_cl_mn};
+    if it_cl_mn == 3
+        mn_price(1,:,:) = rand(2,2);
+    elseif it_cl_mn == 4
+        mn_price(2,:,:,:) = rand(2,2,2);
+    end
+    % Scalling rho between 3 amd 5
+    mn_price = mn_price*(2) + 3;
+    cl_mn_price{it_cl_mn} = mn_price;
+end
+
+% Initialize yz matrix
+rng(101112);
+fl_yz = rand();
+%% 
+% Second, display created inputs:
+
+disp(['fl_yz=' num2str(fl_yz)]);
+celldisp(cl_mn_prho);
+celldisp(cl_mn_pshare);
+celldisp(cl_mn_price);
+%% 
+% Third, call function and solve for optimal demand:
+
+% Call function
+[cl_mn_yz_choices, cl_mn_price, cl_mn_prho, cl_mn_pshare] = ...
+    bfw_crs_nested_ces(fl_yz, cl_mn_prho, cl_mn_pshare, cl_mn_price, ...
+    mp_func, bl_verbose, bl_bfw_model);

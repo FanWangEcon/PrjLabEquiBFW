@@ -1,16 +1,43 @@
 - file: bfwx_crs_nested_ces
-  title: "Solving Nested CES Demand Problems (CRS)"
-  titleshort: "Solving Nested CES Demand Problems (CRS)"
+  title: "Solve Nested-CES Optimal Demand (CRS)"
+  titleshort: "Solve Nested CES Optimal Demand (CRS)"
   description: |
-    This function solves optimal choices in Constant Elasticity of Substitution problems with constant returns and two inputs in each sub-nest.
+    This function solves optimal choices given CES production function under cost minimization.
+    Works with Constant Elasticity of Substitution problems with constant returns, up to four nest layers, and two inputs in each sub-nest.
     Takes as inputs share and elasticity parameters across layers of sub-nests, as well as input unit costs at the bottom-most layer.
-    Works for CES problems with up to four nest layers, and allows for uneven branches, so that some branches go up to four layers, but others have less layers.
-    Works with BFW (2022) nested labor input problem.
+    Works with Constant Elasticity of Substitution problems with constant returns, up to four nest layers, and two inputs in each sub-nest.
+    Allows for uneven branches, so that some branches go up to four layers, but others have less layers, works with BFW (2022) nested labor input problem.
   core :
     - package: PrjLabEquiBFW
       code: |
-        [bfw_mp_func_demand()](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/solvedemand/bfw_mp_func_demand.m)
+        [bfw_crs_nested_ces()](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/solvedemand/bfw_crs_nested_ces.m)
   date: 2022-02-12
+  date_start: 2022-02-12
+  output:
+    pdf_document:
+      pandoc_args: '../../../_output_kniti_pdf.yaml'
+      includes:
+        in_header: '../../../preamble.tex'
+    html_document:
+      pandoc_args: '../../../_output_kniti_html.yaml'
+      includes:
+        in_header: '../../../hdga.html'
+  always_allow_html: true
+  urlcolor: blue
+
+- file: bfwx_crs_nested_ces_mpl
+  title: "Compute Nested CES MPL Given Demand (CRS)"
+  titleshort: "Compute Nested CES MPL Given Demand (CRS)"
+  description: |
+    Given labor quantity demanded, using first-order relative optimality conditions, find the marginal product of labor given CES production function.
+    Takes as inputs share and elasticity parameters across layers of sub-nests, as well as quantity demanded at each bottom-most CES nest layer.
+    Works with Constant Elasticity of Substitution problems with constant returns, up to four nest layers, and two inputs in each sub-nest.
+    Allows for uneven branches, so that some branches go up to four layers, but others have less layers, works with BFW (2022) nested labor input problem.
+  core :
+    - package: PrjLabEquiBFW
+      code: |
+        [bfw_crs_nested_ces_mpl()](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/solvedemand/bfw_crs_nested_ces_mpl.m)
+  date: 2022-02-15
   date_start: 2022-02-12
   output:
     pdf_document:
