@@ -1,0 +1,45 @@
+- file: bfwx_mp_param_esti
+  title: "bfwx_mp_param_esti"
+  titleshort: "bfw_mp_param_esti"
+  description: |
+    bfw_mp_param_esti
+  core :
+    - package: PrjLabEquiBFW
+      code: |
+        [bfw_mp_param_esti()](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/paramsdata/bfw_mp_param_esti.m)
+  date: 2022-02-17
+  date_start: 2022-02-17
+  output:
+    pdf_document:
+      pandoc_args: '../../../_output_kniti_pdf.yaml'
+      includes:
+        in_header: '../../../preamble.tex'
+    html_document:
+      pandoc_args: '../../../_output_kniti_html.yaml'
+      includes:
+        in_header: '../../../hdga.html'
+  always_allow_html: true
+  urlcolor: blue
+
+- file: bfwx_mp_path
+  title: "bfwx_mp_path"
+  titleshort: "bfwx_mp_path"
+  description: |
+    bfw_mp_path
+  core :
+    - package: PrjLabEquiBFW
+      code: |
+        [bfw_mp_path()](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/paramsdata/bfw_mp_path.m)
+  date: 2022-02-17
+  date_start: 2022-02-17
+  output:
+    pdf_document:
+      pandoc_args: '../../../_output_kniti_pdf.yaml'
+      includes:
+        in_header: '../../../preamble.tex'
+    html_document:
+      pandoc_args: '../../../_output_kniti_html.yaml'
+      includes:
+        in_header: '../../../hdga.html'
+  always_allow_html: true
+  urlcolor: blue

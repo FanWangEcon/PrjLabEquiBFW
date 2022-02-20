@@ -1,0 +1,28 @@
+category,sex,skill,occupation,categoryhigher,nesttier,nestid,nestidhigher,group,inputx1x2
+C001,Female,unskilled,Manual,B001,3,11,10,G00,x1
+C002,Female,unskilled,Routine,B002,3,21,20,G00,x1
+C003,Female,unskilled,Analytical,B003,3,31,30,G00,x1
+C004,Female,unskilled,Home Production,,3,41,,G00,x1
+C011,Female,skilled,Manual,B101,3,12,10,G01,x1
+C012,Female,skilled,Routine,B102,3,22,20,G01,x1
+C013,Female,skilled,Analytical,B103,3,32,30,G01,x1
+C014,Female,skilled,Home Production,,3,42,,G01,x1
+C101,Male,unskilled,Manual,B001,3,11,10,G10,x2
+C102,Male,unskilled,Routine,B002,3,21,20,G10,x2
+C103,Male,unskilled,Analytical,B003,3,31,30,G10,x2
+C104,Male,unskilled,Home Production,,3,41,,G10,x2
+C111,Male,skilled,Manual,B101,3,12,10,G11,x2
+C112,Male,skilled,Routine,B102,3,22,20,G11,x2
+C113,Male,skilled,Analytical,B103,3,32,30,G11,x2
+C114,Male,skilled,Home Production,,3,42,,G11,x2
+B001,All,unskilled,Manual,A001,2,10,2,,x2
+B002,All,unskilled,Routine,A002,2,20,2,,x2
+B003,All,unskilled,Analytical,A003,2,30,1,,x2
+B101,All,skilled,Manual,A001,2,10,2,,x1
+B102,All,skilled,Routine,A002,2,20,2,,x1
+B103,All,skilled,Analytical,A003,2,30,1,,x1
+A001,All,All,Manual,AA01,1,2,1,,x2
+A002,All,All,Routine,AA01,1,2,1,,x1
+AA01,All,All,ManualRoutine,AA02,0,1,0,,x2
+A003,All,All,Analytical,AA02,0,1,0,,x1
+AA02,All,All,All,,,0,,,

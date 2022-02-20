@@ -1,0 +1,86 @@
+---
+always_allow_html: 'true'
+core:
+- code: '[bfw_mp_path()](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/paramsdata/bfw_mp_path.m)
+
+    '
+  package: PrjLabEquiBFW
+date: '2022-02-17'
+date_start: '2022-02-17'
+description: 'bfw_mp_path
+
+  '
+file: bfwx_mp_path
+output:
+  html_document:
+    includes:
+      in_header: ../../../hdga.html
+    pandoc_args: ../../../_output_kniti_html.yaml
+  pdf_document:
+    includes:
+      in_header: ../../../preamble.tex
+    pandoc_args: ../../../_output_kniti_pdf.yaml
+title: bfwx_mp_path
+titleshort: bfwx_mp_path
+urlcolor: blue
+---
+
+## bfw_mp_path
+
+This is the example vignette for function: bfw_mp_path from the
+[**PrjLabEquiBFW
+Package**](https://fanwangecon.github.io/PrjLabEquiBFW/)**.**
+
+### Default Map of Path (Fan path)
+
+    bl_verbose = true;
+    mp_path = bfw_mp_path(bl_verbose);
+
+    ----------------------------------------
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    CONTAINER NAME: mp_path_external String
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                                 i      idx                                                string                                           
+                                ____    ____    ____________________________________________________________________________________________
+
+        spt_codem               "1"     "1"     "C:\Users\fan\PrjLabEquiBFW\PrjLabEquiBFW\"                                                 
+        spt_codem_data          "2"     "2"     "C:\Users\fan\PrjLabEquiBFW\PrjLabEquiBFW\_data\"                                           
+        spt_codem_doc           "3"     "3"     "C:\Users\fan\PrjLabEquiBFW\PrjLabEquiBFW\doc\"                                             
+        spt_output_root         "4"     "4"     "C:\Users\fan\Documents\Dropbox (UH-ECON)\Latex_BhalotraFernandez\"                         
+        spt_repo_root           "5"     "5"     "C:\Users\fan\PrjLabEquiBFW\"                                                               
+        spt_simu_outputs_log    "6"     "6"     "C:\Users\fan\Documents\Dropbox (UH-ECON)\Latex_BhalotraFernandez\PrjLabEquiBFWOutput\log\" 
+        spt_simu_outputs_mat    "7"     "7"     "C:\Users\fan\Documents\Dropbox (UH-ECON)\Latex_BhalotraFernandez\PrjLabEquiBFWOutput\mat\" 
+        spt_simu_outputs_prf    "8"     "8"     "C:\Users\fan\Documents\Dropbox (UH-ECON)\Latex_BhalotraFernandez\PrjLabEquiBFWOutput\prof\"
+        spt_simu_outputs_vig    "9"     "9"     "C:\Users\fan\Documents\Dropbox (UH-ECON)\Latex_BhalotraFernandez\PrjLabEquiBFWOutput\vig\" 
+        spt_simu_results_csv    "10"    "10"    "C:\Users\fan\Documents\Dropbox (UH-ECON)\Latex_BhalotraFernandez\PrjLabEquiBFWOutput\res\" 
+        spt_simu_results_img    "11"    "11"    "C:\Users\fan\Documents\Dropbox (UH-ECON)\Latex_BhalotraFernandez\PrjLabEquiBFWOutput\img\" 
+        st_computer             "12"    "12"    "fan"                                                                                       
+
+### Map of Path for Alternative Path Installer
+
+Two directories, one for the repo and one for where outputs go, need to
+be specified.
+
+    spt_repo_root = "~\PrjLabEquiBFW";
+    spt_output_root = "~\Dropbox\PrjLabEquiBFW";
+    bl_verbose = true;
+    mp_path = bfw_mp_path(spt_repo_root, spt_output_root, bl_verbose);
+
+    ----------------------------------------
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    CONTAINER NAME: mp_path_external String
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                                 i      idx                           string                       
+                                ____    ____    ___________________________________________________
+
+        spt_codem               "1"     "1"     "~\PrjLabEquiBFW\PrjLabEquiBFW\"                   
+        spt_codem_data          "2"     "2"     "~\PrjLabEquiBFW\PrjLabEquiBFW\_data\"             
+        spt_codem_doc           "3"     "3"     "~\PrjLabEquiBFW\PrjLabEquiBFW\doc\"               
+        spt_output_root         "4"     "4"     "~\Dropbox\PrjLabEquiBFW"                          
+        spt_repo_root           "5"     "5"     "~\PrjLabEquiBFW"                                  
+        spt_simu_outputs_log    "6"     "6"     "~\Dropbox\PrjLabEquiBFW\PrjLabEquiBFWOutput\log\" 
+        spt_simu_outputs_mat    "7"     "7"     "~\Dropbox\PrjLabEquiBFW\PrjLabEquiBFWOutput\mat\" 
+        spt_simu_outputs_prf    "8"     "8"     "~\Dropbox\PrjLabEquiBFW\PrjLabEquiBFWOutput\prof\"
+        spt_simu_outputs_vig    "9"     "9"     "~\Dropbox\PrjLabEquiBFW\PrjLabEquiBFWOutput\vig\" 
+        spt_simu_results_csv    "10"    "10"    "~\Dropbox\PrjLabEquiBFW\PrjLabEquiBFWOutput\res\" 
+        spt_simu_results_img    "11"    "11"    "~\Dropbox\PrjLabEquiBFW\PrjLabEquiBFWOutput\img\" 

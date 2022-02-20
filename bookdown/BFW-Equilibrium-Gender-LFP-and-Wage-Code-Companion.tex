@@ -7,7 +7,7 @@
 ]{book}
 \title{BFW Equilibrium Gender LFP and Wage Code Companion}
 \author{Sonia R. Bhalotra, Manuel Fernández, and Fan Wang}
-\date{2022-02-15}
+\date{2022-02-19}
 
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
@@ -133,7 +133,7 @@ Download and install the Matlab toolbox: \href{https://github.com/FanWangEcon/Pr
 The Code Companion can also be accessed via the bookdown site and PDF linked below:
 
 \begin{quote}
-\href{https://fanwangecon.github.io/PrjLabEquiBFW/bookdown/BFW-Equilibrium-Gender-LFP-and-Wage-Code-Companion.pdf}{\textbf{bookdown pdf}}, \href{https://www.mathworks.com/matlabcentral/fileexchange/80164-PrjLabEquiBFW}{\textbf{MathWorks File Exchange}}
+\href{https://fanwangecon.github.io/PrjLabEquiBFW/bookdown/}{\textbf{bookdown site}}, \href{https://fanwangecon.github.io/PrjLabEquiBFW/bookdown/BFW-Equilibrium-Gender-LFP-and-Wage-Code-Companion.pdf}{\textbf{bookdown pdf}}, \href{https://www.mathworks.com/matlabcentral/fileexchange/80164-PrjLabEquiBFW}{\textbf{MathWorks File Exchange}}
 \end{quote}
 
 This bookdown file is a collection of mlx based vignettes for functions that are available from \href{https://github.com/FanWangEcon/PrjLabEquiBFW}{PrjLabEquiBFW}. Each Vignette file contains various examples for invoking each function.
@@ -162,8 +162,8 @@ This is the example vignette for function:
 \href{https://github.com/FanWangEcon/PrjLabEquiBFW/tree/main/PrjLabEquiBFW/func/bfw_mp_func_demand.m}{\textbf{bfw\_mp\_func\_demand}}
 from the \href{https://fanwangecon.github.io/PrjLabEquiBFW/}{\textbf{PrjLabEquiBFW
 Package}}\textbf{.} This
-function generates a container map with key CES demand-side equation for
-a particular sub-nest.
+function generates a container map with key CES demand-side equations
+for a particular sub-nest.
 
 \hypertarget{default-test}{%
 \subsection{Default Test}\label{default-test}}
@@ -192,6 +192,705 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
     fc_share_given_elas_foc    "9"     "9"     "@(rho,p1,p2,x1,x2)fc_share_given_elas_foc_Q(rho,p1,p2,x1,x2)/(1+fc_share_given_elas_foc_Q(rho,p1,p2,x1,x2))"             
     fc_w1dw2                   "10"    "10"    "@(x_1,x_2,rho,beta_1,beta_2)(x_2/x_1)^(1-rho)*(beta_1/beta_2)"                                                           
     fc_yz_ratio                "11"    "11"    "@(p1,p2,q1,q2,rho,beta_1,beta_2)fc_revenue(p1,p2,q1,q2)/fc_OMEGA(p1,p2,rho,beta_1,beta_2)"                               
+\end{verbatim}
+
+\hypertarget{multinomial-logit-core-functions}{%
+\section{Multinomial Logit Core Functions}\label{multinomial-logit-core-functions}}
+
+This is the example vignette for function:
+\href{https://github.com/FanWangEcon/PrjLabEquiBFW/tree/main/PrjLabEquiBFW/func/bfw_mp_func_supply.m}{\textbf{bfw\_mp\_func\_supply}}
+from the \href{https://fanwangecon.github.io/PrjLabEquiBFW/}{\textbf{PrjLabEquiBFW
+Package}}\textbf{.} This
+function generates a container map with key multinomial logit
+supply-side equations.
+
+\hypertarget{test-bl_log_wage-is-false}{%
+\subsection{Test BL\_LOG\_WAGE is false}\label{test-bl_log_wage-is-false}}
+
+Default test
+
+\begin{verbatim}
+bl_log_wage = false;
+bl_verbose = true;
+mp_func_supply = bfw_mp_func_supply(bl_log_wage, bl_verbose);
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_func Functions
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                         i     idx                                                                                                                                   functionString                                                                                                                               
+                        ___    ___    ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+    fc_ar_prob_wrk      "1"    "1"    "@(arpsi0,psi1,mtwage,probdenom)fc_v_occ(reshape(arpsi0,[1,length(arpsi0)]),psi1,mtwage)./probdenom"                                                                                                                                                                        
+    fc_log_pmdpo_occ    "2"    "2"    "@(psi0,psi1,arwage,pie1,pie2,pie3,pie4,pie5,pie6,t,prbchd,prbmar,prbapp,prbjsy)(psi0+psi1.*arwage)-(pie1+pie2.*(t)+pie3.*prbchd+pie4.*prbmar+pie5.*prbapp+pie6.*prbjsy)"                                                                                                   
+    fc_prob_denom       "3"    "3"    "@(arpsi0,psi1,arpie,arwage1,arwage2,arwage3,t,prbchd,prbmar,prbapp,prbjsy)fc_v_occ(arpsi0(1),psi1,arwage1)+fc_v_occ(arpsi0(2),psi1,arwage2)+fc_v_occ(arpsi0(3),psi1,arwage3)+fc_v_lei(arpie(1),arpie(2),arpie(3),arpie(4),arpie(5),arpie(6),t,prbchd,prbmar,prbapp,prbjsy)"
+    fc_prob_lei         "4"    "4"    "@(arpie,t,prbchd,prbmar,prbapp,prbjsy,probdenom)fc_v_lei(arpie(1),arpie(2),arpie(3),arpie(4),arpie(5),arpie(6),t,prbchd,prbmar,prbapp,prbjsy)./probdenom"                                                                                                                  
+    fc_s1               "5"    "5"    "@(p1,G_1,zeta_1_0,zeta_1_1)G_1./(1+(exp(-zeta_1_0-zeta_1_1.*p1)))"                                                                                                                                                                                                         
+    fc_s2               "6"    "6"    "@(p2,G_2,zeta_2_0,zeta_2_1)G_2./(1+(exp(-zeta_2_0-zeta_2_1.*p2)))"                                                                                                                                                                                                         
+    fc_supply           "7"    "7"    "@(potlabor,prob)potlabor.*prob"                                                                                                                                                                                                                                            
+\end{verbatim}
+
+\hypertarget{test-bl_log_wage-is-false-1}{%
+\subsection{Test BL\_LOG\_WAGE is false}\label{test-bl_log_wage-is-false-1}}
+
+Default test
+
+\begin{verbatim}
+bl_log_wage = true;
+mp_func_supply = bfw_mp_func_supply(bl_log_wage, bl_verbose);
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_func Functions
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                         i     idx                                                                                                                                   functionString                                                                                                                               
+                        ___    ___    ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+    fc_ar_prob_wrk      "1"    "1"    "@(arpsi0,psi1,mtwage,probdenom)fc_v_occ(reshape(arpsi0,[1,length(arpsi0)]),psi1,mtwage)./probdenom"                                                                                                                                                                        
+    fc_log_pmdpo_occ    "2"    "2"    "@(psi0,psi1,arwage,pie1,pie2,pie3,pie4,pie5,pie6,t,prbchd,prbmar,prbapp,prbjsy)(psi0+psi1.*log(arwage))-(pie1+pie2.*(t)+pie3.*prbchd+pie4.*prbmar+pie5.*prbapp+pie6.*prbjsy)"                                                                                              
+    fc_prob_denom       "3"    "3"    "@(arpsi0,psi1,arpie,arwage1,arwage2,arwage3,t,prbchd,prbmar,prbapp,prbjsy)fc_v_occ(arpsi0(1),psi1,arwage1)+fc_v_occ(arpsi0(2),psi1,arwage2)+fc_v_occ(arpsi0(3),psi1,arwage3)+fc_v_lei(arpie(1),arpie(2),arpie(3),arpie(4),arpie(5),arpie(6),t,prbchd,prbmar,prbapp,prbjsy)"
+    fc_prob_lei         "4"    "4"    "@(arpie,t,prbchd,prbmar,prbapp,prbjsy,probdenom)fc_v_lei(arpie(1),arpie(2),arpie(3),arpie(4),arpie(5),arpie(6),t,prbchd,prbmar,prbapp,prbjsy)./probdenom"                                                                                                                  
+    fc_s1               "5"    "5"    "@(p1,G_1,zeta_1_0,zeta_1_1)G_1./(1+(exp(-zeta_1_0-zeta_1_1.*p1)))"                                                                                                                                                                                                         
+    fc_s2               "6"    "6"    "@(p2,G_2,zeta_2_0,zeta_2_1)G_2./(1+(exp(-zeta_2_0-zeta_2_1.*p2)))"                                                                                                                                                                                                         
+    fc_supply           "7"    "7"    "@(potlabor,prob)potlabor.*prob"                                                                                                                                                                                                                                            
+\end{verbatim}
+
+\hypertarget{parameters}{%
+\chapter{Parameters}\label{parameters}}
+
+\hypertarget{bfw_mp_path}{%
+\section{bfw\_mp\_path}\label{bfw_mp_path}}
+
+This is the example vignette for function: bfw\_mp\_path from the
+\href{https://fanwangecon.github.io/PrjLabEquiBFW/}{\textbf{PrjLabEquiBFW
+Package}}\textbf{.}
+
+\hypertarget{default-map-of-path-fan-path}{%
+\subsection{Default Map of Path (Fan path)}\label{default-map-of-path-fan-path}}
+
+\begin{verbatim}
+bl_verbose = true;
+mp_path = bfw_mp_path(bl_verbose);
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_path_external String
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                             i      idx                                                string                                           
+                            ____    ____    ____________________________________________________________________________________________
+
+    spt_codem               "1"     "1"     "C:\Users\fan\PrjLabEquiBFW\PrjLabEquiBFW\"                                                 
+    spt_codem_data          "2"     "2"     "C:\Users\fan\PrjLabEquiBFW\PrjLabEquiBFW\_data\"                                           
+    spt_codem_doc           "3"     "3"     "C:\Users\fan\PrjLabEquiBFW\PrjLabEquiBFW\doc\"                                             
+    spt_output_root         "4"     "4"     "C:\Users\fan\Documents\Dropbox (UH-ECON)\Latex_BhalotraFernandez\"                         
+    spt_repo_root           "5"     "5"     "C:\Users\fan\PrjLabEquiBFW\"                                                               
+    spt_simu_outputs_log    "6"     "6"     "C:\Users\fan\Documents\Dropbox (UH-ECON)\Latex_BhalotraFernandez\PrjLabEquiBFWOutput\log\" 
+    spt_simu_outputs_mat    "7"     "7"     "C:\Users\fan\Documents\Dropbox (UH-ECON)\Latex_BhalotraFernandez\PrjLabEquiBFWOutput\mat\" 
+    spt_simu_outputs_prf    "8"     "8"     "C:\Users\fan\Documents\Dropbox (UH-ECON)\Latex_BhalotraFernandez\PrjLabEquiBFWOutput\prof\"
+    spt_simu_outputs_vig    "9"     "9"     "C:\Users\fan\Documents\Dropbox (UH-ECON)\Latex_BhalotraFernandez\PrjLabEquiBFWOutput\vig\" 
+    spt_simu_results_csv    "10"    "10"    "C:\Users\fan\Documents\Dropbox (UH-ECON)\Latex_BhalotraFernandez\PrjLabEquiBFWOutput\res\" 
+    spt_simu_results_img    "11"    "11"    "C:\Users\fan\Documents\Dropbox (UH-ECON)\Latex_BhalotraFernandez\PrjLabEquiBFWOutput\img\" 
+    st_computer             "12"    "12"    "fan"                                                                                       
+\end{verbatim}
+
+\hypertarget{map-of-path-for-alternative-path-installer}{%
+\subsection{Map of Path for Alternative Path Installer}\label{map-of-path-for-alternative-path-installer}}
+
+Two directories, one for the repo and one for where outputs go, need to
+be specified.
+
+\begin{verbatim}
+spt_repo_root = "~\PrjLabEquiBFW";
+spt_output_root = "~\Dropbox\PrjLabEquiBFW";
+bl_verbose = true;
+mp_path = bfw_mp_path(spt_repo_root, spt_output_root, bl_verbose);
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_path_external String
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                             i      idx                           string                       
+                            ____    ____    ___________________________________________________
+
+    spt_codem               "1"     "1"     "~\PrjLabEquiBFW\PrjLabEquiBFW\"                   
+    spt_codem_data          "2"     "2"     "~\PrjLabEquiBFW\PrjLabEquiBFW\_data\"             
+    spt_codem_doc           "3"     "3"     "~\PrjLabEquiBFW\PrjLabEquiBFW\doc\"               
+    spt_output_root         "4"     "4"     "~\Dropbox\PrjLabEquiBFW"                          
+    spt_repo_root           "5"     "5"     "~\PrjLabEquiBFW"                                  
+    spt_simu_outputs_log    "6"     "6"     "~\Dropbox\PrjLabEquiBFW\PrjLabEquiBFWOutput\log\" 
+    spt_simu_outputs_mat    "7"     "7"     "~\Dropbox\PrjLabEquiBFW\PrjLabEquiBFWOutput\mat\" 
+    spt_simu_outputs_prf    "8"     "8"     "~\Dropbox\PrjLabEquiBFW\PrjLabEquiBFWOutput\prof\"
+    spt_simu_outputs_vig    "9"     "9"     "~\Dropbox\PrjLabEquiBFW\PrjLabEquiBFWOutput\vig\" 
+    spt_simu_results_csv    "10"    "10"    "~\Dropbox\PrjLabEquiBFW\PrjLabEquiBFWOutput\res\" 
+    spt_simu_results_img    "11"    "11"    "~\Dropbox\PrjLabEquiBFW\PrjLabEquiBFWOutput\img\" 
+\end{verbatim}
+
+\hypertarget{bfw_mp_param_esti}{%
+\section{bfw\_mp\_param\_esti}\label{bfw_mp_param_esti}}
+
+This is the example vignette for function:
+\href{https://github.com/FanWangEcon/PrjLabEquiBFW/tree/main/PrjLabEquiBFW/params/bfw_mp_param_esti.m}{\textbf{bfw\_mp\_param\_esti}}
+from the \href{https://fanwangecon.github.io/PrjLabEquiBFW/}{\textbf{PrjLabEquiBFW
+Package}}\textbf{.}
+
+\hypertarget{map-of-estimated-parameters}{%
+\subsection{Map of Estimated Parameters}\label{map-of-estimated-parameters}}
+
+\begin{verbatim}
+bl_log_wage = true;
+bl_verbose = true;
+mp_func_supply = bfw_mp_param_esti(bl_log_wage, bl_verbose);
+
+pos = 42 ; key = mp_rho_nests
+  Map with properties:
+
+        Count: 11
+      KeyType: char
+    ValueType: any
+
+pos = 43 ; key = mp_rho_nests_init
+  Map with properties:
+
+        Count: 8
+      KeyType: char
+    ValueType: any
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_params ND Array (Matrix etc)
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                     i     idx    ndim    numel    rowN    colN      sum         mean        std      coefvari      min          max   
+                     __    ___    ____    _____    ____    ____    ________    ________    _______    ________    ________    _________
+
+    ar_alpha_A001     1     1      2        4       1       4      -0.94699    -0.23675    0.51665     -2.1823     -1.0101     0.068567
+    ar_alpha_A002     2     2      2        4       1       4       -1.4489    -0.36221     0.7982     -2.2037     -1.5565      0.11544
+    ar_alpha_A003     3     3      2        4       1       4      -0.57104    -0.14276    0.31287     -2.1916      -0.611      0.04301
+    ar_alpha_AA01     4     4      2        4       1       4      -0.67951    -0.16988     0.3633     -2.1386    -0.71418      0.03661
+    ar_alpha_AA02     5     5      2        4       1       4       -0.6718    -0.16795    0.33676     -2.0051    -0.67309     0.001573
+    ar_alpha_B001     6     6      2        4       1       4       -1.2904    -0.32261    0.67446     -2.0907     -1.3337     0.046411
+    ar_alpha_B002     7     7      2        4       1       4       -1.1023    -0.27558    0.57386     -2.0823     -1.1359     0.036755
+    ar_alpha_B003     8     8      2        4       1       4      -0.85037    -0.21259    0.44078     -2.0734    -0.87352      0.02499
+    ar_alpha_B101     9     9      2        4       1       4       -2.7486    -0.68715     1.4441     -2.1015      -2.852      0.10452
+    ar_alpha_B102    10    10      2        4       1       4       -1.3642    -0.34105    0.66492     -1.9496     -1.3382    0.0046709
+    ar_alpha_B103    11    11      2        4       1       4       -1.1457    -0.28641    0.57331     -2.0017     -1.1464     0.002346
+    arpie_f_s        12    12      2        6       1       6        4.6479     0.77464     6.3115      8.1476     -8.3485       11.145
+    arpie_f_u        13    13      2        6       1       6        8.0344      1.3391      4.861      3.6302     -2.0749       11.145
+    arpie_k_s        14    14      2        6       1       6        1.3887     0.23145     1.8386      7.9441     -3.0311       2.4457
+    arpie_k_u        15    15      2        6       1       6        4.7387     0.78979     1.8849      2.3866     -2.2809       3.0169
+    arpsi0_f_s       16    16      2        3       1       3        3.3528      1.1176     1.0974      0.9819           0       2.1936
+    arpsi0_f_u       17    17      2        3       1       3         20.22        6.74    0.55777    0.082755      6.3081       7.3697
+    arpsi0_k_s       18    18      2        3       1       3         1.779     0.59299    0.68939      1.1626           0       1.3494
+    arpsi0_k_u       19    19      2        3       1       3        18.003      6.0009    0.84112     0.14016      5.0649       6.6935
+
+xxx TABLE:ar_alpha_A001 xxxxxxxxxxxxxxxxxx
+              c1            c2           c3         c4   
+          __________    __________    ________    _______
+
+    r1    0.00013396    -0.0056187    0.068567    -1.0101
+
+xxx TABLE:ar_alpha_A002 xxxxxxxxxxxxxxxxxx
+              c1            c2          c3         c4   
+          __________    __________    _______    _______
+
+    r1    0.00017171    -0.0079274    0.11544    -1.5565
+
+xxx TABLE:ar_alpha_A003 xxxxxxxxxxxxxxxxxx
+              c1            c2          c3         c4  
+          __________    __________    _______    ______
+
+    r1    6.9362e-05    -0.0031181    0.04301    -0.611
+
+xxx TABLE:ar_alpha_AA01 xxxxxxxxxxxxxxxxxx
+              c1           c2          c3          c4   
+          __________    _________    _______    ________
+
+    r1    3.3671e-05    -0.001978    0.03661    -0.71418
+
+xxx TABLE:ar_alpha_AA02 xxxxxxxxxxxxxxxxxx
+              c1            c2            c3          c4   
+          __________    ___________    ________    ________
+
+    r1    9.8127e-06    -0.00029501    0.001573    -0.67309
+
+xxx TABLE:ar_alpha_B001 xxxxxxxxxxxxxxxxxx
+              c1            c2           c3         c4   
+          __________    __________    ________    _______
+
+    r1    7.1149e-05    -0.0031771    0.046411    -1.3337
+
+xxx TABLE:ar_alpha_B002 xxxxxxxxxxxxxxxxxx
+              c1            c2           c3         c4   
+          __________    __________    ________    _______
+
+    r1    7.7753e-05    -0.0032235    0.036755    -1.1359
+
+xxx TABLE:ar_alpha_B003 xxxxxxxxxxxxxxxxxx
+              c1            c2          c3          c4   
+          __________    __________    _______    ________
+
+    r1    4.3028e-05    -0.0018888    0.02499    -0.87352
+
+xxx TABLE:ar_alpha_B101 xxxxxxxxxxxxxxxxxx
+              c1             c2          c3         c4  
+          ___________    __________    _______    ______
+
+    r1    -1.7675e-05    -0.0011106    0.10452    -2.852
+
+xxx TABLE:ar_alpha_B102 xxxxxxxxxxxxxxxxxx
+              c1            c2           c3          c4   
+          ___________    _________    _________    _______
+
+    r1    -0.00010096    0.0046709    -0.030629    -1.3382
+
+xxx TABLE:ar_alpha_B103 xxxxxxxxxxxxxxxxxx
+              c1            c2           c3          c4   
+          ___________    ________    __________    _______
+
+    r1    -7.5369e-05    0.002346    -0.0015487    -1.1464
+
+xxx TABLE:arpie_f_s xxxxxxxxxxxxxxxxxx
+            c1      c2      c3        c4         c5         c6   
+          ______    __    ______    _______    _______    _______
+
+    r1    11.145    0     2.7351    0.26746    -8.3485    -1.1508
+
+xxx TABLE:arpie_f_u xxxxxxxxxxxxxxxxxx
+            c1      c2       c3          c4         c5         c6   
+          ______    __    ________    ________    _______    _______
+
+    r1    11.145    0     -0.25662    -0.26519    -2.0749    -0.5135
+
+xxx TABLE:arpie_k_s xxxxxxxxxxxxxxxxxx
+            c1      c2       c3          c4         c5         c6  
+          ______    __    _________    _______    _______    ______
+
+    r1    2.4457    0     -0.043896    0.91566    -3.0311    1.1023
+
+xxx TABLE:arpie_k_u xxxxxxxxxxxxxxxxxx
+            c1      c2      c3         c4        c5         c6   
+          ______    __    _______    ______    _______    _______
+
+    r1    2.4457    0     -2.2809    3.0169    0.84513    0.71184
+
+xxx TABLE:arpsi0_f_s xxxxxxxxxxxxxxxxxx
+          c1      c2        c3  
+          __    ______    ______
+
+    r1    0     1.1592    2.1936
+
+xxx TABLE:arpsi0_f_u xxxxxxxxxxxxxxxxxx
+            c1        c2        c3  
+          ______    ______    ______
+
+    r1    7.3697    6.5422    6.3081
+
+xxx TABLE:arpsi0_k_s xxxxxxxxxxxxxxxxxx
+          c1      c2         c3  
+          __    _______    ______
+
+    r1    0     0.42958    1.3494
+
+xxx TABLE:arpsi0_k_u xxxxxxxxxxxxxxxxxx
+            c1        c2        c3  
+          ______    ______    ______
+
+    r1    6.6935    6.2443    5.0649
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_params Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                                        i     idx     value  
+                                        __    ___    ________
+
+    bl_log_wage                          1    20            1
+    fl_rho_abstract_vs_manualroutine     2    21     0.031411
+    fl_rho_gen_abstract                  3    22      0.65979
+    fl_rho_gen_manual                    4    23     0.083519
+    fl_rho_gen_routine                   5    24      0.21769
+    fl_rho_routine_vs_manual             6    25     -0.15438
+    fl_rho_skill_abstract                7    26      0.30231
+    fl_rho_skill_manual                  8    27      0.73852
+    fl_rho_skill_routine                 9    28      0.30052
+    fl_yzagg_y1989                      10    29       1.4905
+    fl_yzagg_y1992                      11    30       1.4602
+    fl_yzagg_y1994                      12    31       1.6493
+    fl_yzagg_y1996                      13    32       1.7686
+    fl_yzagg_y1998                      14    33       1.8018
+    fl_yzagg_y2000                      15    34       2.0599
+    fl_yzagg_y2002                      16    35       2.0597
+    fl_yzagg_y2004                      17    36       2.2803
+    fl_yzagg_y2005                      18    37       2.3392
+    fl_yzagg_y2008                      19    38       2.4908
+    fl_yzagg_y2010                      20    39       2.7153
+    fl_yzagg_y2012                      21    40        2.822
+    fl_yzagg_y2014                      22    41       2.8707
+    psi1                                23    44      0.96625
+\end{verbatim}
+
+\hypertarget{data}{%
+\chapter{Data}\label{data}}
+
+\hypertarget{bfw_mp_data}{%
+\section{bfw\_mp\_data}\label{bfw_mp_data}}
+
+This is the example vignette for function: bfw\_mp\_data from the
+\href{https://fanwangecon.github.io/PrjLabEquiBFW/}{\textbf{PrjLabEquiBFW
+Package}}\textbf{.}
+
+\hypertarget{get-all-data}{%
+\subsection{Get All Data}\label{get-all-data}}
+
+\begin{verbatim}
+bl_verbose = false;
+mp_data = bfw_mp_data(bl_verbose);
+\end{verbatim}
+
+\hypertarget{dataset-1}{%
+\subsection{Dataset 1}\label{dataset-1}}
+
+\begin{verbatim}
+disp(mp_data('tb_data_pq'));
+
+    year    category    numberWorkers    meanWage
+    ____    ________    _____________    ________
+
+    1989    {'C001'}     1.4486e+06        1.942 
+    1989    {'C002'}     1.1256e+06       3.2247 
+    1989    {'C003'}     1.5156e+06       3.3738 
+    1989    {'C004'}     8.4266e+06          NaN 
+    1989    {'C011'}           9199       2.1604 
+    1989    {'C012'}     1.1011e+05       5.6589 
+    1989    {'C013'}      4.816e+05       5.8023 
+    1989    {'C014'}      2.533e+05          NaN 
+    1989    {'C101'}     4.4275e+06       2.3157 
+    1989    {'C102'}     3.1277e+06       3.2178 
+    1989    {'C103'}     1.9279e+06        4.329 
+    1989    {'C104'}     4.8562e+05          NaN 
+    1989    {'C111'}          96487       4.5245 
+    1989    {'C112'}     2.7718e+05       5.4146 
+    1989    {'C113'}     1.3868e+06       8.0437 
+    1989    {'C114'}      1.187e+05          NaN 
+    1992    {'C001'}     1.7431e+06       1.8431 
+    1992    {'C002'}     1.3773e+06       3.4764 
+    1992    {'C003'}      1.428e+06        4.079 
+    1992    {'C004'}     8.7758e+06          NaN 
+    1992    {'C011'}          18205       4.5495 
+    1992    {'C012'}     1.6703e+05        5.752 
+    1992    {'C013'}     6.2931e+05       7.0257 
+    1992    {'C014'}      3.657e+05          NaN 
+    1992    {'C101'}     4.7927e+06        2.052 
+    1992    {'C102'}     4.0642e+06       2.9976 
+    1992    {'C103'}     1.6709e+06       4.7971 
+    1992    {'C104'}        5.5e+05          NaN 
+    1992    {'C111'}          74782       4.0857 
+    1992    {'C112'}     3.3189e+05       7.9404 
+    1992    {'C113'}     1.4371e+06       10.001 
+    1992    {'C114'}     1.3064e+05          NaN 
+    1994    {'C001'}     2.5091e+06       1.9678 
+    1994    {'C002'}     1.5404e+06       3.5099 
+    1994    {'C003'}     1.5569e+06       4.3758 
+    1994    {'C004'}     8.8237e+06          NaN 
+    1994    {'C011'}          10653       2.8112 
+    1994    {'C012'}     2.4128e+05       6.9136 
+    1994    {'C013'}     7.5302e+05       8.6943 
+    1994    {'C014'}     4.1888e+05          NaN 
+    1994    {'C101'}     5.3134e+06       2.1107 
+    1994    {'C102'}     4.0308e+06       3.1178 
+    1994    {'C103'}     1.6829e+06       4.8591 
+    1994    {'C104'}     7.1707e+05          NaN 
+    1994    {'C111'}     1.5239e+05       7.0725 
+    1994    {'C112'}     4.3682e+05       11.505 
+    1994    {'C113'}      1.557e+06       12.719 
+    1994    {'C114'}     1.2058e+05          NaN 
+    1996    {'C001'}     2.8324e+06        1.459 
+    1996    {'C002'}     2.1046e+06       2.4083 
+    1996    {'C003'}      1.753e+06       2.7709 
+    1996    {'C004'}     8.7805e+06          NaN 
+    1996    {'C011'}          57074       2.3762 
+    1996    {'C012'}     2.5339e+05       4.8631 
+    1996    {'C013'}      9.465e+05       5.8817 
+    1996    {'C014'}     5.1589e+05          NaN 
+    1996    {'C101'}     5.4919e+06       1.7407 
+    1996    {'C102'}     4.4873e+06        2.385 
+    1996    {'C103'}     1.9182e+06       3.3137 
+    1996    {'C104'}     6.9559e+05          NaN 
+    1996    {'C111'}     2.0215e+05       5.7586 
+    1996    {'C112'}      4.858e+05        6.221 
+    1996    {'C113'}     1.6429e+06       7.9771 
+    1996    {'C114'}     1.7307e+05          NaN 
+    1998    {'C001'}     3.1189e+06       1.3076 
+    1998    {'C002'}     2.0101e+06       2.5758 
+    1998    {'C003'}     2.0265e+06       2.9886 
+    1998    {'C004'}     8.8847e+06          NaN 
+    1998    {'C011'}          36132        3.694 
+    1998    {'C012'}     3.2575e+05       5.0667 
+    1998    {'C013'}     9.3514e+05       5.6322 
+    1998    {'C014'}     5.4905e+05          NaN 
+    1998    {'C101'}     5.5182e+06       1.7357 
+    1998    {'C102'}     4.8667e+06       2.4162 
+    1998    {'C103'}     2.1473e+06       3.3496 
+    1998    {'C104'}     6.7234e+05          NaN 
+    1998    {'C111'}     1.6247e+05       4.0171 
+    1998    {'C112'}     5.3722e+05       7.4345 
+    1998    {'C113'}     1.6662e+06       8.7309 
+    1998    {'C114'}     1.9321e+05          NaN 
+    2000    {'C001'}     2.7625e+06        1.659 
+    2000    {'C002'}     2.7297e+06       2.5901 
+    2000    {'C003'}     2.2657e+06       3.2971 
+    2000    {'C004'}     9.3772e+06          NaN 
+    2000    {'C011'}          77107       2.8732 
+    2000    {'C012'}     4.0734e+05       5.2881 
+    2000    {'C013'}     1.1005e+06       6.5806 
+    2000    {'C014'}     7.5089e+05          NaN 
+    2000    {'C101'}     5.6807e+06       1.8978 
+    2000    {'C102'}     5.3498e+06       2.4629 
+    2000    {'C103'}     2.2554e+06        3.968 
+    2000    {'C104'}     6.7471e+05          NaN 
+    2000    {'C111'}     2.1108e+05       3.8076 
+    2000    {'C112'}     6.6682e+05       7.0165 
+    2000    {'C113'}     2.2414e+06       10.509 
+    2000    {'C114'}     1.9925e+05          NaN 
+    2002    {'C001'}     3.6671e+06       1.6863 
+    2002    {'C002'}     2.5202e+06        2.826 
+    2002    {'C003'}     2.4393e+06        3.292 
+    2002    {'C004'}      9.291e+06          NaN 
+    2002    {'C011'}     1.0685e+05       3.7516 
+    2002    {'C012'}     4.5408e+05         5.83 
+    2002    {'C013'}     1.3436e+06       7.9012 
+    2002    {'C014'}     5.9194e+05          NaN 
+    2002    {'C101'}     5.9945e+06       2.0088 
+    2002    {'C102'}     5.2352e+06       2.7613 
+    2002    {'C103'}     2.2663e+06       4.1455 
+    2002    {'C104'}     6.7629e+05          NaN 
+    2002    {'C111'}     2.4805e+05       4.0453 
+    2002    {'C112'}     5.9178e+05       7.1763 
+    2002    {'C113'}     2.0465e+06       8.9213 
+    2002    {'C114'}     3.2278e+05          NaN 
+    2004    {'C001'}     3.5389e+06        1.755 
+    2004    {'C002'}     2.5059e+06       2.6069 
+    2004    {'C003'}     2.5599e+06       3.1199 
+    2004    {'C004'}     9.5136e+06          NaN 
+    2004    {'C011'}     1.4496e+05       3.4155 
+    2004    {'C012'}     4.5696e+05       5.4516 
+    2004    {'C013'}     1.8123e+06          6.7 
+    2004    {'C014'}     7.7668e+05          NaN 
+    2004    {'C101'}     5.9652e+06        2.215 
+    2004    {'C102'}     5.7124e+06       2.8839 
+    2004    {'C103'}     2.3318e+06       3.8541 
+    2004    {'C104'}      9.677e+05          NaN 
+    2004    {'C111'}     2.8065e+05       5.1077 
+    2004    {'C112'}     5.9455e+05       6.7843 
+    2004    {'C113'}     2.2218e+06       8.6393 
+    2004    {'C114'}     2.6115e+05          NaN 
+    2005    {'C001'}      3.604e+06       1.8015 
+    2005    {'C002'}     2.9152e+06       2.6792 
+    2005    {'C003'}     2.4463e+06       3.3468 
+    2005    {'C004'}     9.2417e+06          NaN 
+    2005    {'C011'}     1.2085e+05       2.4982 
+    2005    {'C012'}     5.9567e+05       4.9431 
+    2005    {'C013'}     1.6771e+06       6.3435 
+    2005    {'C014'}     8.2842e+05          NaN 
+    2005    {'C101'}     5.9621e+06       2.2032 
+    2005    {'C102'}     5.4187e+06       2.7741 
+    2005    {'C103'}     2.5829e+06       3.7258 
+    2005    {'C104'}     9.6341e+05          NaN 
+    2005    {'C111'}     3.5414e+05       3.7752 
+    2005    {'C112'}     6.5345e+05       6.9592 
+    2005    {'C113'}     2.3148e+06       8.3387 
+    2005    {'C114'}     2.8472e+05          NaN 
+    2008    {'C001'}     3.9395e+06       1.8657 
+    2008    {'C002'}     2.8968e+06       2.6475 
+    2008    {'C003'}      2.361e+06       3.1947 
+    2008    {'C004'}     9.2787e+06          NaN 
+    2008    {'C011'}     1.5621e+05       3.0013 
+    2008    {'C012'}      6.771e+05       5.3544 
+    2008    {'C013'}     1.9227e+06       6.8198 
+    2008    {'C014'}     9.0351e+05          NaN 
+    2008    {'C101'}     6.0495e+06       2.3736 
+    2008    {'C102'}     5.8662e+06       2.9056 
+    2008    {'C103'}     2.4905e+06       3.7731 
+    2008    {'C104'}     1.2219e+06          NaN 
+    2008    {'C111'}     2.8368e+05       3.9143 
+    2008    {'C112'}     7.9417e+05       6.3566 
+    2008    {'C113'}     2.4155e+06       8.3053 
+    2008    {'C114'}     2.6468e+05          NaN 
+    2010    {'C001'}     3.9036e+06       1.7636 
+    2010    {'C002'}     2.8717e+06       2.4062 
+    2010    {'C003'}     2.7349e+06       2.8429 
+    2010    {'C004'}     9.9169e+06          NaN 
+    2010    {'C011'}     1.2713e+05       3.1825 
+    2010    {'C012'}      6.661e+05       4.7299 
+    2010    {'C013'}     2.2114e+06       6.1872 
+    2010    {'C014'}     1.2068e+06          NaN 
+    2010    {'C101'}     6.6858e+06        2.263 
+    2010    {'C102'}     5.9638e+06       2.5991 
+    2010    {'C103'}     2.4368e+06       3.6533 
+    2010    {'C104'}     1.4088e+06          NaN 
+    2010    {'C111'}     3.6653e+05       3.5758 
+    2010    {'C112'}     7.4601e+05       6.2607 
+    2010    {'C113'}     2.7576e+06        8.101 
+    2010    {'C114'}     3.7913e+05          NaN 
+    2012    {'C001'}     5.1813e+06       1.7308 
+    2012    {'C002'}      3.049e+06       2.4089 
+    2012    {'C003'}     3.0537e+06       2.7185 
+    2012    {'C004'}     8.7224e+06          NaN 
+    2012    {'C011'}     1.9743e+05       3.3489 
+    2012    {'C012'}     7.3753e+05       4.1924 
+    2012    {'C013'}     2.3311e+06       6.4194 
+    2012    {'C014'}     1.0551e+06          NaN 
+    2012    {'C101'}      7.139e+06       2.1453 
+    2012    {'C102'}     6.2508e+06       2.5302 
+    2012    {'C103'}     2.5895e+06       3.1115 
+    2012    {'C104'}      1.512e+06          NaN 
+    2012    {'C111'}     4.3101e+05       3.2287 
+    2012    {'C112'}     9.0347e+05       5.0768 
+    2012    {'C113'}     2.7373e+06       7.5722 
+    2012    {'C114'}     3.9649e+05          NaN 
+    2014    {'C001'}     4.5694e+06       1.7262 
+    2014    {'C002'}     3.2584e+06       2.4145 
+    2014    {'C003'}     2.8512e+06       2.6173 
+    2014    {'C004'}      9.733e+06          NaN 
+    2014    {'C011'}     2.5971e+05       2.9667 
+    2014    {'C012'}     8.2213e+05       5.6007 
+    2014    {'C013'}     2.5873e+06       6.1866 
+    2014    {'C014'}     1.3462e+06          NaN 
+    2014    {'C101'}     7.0339e+06        2.212 
+    2014    {'C102'}     6.3219e+06       2.5069 
+    2014    {'C103'}     2.7689e+06       3.1292 
+    2014    {'C104'}     1.5334e+06          NaN 
+    2014    {'C111'}     4.3522e+05       3.3786 
+    2014    {'C112'}     8.8807e+05       5.4313 
+    2014    {'C113'}     3.0431e+06       8.6421 
+    2014    {'C114'}     4.8022e+05          NaN 
+\end{verbatim}
+
+\hypertarget{dataset-1-aux}{%
+\subsection{Dataset 1 Aux}\label{dataset-1-aux}}
+
+\begin{verbatim}
+disp(mp_data('tb_category2sexskillocc_key'));
+
+    category       sex            skill            occupation         categoryhigher    nesttier    nestid    nestidhigher      group       inputx1x2 
+    ________    __________    _____________    ___________________    ______________    ________    ______    ____________    __________    __________
+
+    {'C001'}    {'Female'}    {'unskilled'}    {'Manual'         }      {'B001'  }          3         11           10         {'G00'   }    {'x1'    }
+    {'C002'}    {'Female'}    {'unskilled'}    {'Routine'        }      {'B002'  }          3         21           20         {'G00'   }    {'x1'    }
+    {'C003'}    {'Female'}    {'unskilled'}    {'Analytical'     }      {'B003'  }          3         31           30         {'G00'   }    {'x1'    }
+    {'C004'}    {'Female'}    {'unskilled'}    {'Home Production'}      {0x0 char}          3         41          NaN         {'G00'   }    {'x1'    }
+    {'C011'}    {'Female'}    {'skilled'  }    {'Manual'         }      {'B101'  }          3         12           10         {'G01'   }    {'x1'    }
+    {'C012'}    {'Female'}    {'skilled'  }    {'Routine'        }      {'B102'  }          3         22           20         {'G01'   }    {'x1'    }
+    {'C013'}    {'Female'}    {'skilled'  }    {'Analytical'     }      {'B103'  }          3         32           30         {'G01'   }    {'x1'    }
+    {'C014'}    {'Female'}    {'skilled'  }    {'Home Production'}      {0x0 char}          3         42          NaN         {'G01'   }    {'x1'    }
+    {'C101'}    {'Male'  }    {'unskilled'}    {'Manual'         }      {'B001'  }          3         11           10         {'G10'   }    {'x2'    }
+    {'C102'}    {'Male'  }    {'unskilled'}    {'Routine'        }      {'B002'  }          3         21           20         {'G10'   }    {'x2'    }
+    {'C103'}    {'Male'  }    {'unskilled'}    {'Analytical'     }      {'B003'  }          3         31           30         {'G10'   }    {'x2'    }
+    {'C104'}    {'Male'  }    {'unskilled'}    {'Home Production'}      {0x0 char}          3         41          NaN         {'G10'   }    {'x2'    }
+    {'C111'}    {'Male'  }    {'skilled'  }    {'Manual'         }      {'B101'  }          3         12           10         {'G11'   }    {'x2'    }
+    {'C112'}    {'Male'  }    {'skilled'  }    {'Routine'        }      {'B102'  }          3         22           20         {'G11'   }    {'x2'    }
+    {'C113'}    {'Male'  }    {'skilled'  }    {'Analytical'     }      {'B103'  }          3         32           30         {'G11'   }    {'x2'    }
+    {'C114'}    {'Male'  }    {'skilled'  }    {'Home Production'}      {0x0 char}          3         42          NaN         {'G11'   }    {'x2'    }
+    {'B001'}    {'All'   }    {'unskilled'}    {'Manual'         }      {'A001'  }          2         10            2         {0x0 char}    {'x2'    }
+    {'B002'}    {'All'   }    {'unskilled'}    {'Routine'        }      {'A002'  }          2         20            2         {0x0 char}    {'x2'    }
+    {'B003'}    {'All'   }    {'unskilled'}    {'Analytical'     }      {'A003'  }          2         30            1         {0x0 char}    {'x2'    }
+    {'B101'}    {'All'   }    {'skilled'  }    {'Manual'         }      {'A001'  }          2         10            2         {0x0 char}    {'x1'    }
+    {'B102'}    {'All'   }    {'skilled'  }    {'Routine'        }      {'A002'  }          2         20            2         {0x0 char}    {'x1'    }
+    {'B103'}    {'All'   }    {'skilled'  }    {'Analytical'     }      {'A003'  }          2         30            1         {0x0 char}    {'x1'    }
+    {'A001'}    {'All'   }    {'All'      }    {'Manual'         }      {'AA01'  }          1          2            1         {0x0 char}    {'x2'    }
+    {'A002'}    {'All'   }    {'All'      }    {'Routine'        }      {'AA01'  }          1          2            1         {0x0 char}    {'x1'    }
+    {'AA01'}    {'All'   }    {'All'      }    {'ManualRoutine'  }      {'AA02'  }          0          1            0         {0x0 char}    {'x2'    }
+    {'A003'}    {'All'   }    {'All'      }    {'Analytical'     }      {'AA02'  }          0          1            0         {0x0 char}    {'x1'    }
+    {'AA02'}    {'All'   }    {'All'      }    {'All'            }      {0x0 char}        NaN          0          NaN         {0x0 char}    {0x0 char}
+\end{verbatim}
+
+\hypertarget{dataset-2}{%
+\subsection{Dataset 2}\label{dataset-2}}
+
+\begin{verbatim}
+disp(mp_data('tb_supply_potwrklei'));
+
+    year     group      gender        skill       numberPotentialWorkers    shareMarried    shareChildrenUnder5     WBL     Appliances    jobScarceAgree    jobScarceDisagree    numberPotentialWorkersAddBackAddMIgrants    CtrPSklmGen89    CtrGenRelaSkl89MaleLvlAct
+    ____    _______    ________    ___________    ______________________    ____________    ___________________    _____    __________    ______________    _________________    ________________________________________    _____________    _________________________
+
+    1989    {'G00'}    "Female"    "unskilled"          1.2516e+07            0.88971             0.43358          0.613     0.63031           0.22               0.72                          1.2516e+07                    1.2516e+07             1.2516e+07        
+    1992    {'G00'}    "Female"    "unskilled"          1.3324e+07            0.90306             0.45062          0.675     0.59086           0.22               0.72                          1.3398e+07                    1.3578e+07             1.3607e+07        
+    1994    {'G00'}    "Female"    "unskilled"           1.443e+07            0.89015             0.41182          0.675     0.59767           0.25               0.05                          1.4575e+07                    1.4841e+07             1.4824e+07        
+    1996    {'G00'}    "Female"    "unskilled"           1.547e+07            0.88061             0.40429          0.675     0.65548           0.25               0.05                          1.5708e+07                    1.6142e+07             1.6105e+07        
+    1998    {'G00'}    "Female"    "unskilled"           1.604e+07            0.86928             0.38743          0.675     0.69916           0.25               0.05                          1.6389e+07                    1.6744e+07             1.6723e+07        
+    2000    {'G00'}    "Female"    "unskilled"          1.7135e+07            0.85884             0.34545          0.675     0.73095           0.33               0.55                          1.7603e+07                    1.8227e+07             1.7962e+07        
+    2002    {'G00'}    "Female"    "unskilled"          1.7918e+07            0.85017             0.34355            0.7       0.775           0.33               0.55                          1.8647e+07                     1.911e+07             1.8955e+07        
+    2004    {'G00'}    "Female"    "unskilled"          1.8118e+07            0.82951             0.31998            0.7     0.84238           0.33               0.55                          1.9094e+07                    1.9948e+07             1.9783e+07        
+    2005    {'G00'}    "Female"    "unskilled"          1.8207e+07            0.82472             0.31105            0.7     0.82212           0.25               0.67                          1.9311e+07                     2.006e+07              1.979e+07        
+    2008    {'G00'}    "Female"    "unskilled"          1.8476e+07            0.82096             0.28599          0.725     0.85993           0.25               0.67                          1.9613e+07                    2.0721e+07             2.0427e+07        
+    2010    {'G00'}    "Female"    "unskilled"          1.9427e+07            0.81832             0.27503          0.725     0.84777           0.17               0.71                          2.0606e+07                    2.2128e+07             2.1707e+07        
+    2012    {'G00'}    "Female"    "unskilled"          2.0006e+07            0.81686             0.28519          0.725      0.8435           0.17               0.71                          2.1178e+07                    2.2773e+07             2.2296e+07        
+    2014    {'G00'}    "Female"    "unskilled"          2.0412e+07            0.82762             0.26669          0.806     0.88849           0.17               0.71                          2.1542e+07                    2.3803e+07             2.3224e+07        
+    1989    {'G01'}    "Female"    "skilled"            8.5421e+05            0.87768             0.54077          0.613     0.95588           0.22               0.72                          8.5421e+05                    8.5421e+05             8.5421e+05        
+    1992    {'G01'}    "Female"    "skilled"            1.1802e+06            0.82152             0.49389          0.675     0.91667           0.22               0.72                          1.1634e+06                    9.2665e+05             8.9747e+05        
+    1994    {'G01'}    "Female"    "skilled"            1.4238e+06            0.81836             0.44336          0.675     0.92079           0.25               0.05                          1.3845e+06                    1.0129e+06             1.0304e+06        
+    1996    {'G01'}    "Female"    "skilled"            1.7729e+06             0.8449             0.44756          0.675     0.95833           0.25               0.05                          1.7095e+06                    1.1016e+06             1.1382e+06        
+    1998    {'G01'}    "Female"    "skilled"            1.8461e+06            0.82028              0.3968          0.675     0.92982           0.25               0.05                          1.7743e+06                    1.1427e+06             1.1632e+06        
+    2000    {'G01'}    "Female"    "skilled"            2.3358e+06            0.83775             0.39002          0.675     0.95161           0.33               0.55                          2.2378e+06                    1.2439e+06             1.5085e+06        
+    2002    {'G01'}    "Female"    "skilled"            2.4965e+06            0.81416             0.34612            0.7     0.93981           0.33               0.55                          2.4109e+06                    1.3042e+06             1.4587e+06        
+    2004    {'G01'}    "Female"    "skilled"            3.1909e+06            0.81625             0.36267            0.7     0.95485           0.33               0.55                          3.1063e+06                    1.3614e+06             1.5265e+06        
+    2005    {'G01'}    "Female"    "skilled"            3.2221e+06            0.79637             0.32913            0.7     0.96514           0.25               0.67                          3.1493e+06                    1.3691e+06             1.6397e+06        
+    2008    {'G01'}    "Female"    "skilled"            3.6595e+06            0.77916             0.29259          0.725      0.9747           0.25               0.67                          3.5792e+06                    1.4142e+06             1.7082e+06        
+    2010    {'G01'}    "Female"    "skilled"            4.2115e+06            0.76377              0.2913          0.725     0.95575           0.17               0.71                          4.1208e+06                    1.5102e+06             1.9315e+06        
+    2012    {'G01'}    "Female"    "skilled"            4.3212e+06            0.77164             0.29254          0.725     0.95676           0.17               0.71                            4.23e+06                    1.5542e+06             2.0311e+06        
+    2014    {'G01'}    "Female"    "skilled"            5.0153e+06            0.78454             0.30464          0.806     0.98007           0.17               0.71                          4.9115e+06                    1.6245e+06             2.2031e+06        
+    1989    {'G10'}    "Male"      "unskilled"          9.9687e+06            0.94927             0.50626          0.613     0.54777           0.22               0.72                          9.9687e+06                    9.9687e+06             9.9687e+06        
+    1992    {'G10'}    "Male"      "unskilled"          1.1078e+07            0.95081             0.52871          0.675     0.54377           0.22               0.72                           1.104e+07                    1.0982e+07             1.1078e+07        
+    1994    {'G10'}    "Male"      "unskilled"          1.1744e+07            0.93806             0.47527          0.675     0.59521           0.25               0.05                          1.1707e+07                    1.1789e+07             1.1744e+07        
+    1996    {'G10'}    "Male"      "unskilled"          1.2593e+07            0.94471             0.47819          0.675     0.63516           0.25               0.05                          1.2663e+07                    1.2702e+07             1.2593e+07        
+    1998    {'G10'}    "Male"      "unskilled"          1.3205e+07            0.94507             0.45177          0.675     0.68226           0.25               0.05                           1.347e+07                    1.3263e+07             1.3205e+07        
+    2000    {'G10'}    "Male"      "unskilled"          1.3961e+07            0.93873             0.40672          0.675     0.72171           0.33               0.55                          1.4437e+07                    1.4538e+07             1.3961e+07        
+    2002    {'G10'}    "Male"      "unskilled"          1.4172e+07             0.9392             0.41105            0.7     0.73558           0.33               0.55                          1.4941e+07                    1.4625e+07             1.4172e+07        
+    2004    {'G10'}    "Male"      "unskilled"          1.4977e+07            0.93382             0.38584            0.7     0.80806           0.33               0.55                          1.6083e+07                    1.5427e+07             1.4977e+07        
+    2005    {'G10'}    "Male"      "unskilled"          1.4927e+07            0.93314             0.37762            0.7     0.78404           0.25               0.67                           1.618e+07                    1.5595e+07             1.4927e+07        
+    2008    {'G10'}    "Male"      "unskilled"          1.5628e+07            0.91783             0.35084          0.725     0.82775           0.25               0.67                          1.6938e+07                    1.6311e+07             1.5628e+07        
+    2010    {'G10'}    "Male"      "unskilled"          1.6495e+07            0.92582             0.34076          0.725     0.82052           0.17               0.71                          1.7858e+07                    1.7454e+07             1.6495e+07        
+    2012    {'G10'}    "Male"      "unskilled"          1.7491e+07            0.91384             0.34491          0.725     0.81119           0.17               0.71                          1.8899e+07                    1.8477e+07             1.7491e+07        
+    2014    {'G10'}    "Male"      "unskilled"          1.7658e+07            0.91783             0.31885          0.806     0.87218           0.17               0.71                          1.8998e+07                    1.8935e+07             1.7658e+07        
+    1989    {'G11'}    "Male"      "skilled"            1.8792e+06             0.9391             0.54027          0.613     0.93209           0.22               0.72                          1.8792e+06                    1.8792e+06             1.8792e+06        
+    1992    {'G11'}    "Male"      "skilled"            1.9744e+06            0.94708             0.51393          0.675     0.93969           0.22               0.72                          1.9631e+06                    2.0702e+06             1.9744e+06        
+    1994    {'G11'}    "Male"      "skilled"            2.2668e+06            0.92429             0.46898          0.675     0.96316           0.25               0.05                          2.2374e+06                    2.2223e+06             2.2668e+06        
+    1996    {'G11'}    "Male"      "skilled"            2.5039e+06            0.92112             0.45925          0.675     0.96134           0.25               0.05                          2.4644e+06                    2.3945e+06             2.5039e+06        
+    1998    {'G11'}    "Male"      "skilled"            2.5591e+06            0.90398             0.37354          0.675      0.9554           0.25               0.05                          2.5227e+06                    2.5003e+06             2.5591e+06        
+    2000    {'G11'}    "Male"      "skilled"            3.3185e+06            0.90086             0.39763          0.675     0.95879           0.33               0.55                          3.2767e+06                    2.7407e+06             3.3185e+06        
+    2002    {'G11'}    "Male"      "skilled"            3.2091e+06            0.90837             0.36003            0.7     0.97224           0.33               0.55                          3.1947e+06                    2.7569e+06             3.2091e+06        
+    2004    {'G11'}    "Male"      "skilled"            3.3582e+06            0.89767             0.36152            0.7     0.97963           0.33               0.55                          3.3706e+06                    2.9082e+06             3.3582e+06        
+    2005    {'G11'}    "Male"      "skilled"            3.6072e+06            0.89235             0.33468            0.7     0.97339           0.25               0.67                          3.6356e+06                    2.9398e+06             3.6072e+06        
+    2008    {'G11'}    "Male"      "skilled"             3.758e+06            0.86831             0.29492          0.725     0.97782           0.25               0.67                          3.7943e+06                    3.0748e+06              3.758e+06        
+    2010    {'G11'}    "Male"      "skilled"            4.2492e+06            0.87325             0.30987          0.725     0.97603           0.17               0.71                          4.2952e+06                    3.2903e+06             4.2492e+06        
+    2012    {'G11'}    "Male"      "skilled"            4.4683e+06            0.83196             0.30303          0.725     0.97234           0.17               0.71                          4.5219e+06                     3.483e+06             4.4683e+06        
+    2014    {'G11'}    "Male"      "skilled"            4.8466e+06            0.86615             0.31875          0.806     0.97465           0.17               0.71                          4.9105e+06                    3.5695e+06             4.8466e+06        
+\end{verbatim}
+
+\hypertarget{dataset-2-aux}{%
+\subsection{Dataset 2 Aux}\label{dataset-2-aux}}
+
+\begin{verbatim}
+disp(mp_data('tb_group2category_key'));
+
+     group          groupName          category       sex            skill    
+    _______    ____________________    ________    __________    _____________
+
+    {'G00'}    {'female-unskilled'}    {'C001'}    {'female'}    {'unskilled'}
+    {'G00'}    {'female-unskilled'}    {'C002'}    {'female'}    {'unskilled'}
+    {'G00'}    {'female-unskilled'}    {'C003'}    {'female'}    {'unskilled'}
+    {'G00'}    {'female-unskilled'}    {'C004'}    {'female'}    {'unskilled'}
+    {'G01'}    {'female-skilled'  }    {'C011'}    {'female'}    {'skilled'  }
+    {'G01'}    {'female-skilled'  }    {'C012'}    {'female'}    {'skilled'  }
+    {'G01'}    {'female-skilled'  }    {'C013'}    {'female'}    {'skilled'  }
+    {'G01'}    {'female-skilled'  }    {'C014'}    {'female'}    {'skilled'  }
+    {'G10'}    {'male-unskilled'  }    {'C101'}    {'male'  }    {'unskilled'}
+    {'G10'}    {'male-unskilled'  }    {'C102'}    {'male'  }    {'unskilled'}
+    {'G10'}    {'male-unskilled'  }    {'C103'}    {'male'  }    {'unskilled'}
+    {'G10'}    {'male-unskilled'  }    {'C104'}    {'male'  }    {'unskilled'}
+    {'G11'}    {'male-skilled'    }    {'C111'}    {'male'  }    {'skilled'  }
+    {'G11'}    {'male-skilled'    }    {'C112'}    {'male'  }    {'skilled'  }
+    {'G11'}    {'male-skilled'    }    {'C113'}    {'male'  }    {'skilled'  }
+    {'G11'}    {'male-skilled'    }    {'C114'}    {'male'  }    {'skilled'  }
 \end{verbatim}
 
 \hypertarget{demand}{%
@@ -1810,6 +2509,238 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
     pshare_c1    2     9     0.69647
 \end{verbatim}
 
+\hypertarget{supply}{%
+\chapter{Supply}\label{supply}}
+
+\hypertarget{bfw_mlogit}{%
+\section{bfw\_mlogit}\label{bfw_mlogit}}
+
+This is the example vignette for function: bfw\_mlogit from the
+\href{https://fanwangecon.github.io/PrjLabEquiBFW/}{\textbf{PrjLabEquiBFW
+Package}}\textbf{.}
+
+\hypertarget{default}{%
+\subsection{Default}\label{default}}
+
+\begin{verbatim}
+[mp_fl_labor_occprbty,mp_fl_labor_supplied] = bfw_mlogit();
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_wages Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx    value 
+            _    ___    ______
+
+    C011    1     1     2.1604
+    C012    2     2     5.6589
+    C013    3     3     5.8023
+    C111    4     4     4.5245
+    C112    5     5     5.4146
+    C113    6     6     8.0437
+
+BFW_SUPPLY_LEVELS_BF18;it_supplier_group=1;SNW_MP_CONTROL=;C011;time=;G01;fl_wage=2.1604
+Supply data;potwrker=0.85421;shrmarid=0.87768;shrufive=0.54077;applianc=0.95588;jobscrys=0.613
+BFW_SUPPLY_LEVELS_BF18;it_supplier_group=1;SNW_MP_CONTROL=;C012;time=;G01;fl_wage=5.6589
+Supply data;potwrker=0.85421;shrmarid=0.87768;shrufive=0.54077;applianc=0.95588;jobscrys=0.613
+BFW_SUPPLY_LEVELS_BF18;it_supplier_group=1;SNW_MP_CONTROL=;C013;time=;G01;fl_wage=5.8023
+Supply data;potwrker=0.85421;shrmarid=0.87768;shrufive=0.54077;applianc=0.95588;jobscrys=0.613
+BFW_SUPPLY_LEVELS_BF18;it_supplier_group=2;SNW_MP_CONTROL=;C111;time=;G11;fl_wage=4.5245
+Supply data;potwrker=1.8792;shrmarid=0.9391;shrufive=0.54027;applianc=0.93209;jobscrys=0.613
+BFW_SUPPLY_LEVELS_BF18;it_supplier_group=2;SNW_MP_CONTROL=;C112;time=;G11;fl_wage=5.4146
+Supply data;potwrker=1.8792;shrmarid=0.9391;shrufive=0.54027;applianc=0.93209;jobscrys=0.613
+BFW_SUPPLY_LEVELS_BF18;it_supplier_group=2;SNW_MP_CONTROL=;C113;time=;G11;fl_wage=8.0437
+Supply data;potwrker=1.8792;shrmarid=0.9391;shrufive=0.54027;applianc=0.93209;jobscrys=0.613
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_occprbty Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx     value  
+            _    ___    ________
+
+    C011    1     1     0.015821
+    C012    2     2      0.12787
+    C013    3     3      0.36854
+    C111    4     4     0.097357
+    C112    5     5      0.17795
+    C113    6     6      0.65443
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_supplied Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx     value  
+            _    ___    ________
+
+    C011    1     1     0.013514
+    C012    2     2      0.10923
+    C013    3     3      0.31481
+    C111    4     4      0.18296
+    C112    5     5      0.33441
+    C113    6     6       1.2298
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_supplied_3v0f Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx     value  
+            _    ___    ________
+
+    C011    1     1     0.013514
+    C012    2     2      0.10923
+    C013    3     3      0.31481
+    C111    4     4      0.18296
+    C112    5     5      0.33441
+    C113    6     6       1.2298
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fc_labor_occprbty_3v0f Functions
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+             i     idx                                       functionString                                   
+            ___    ___    ____________________________________________________________________________________
+
+    C011    "1"    "1"    "@(w1,w2,w3)fc_ar_prob_wrk(fl_psi0_manual,psi1,w1,fc_prob_denom_wage(w1,w2,w3))"    
+    C012    "2"    "2"    "@(w1,w2,w3)fc_ar_prob_wrk(fl_psi0_routine,psi1,w2,fc_prob_denom_wage(w1,w2,w3))"   
+    C013    "3"    "3"    "@(w1,w2,w3)fc_ar_prob_wrk(fl_psi0_analytical,psi1,w3,fc_prob_denom_wage(w1,w2,w3))"
+    C111    "4"    "4"    "@(w1,w2,w3)fc_ar_prob_wrk(fl_psi0_manual,psi1,w1,fc_prob_denom_wage(w1,w2,w3))"    
+    C112    "5"    "5"    "@(w1,w2,w3)fc_ar_prob_wrk(fl_psi0_routine,psi1,w2,fc_prob_denom_wage(w1,w2,w3))"   
+    C113    "6"    "6"    "@(w1,w2,w3)fc_ar_prob_wrk(fl_psi0_analytical,psi1,w3,fc_prob_denom_wage(w1,w2,w3))"
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fc_labor_supplied_3v0f Functions
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+             i     idx                                    functionString                                
+            ___    ___    ______________________________________________________________________________
+
+    C011    "1"    "1"    "@(w1,w2,w3)fc_supply(fl_potwrklei_potwrker,fc_labor_occprbty_3v0f(w1,w2,w3))"
+    C012    "2"    "2"    "@(w1,w2,w3)fc_supply(fl_potwrklei_potwrker,fc_labor_occprbty_3v0f(w1,w2,w3))"
+    C013    "3"    "3"    "@(w1,w2,w3)fc_supply(fl_potwrklei_potwrker,fc_labor_occprbty_3v0f(w1,w2,w3))"
+    C111    "4"    "4"    "@(w1,w2,w3)fc_supply(fl_potwrklei_potwrker,fc_labor_occprbty_3v0f(w1,w2,w3))"
+    C112    "5"    "5"    "@(w1,w2,w3)fc_supply(fl_potwrklei_potwrker,fc_labor_occprbty_3v0f(w1,w2,w3))"
+    C113    "6"    "6"    "@(w1,w2,w3)fc_supply(fl_potwrklei_potwrker,fc_labor_occprbty_3v0f(w1,w2,w3))"
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fc_labor_occprbty_1v2f Functions
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+             i     idx                                          functionString                                      
+            ___    ___    __________________________________________________________________________________________
+
+    C011    "1"    "1"    "@(wage)fc_ar_prob_wrk(fl_psi0_manual,psi1,wage,fc_prob_denom_wage(wage,fl_w2,fl_w3))"    
+    C012    "2"    "2"    "@(wage)fc_ar_prob_wrk(fl_psi0_routine,psi1,wage,fc_prob_denom_wage(fl_w1,wage,fl_w3))"   
+    C013    "3"    "3"    "@(wage)fc_ar_prob_wrk(fl_psi0_analytical,psi1,wage,fc_prob_denom_wage(fl_w1,fl_w2,wage))"
+    C111    "4"    "4"    "@(wage)fc_ar_prob_wrk(fl_psi0_manual,psi1,wage,fc_prob_denom_wage(wage,fl_w2,fl_w3))"    
+    C112    "5"    "5"    "@(wage)fc_ar_prob_wrk(fl_psi0_routine,psi1,wage,fc_prob_denom_wage(fl_w1,wage,fl_w3))"   
+    C113    "6"    "6"    "@(wage)fc_ar_prob_wrk(fl_psi0_analytical,psi1,wage,fc_prob_denom_wage(fl_w1,fl_w2,wage))"
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fc_labor_supplied_1v2f Functions
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+             i     idx                                functionString                            
+            ___    ___    ______________________________________________________________________
+
+    C011    "1"    "1"    "@(wage)fc_supply(fl_potwrklei_potwrker,fc_labor_occprbty_1v2f(wage))"
+    C012    "2"    "2"    "@(wage)fc_supply(fl_potwrklei_potwrker,fc_labor_occprbty_1v2f(wage))"
+    C013    "3"    "3"    "@(wage)fc_supply(fl_potwrklei_potwrker,fc_labor_occprbty_1v2f(wage))"
+    C111    "4"    "4"    "@(wage)fc_supply(fl_potwrklei_potwrker,fc_labor_occprbty_1v2f(wage))"
+    C112    "5"    "5"    "@(wage)fc_supply(fl_potwrklei_potwrker,fc_labor_occprbty_1v2f(wage))"
+    C113    "6"    "6"    "@(wage)fc_supply(fl_potwrklei_potwrker,fc_labor_occprbty_1v2f(wage))"
+\end{verbatim}
+
+\includegraphics[width=5.20833in,height=\textheight]{img/bfwx_mlogit_images/figure_0.png}
+
+\includegraphics[width=5.20833in,height=\textheight]{img/bfwx_mlogit_images/figure_1.png}
+
+\hypertarget{visualize-supply-curves-different-years}{%
+\subsection{Visualize Supply Curves Different Years}\label{visualize-supply-curves-different-years}}
+
+\begin{verbatim}
+% 1. Print and Graph options
+bl_verbose = false;
+bl_graph = true;
+ar_it_prob_or_quant = [1];
+
+% 2. Get Parameters and data
+bl_log_wage = true;
+bl_verbose_nest = false;
+% Get Parameters
+mp_params = bfw_mp_param_esti(bl_log_wage);
+mp_param_aux = bfw_mp_param_aux(bl_verbose_nest);
+mp_params = [mp_params ; mp_param_aux];
+% Get Data
+mp_data = bfw_mp_data(bl_verbose_nest);
+% Get Functions
+mp_func = bfw_mp_func_supply(bl_log_wage, bl_verbose_nest);
+% Get Controls
+mp_controls = bfw_mp_control();
+
+% 3. Data from which year, only integer year value allowed
+% ar_it_data_year = [1989 1994 2000 2008 2014];
+ar_it_data_year = [1989 2000 2014];
+for it_data_year=ar_it_data_year
+
+    % 4. Which categories to obtain data from, there are 12 possible
+    % For non-college equilibrium, six wages, three female, three males
+    % gen_occ = gender occupation
+    for bl_skilled = [false true]
+        if (bl_skilled)
+            mt_st_gen_occ_categories = [...
+                "C011", "C012", "C013"; ...
+                "C111", "C112", "C113"];
+        else
+            mt_st_gen_occ_categories = [...
+                "C001", "C002", "C003"; ...
+                "C101", "C102", "C103"];
+        end
+        
+        % 5. Array of wages, at most, since there are six nests, there are 12
+        % prices possible. And there are 12 quantity supplies possible, coming
+        % from four tyeps of workers, each supply 3 + home categories.
+        mp_wages = containers.Map('KeyType', 'char', 'ValueType', 'any');
+        % Obtain some equilibrium wage data as testing inputs
+        mp_path = bfw_mp_path();
+        spt_codem_data = mp_path('spt_codem_data');
+        tb_data_pq = mp_data('tb_data_pq');
+        tb_data_pq = tb_data_pq(:, ["year", "category", "numberWorkers", "meanWage"]);
+        ar_st_gen_occ_categories = mt_st_gen_occ_categories(:)';
+        for st_gen_occ=ar_st_gen_occ_categories
+            tb_gen_occ_over_years = tb_data_pq(strcmp(tb_data_pq.category, st_gen_occ),:);
+            fl_wage_one_year = tb_gen_occ_over_years(tb_gen_occ_over_years.year == (it_data_year), :);
+            mp_wages(st_gen_occ) = fl_wage_one_year{1, "meanWage"};
+        end
+
+        % Print Wages
+        % ff_container_map_display(mp_wages);
+
+        % Get date offset
+        params_group = values(mp_data, {'date_esti_offset'});
+        [date_esti_offset] = params_group{:};
+
+        % Run function
+        [mp_fl_labor_occprbty,mp_fl_labor_supplied] = bfw_mlogit(...
+            mp_params, mp_data, mp_func, mp_controls, ...
+            mt_st_gen_occ_categories, it_data_year - date_esti_offset, mp_wages, ...
+            bl_verbose, bl_graph, ...
+            ar_it_prob_or_quant);
+    end
+end
+\end{verbatim}
+
+\includegraphics[width=5.20833in,height=\textheight]{img/bfwx_mlogit_images/figure_2.png}
+
+\includegraphics[width=5.20833in,height=\textheight]{img/bfwx_mlogit_images/figure_3.png}
+
+\includegraphics[width=5.20833in,height=\textheight]{img/bfwx_mlogit_images/figure_4.png}
+
+\includegraphics[width=5.20833in,height=\textheight]{img/bfwx_mlogit_images/figure_5.png}
+
+\includegraphics[width=5.20833in,height=\textheight]{img/bfwx_mlogit_images/figure_6.png}
+
+\includegraphics[width=5.20833in,height=\textheight]{img/bfwx_mlogit_images/figure_7.png}
+
 \hypertarget{appendix-appendix}{%
 \appendix}
 
@@ -1824,7 +2755,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/intro/htmlpdfm/bfwx_intro.html}{The Labor Demand and Supply Problem}: \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/doc/intro/bfwx_intro.mlx}{\textbf{mlx}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/doc/intro/htmlpdfm/bfwx_intro.m}{\textbf{m}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/doc/intro/htmlpdfm/bfwx_intro.pdf}{\textbf{pdf}} \textbar{} \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/intro/htmlpdfm/bfwx_intro.html}{\textbf{html}}
+  \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/intro/htmlpdfm/bfwx_intro.html}{The Labor Demand and Supply Problem}: \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/intro/bfwx_intro.mlx}{\textbf{mlx}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/intro/htmlpdfm/bfwx_intro.m}{\textbf{m}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/intro/htmlpdfm/bfwx_intro.pdf}{\textbf{pdf}} \textbar{} \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/intro/htmlpdfm/bfwx_intro.html}{\textbf{html}}
 
   \begin{itemize}
   \tightlist
@@ -1840,7 +2771,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/func/htmlpdfm/bfwx_mp_func_demand.html}{CES Demand Core Functions}: \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/doc/func/bfwx_mp_func_demand.mlx}{\textbf{mlx}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/doc/func/htmlpdfm/bfwx_mp_func_demand.m}{\textbf{m}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/doc/func/htmlpdfm/bfwx_mp_func_demand.pdf}{\textbf{pdf}} \textbar{} \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/func/htmlpdfm/bfwx_mp_func_demand.html}{\textbf{html}}
+  \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/func/htmlpdfm/bfwx_mp_func_demand.html}{CES Demand Core Functions}: \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/func/bfwx_mp_func_demand.mlx}{\textbf{mlx}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/func/htmlpdfm/bfwx_mp_func_demand.m}{\textbf{m}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/func/htmlpdfm/bfwx_mp_func_demand.pdf}{\textbf{pdf}} \textbar{} \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/func/htmlpdfm/bfwx_mp_func_demand.html}{\textbf{html}}
 
   \begin{itemize}
   \tightlist
@@ -1848,6 +2779,62 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
     This function generates a container map with key CES demand-side equation for a particular sub-nest.
   \item
     \textbf{PrjLabEquiBFW}: \emph{\href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/func/bfw_mp_func_demand.m}{bfw\_mp\_func\_demand()}}
+  \end{itemize}
+\item
+  \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/func/htmlpdfm/bfwx_mp_func_supply.html}{Multinomial Logit Core Functions}: \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/func/bfwx_mp_func_supply.mlx}{\textbf{mlx}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/func/htmlpdfm/bfwx_mp_func_supply.m}{\textbf{m}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/func/htmlpdfm/bfwx_mp_func_supply.pdf}{\textbf{pdf}} \textbar{} \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/func/htmlpdfm/bfwx_mp_func_supply.html}{\textbf{html}}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This function generates a container map with key multinomial logit supply-side equations.
+  \item
+    \textbf{PrjLabEquiBFW}: \emph{\href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/func/bfw_mp_func_supply.m}{bfw\_mp\_func\_supply()}}
+  \end{itemize}
+\end{enumerate}
+
+\hypertarget{parameters-links}{%
+\section{Parameters links}\label{parameters-links}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/params/htmlpdfm/bfwx_mp_path.html}{bfwx\_mp\_path}: \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/params/bfwx_mp_path.mlx}{\textbf{mlx}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/params/htmlpdfm/bfwx_mp_path.m}{\textbf{m}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/params/htmlpdfm/bfwx_mp_path.pdf}{\textbf{pdf}} \textbar{} \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/params/htmlpdfm/bfwx_mp_path.html}{\textbf{html}}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    bfw\_mp\_path
+  \item
+    \textbf{PrjLabEquiBFW}: \emph{\href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/paramsdata/bfw_mp_path.m}{bfw\_mp\_path()}}
+  \end{itemize}
+\item
+  \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/params/htmlpdfm/bfwx_mp_param_esti.html}{bfw\_mp\_param\_esti}: \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/params/bfwx_mp_param_esti.mlx}{\textbf{mlx}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/params/htmlpdfm/bfwx_mp_param_esti.m}{\textbf{m}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/params/htmlpdfm/bfwx_mp_param_esti.pdf}{\textbf{pdf}} \textbar{} \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/params/htmlpdfm/bfwx_mp_param_esti.html}{\textbf{html}}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    bfw\_mp\_param\_esti
+  \item
+    \textbf{PrjLabEquiBFW}: \emph{\href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/paramsdata/bfw_mp_param_esti.m}{bfw\_mp\_param\_esti()}}
+  \end{itemize}
+\end{enumerate}
+
+\hypertarget{data-links}{%
+\section{Data links}\label{data-links}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/data/htmlpdfm/bfwx_mp_data.html}{bfwx\_mp\_data}: \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/data/bfwx_mp_data.mlx}{\textbf{mlx}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/data/htmlpdfm/bfwx_mp_data.m}{\textbf{m}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/data/htmlpdfm/bfwx_mp_data.pdf}{\textbf{pdf}} \textbar{} \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/data/htmlpdfm/bfwx_mp_data.html}{\textbf{html}}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    bfw\_mp\_data
+  \item
+    \textbf{PrjLabEquiBFW}: \emph{\href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/paramsdata/bfw_mp_data.m}{bfw\_mp\_data()}}
   \end{itemize}
 \end{enumerate}
 
@@ -1858,7 +2845,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/solvedemand/htmlpdfm/bfwx_crs_nested_ces.html}{Solve Nested CES Optimal Demand (CRS)}: \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/doc/solvedemand/bfwx_crs_nested_ces.mlx}{\textbf{mlx}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/doc/solvedemand/htmlpdfm/bfwx_crs_nested_ces.m}{\textbf{m}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/doc/solvedemand/htmlpdfm/bfwx_crs_nested_ces.pdf}{\textbf{pdf}} \textbar{} \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/solvedemand/htmlpdfm/bfwx_crs_nested_ces.html}{\textbf{html}}
+  \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/solvedemand/htmlpdfm/bfwx_crs_nested_ces.html}{Solve Nested CES Optimal Demand (CRS)}: \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/solvedemand/bfwx_crs_nested_ces.mlx}{\textbf{mlx}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/solvedemand/htmlpdfm/bfwx_crs_nested_ces.m}{\textbf{m}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/solvedemand/htmlpdfm/bfwx_crs_nested_ces.pdf}{\textbf{pdf}} \textbar{} \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/solvedemand/htmlpdfm/bfwx_crs_nested_ces.html}{\textbf{html}}
 
   \begin{itemize}
   \tightlist
@@ -1874,7 +2861,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
     \textbf{PrjLabEquiBFW}: \emph{\href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/solvedemand/bfw_crs_nested_ces.m}{bfw\_crs\_nested\_ces()}}
   \end{itemize}
 \item
-  \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/solvedemand/htmlpdfm/bfwx_crs_nested_ces_mpl.html}{Compute Nested CES MPL Given Demand (CRS)}: \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/doc/solvedemand/bfwx_crs_nested_ces_mpl.mlx}{\textbf{mlx}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/doc/solvedemand/htmlpdfm/bfwx_crs_nested_ces_mpl.m}{\textbf{m}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/doc/solvedemand/htmlpdfm/bfwx_crs_nested_ces_mpl.pdf}{\textbf{pdf}} \textbar{} \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/solvedemand/htmlpdfm/bfwx_crs_nested_ces_mpl.html}{\textbf{html}}
+  \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/solvedemand/htmlpdfm/bfwx_crs_nested_ces_mpl.html}{Compute Nested CES MPL Given Demand (CRS)}: \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/solvedemand/bfwx_crs_nested_ces_mpl.mlx}{\textbf{mlx}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/solvedemand/htmlpdfm/bfwx_crs_nested_ces_mpl.m}{\textbf{m}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/solvedemand/htmlpdfm/bfwx_crs_nested_ces_mpl.pdf}{\textbf{pdf}} \textbar{} \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/solvedemand/htmlpdfm/bfwx_crs_nested_ces_mpl.html}{\textbf{html}}
 
   \begin{itemize}
   \tightlist
@@ -1888,6 +2875,24 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
     Allows for uneven branches, so that some branches go up to four layers, but others have less layers, works with BFW (2022) nested labor input problem.
   \item
     \textbf{PrjLabEquiBFW}: \emph{\href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/solvedemand/bfw_crs_nested_ces_mpl.m}{bfw\_crs\_nested\_ces\_mpl()}}
+  \end{itemize}
+\end{enumerate}
+
+\hypertarget{supply-links}{%
+\section{Supply links}\label{supply-links}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/solvesupply/htmlpdfm/bfwx_mlogit.html}{bfwx\_mlogit}: \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/solvesupply/bfwx_mlogit.mlx}{\textbf{mlx}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/solvesupply/htmlpdfm/bfwx_mlogit.m}{\textbf{m}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/solvesupply/htmlpdfm/bfwx_mlogit.pdf}{\textbf{pdf}} \textbar{} \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/solvesupply/htmlpdfm/bfwx_mlogit.html}{\textbf{html}}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    bfwx\_mlogit
+  \item
+    \textbf{PrjLabEquiBFW}: \emph{\href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/solvesupply/bfwx_mlogit.m}{bfwx\_mlogit()}}
   \end{itemize}
 \end{enumerate}
 

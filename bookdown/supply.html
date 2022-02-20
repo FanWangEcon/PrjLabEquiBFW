@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Supply | BFW Equilibrium Gender LFP and Wage Code Companion</title>
+  <meta name="description" content="bfwx_mlogit" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Supply | BFW Equilibrium Gender LFP and Wage Code Companion" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="bfwx_mlogit" />
+  <meta name="github-repo" content="fanwangecon/PrjLabEquiBFW" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Supply | BFW Equilibrium Gender LFP and Wage Code Companion" />
+  
+  <meta name="twitter:description" content="bfwx_mlogit" />
+  
+
+<meta name="author" content="Sonia R. Bhalotra, Manuel Fernández, and Fan Wang" />
+
+
+<meta name="date" content="2022-02-19" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="demand.html"/>
+<link rel="next" href="index-and-code-links.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-92953468-12"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-92953468-12');
+</script>
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">BFW Equilibrium Gender LFP and Wage Code Companion</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#bhalotra-fernández-and-wang-2022"><i class="fa fa-check"></i><b>1.1</b> Bhalotra, Fernández, and Wang (2022)</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="core-functions.html"><a href="core-functions.html"><i class="fa fa-check"></i><b>2</b> Core Functions</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="core-functions.html"><a href="core-functions.html#ces-demand-core-functions"><i class="fa fa-check"></i><b>2.1</b> CES Demand Core Functions</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="core-functions.html"><a href="core-functions.html#default-test"><i class="fa fa-check"></i><b>2.1.1</b> Default Test</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="core-functions.html"><a href="core-functions.html#multinomial-logit-core-functions"><i class="fa fa-check"></i><b>2.2</b> Multinomial Logit Core Functions</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="core-functions.html"><a href="core-functions.html#test-bl_log_wage-is-false"><i class="fa fa-check"></i><b>2.2.1</b> Test BL_LOG_WAGE is false</a></li>
+<li class="chapter" data-level="2.2.2" data-path="core-functions.html"><a href="core-functions.html#test-bl_log_wage-is-false-1"><i class="fa fa-check"></i><b>2.2.2</b> Test BL_LOG_WAGE is false</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="parameters.html"><a href="parameters.html"><i class="fa fa-check"></i><b>3</b> Parameters</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="parameters.html"><a href="parameters.html#bfw_mp_path"><i class="fa fa-check"></i><b>3.1</b> bfw_mp_path</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="parameters.html"><a href="parameters.html#default-map-of-path-fan-path"><i class="fa fa-check"></i><b>3.1.1</b> Default Map of Path (Fan path)</a></li>
+<li class="chapter" data-level="3.1.2" data-path="parameters.html"><a href="parameters.html#map-of-path-for-alternative-path-installer"><i class="fa fa-check"></i><b>3.1.2</b> Map of Path for Alternative Path Installer</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="parameters.html"><a href="parameters.html#bfw_mp_param_esti"><i class="fa fa-check"></i><b>3.2</b> bfw_mp_param_esti</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="parameters.html"><a href="parameters.html#map-of-estimated-parameters"><i class="fa fa-check"></i><b>3.2.1</b> Map of Estimated Parameters</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>4</b> Data</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data.html"><a href="data.html#bfw_mp_data"><i class="fa fa-check"></i><b>4.1</b> bfw_mp_data</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="data.html"><a href="data.html#get-all-data"><i class="fa fa-check"></i><b>4.1.1</b> Get All Data</a></li>
+<li class="chapter" data-level="4.1.2" data-path="data.html"><a href="data.html#dataset-1"><i class="fa fa-check"></i><b>4.1.2</b> Dataset 1</a></li>
+<li class="chapter" data-level="4.1.3" data-path="data.html"><a href="data.html#dataset-1-aux"><i class="fa fa-check"></i><b>4.1.3</b> Dataset 1 Aux</a></li>
+<li class="chapter" data-level="4.1.4" data-path="data.html"><a href="data.html#dataset-2"><i class="fa fa-check"></i><b>4.1.4</b> Dataset 2</a></li>
+<li class="chapter" data-level="4.1.5" data-path="data.html"><a href="data.html#dataset-2-aux"><i class="fa fa-check"></i><b>4.1.5</b> Dataset 2 Aux</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="demand.html"><a href="demand.html"><i class="fa fa-check"></i><b>5</b> Demand</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="demand.html"><a href="demand.html#solve-nested-ces-optimal-demand-crs"><i class="fa fa-check"></i><b>5.1</b> Solve Nested CES Optimal Demand (CRS)</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="demand.html"><a href="demand.html#key-inputs-and-outputs-for-bfw_mp_func_demand"><i class="fa fa-check"></i><b>5.1.1</b> Key Inputs and Outputs for <span><strong>bfw_mp_func_demand</strong></span></a></li>
+<li class="chapter" data-level="5.1.2" data-path="demand.html"><a href="demand.html#single-nest-layer-two-inputs-ces-problem-demand"><i class="fa fa-check"></i><b>5.1.2</b> Single Nest Layer Two Inputs CES Problem (Demand)</a></li>
+<li class="chapter" data-level="5.1.3" data-path="demand.html"><a href="demand.html#single-nest-layer-two-inputs-ces-problem-vary-share-and-elasticity-demand"><i class="fa fa-check"></i><b>5.1.3</b> Single Nest Layer Two Inputs CES Problem, Vary Share and Elasticity (Demand)</a></li>
+<li class="chapter" data-level="5.1.4" data-path="demand.html"><a href="demand.html#doubly-nest-layer-two-inputs-each-sub-nest-ces-problem-demand"><i class="fa fa-check"></i><b>5.1.4</b> Doubly Nest Layer Two Inputs Each Sub-nest CES Problem (Demand)</a></li>
+<li class="chapter" data-level="5.1.5" data-path="demand.html"><a href="demand.html#doubly-nest-layer-two-inputs-each-sub-nest-ces-problemsolution-check-demand"><i class="fa fa-check"></i><b>5.1.5</b> Doubly Nest Layer Two Inputs Each Sub-nest CES Problem–Solution Check (Demand)</a></li>
+<li class="chapter" data-level="5.1.6" data-path="demand.html"><a href="demand.html#bfw-2022-nested-three-branch-four-layer-problem-demand"><i class="fa fa-check"></i><b>5.1.6</b> BFW (2022) Nested Three Branch (Four Layer) Problem (Demand)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="demand.html"><a href="demand.html#compute-nested-ces-mpl-given-demand-crs"><i class="fa fa-check"></i><b>5.2</b> Compute Nested CES MPL Given Demand (CRS)</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="demand.html"><a href="demand.html#key-inputs-and-outputs-for-bfw_crs_nested_ces_mpl"><i class="fa fa-check"></i><b>5.2.1</b> Key Inputs and Outputs for <span><strong>bfw_crs_nested_ces_mpl</strong></span></a></li>
+<li class="chapter" data-level="5.2.2" data-path="demand.html"><a href="demand.html#single-nest-layer-two-inputs-ces-problem-mpl"><i class="fa fa-check"></i><b>5.2.2</b> Single Nest Layer Two Inputs CES Problem (MPL)</a></li>
+<li class="chapter" data-level="5.2.3" data-path="demand.html"><a href="demand.html#single-nest-layer-two-inputs-ces-problem-vary-share-and-elasticity-mpl"><i class="fa fa-check"></i><b>5.2.3</b> Single Nest Layer Two Inputs CES Problem, Vary Share and Elasticity (MPL)</a></li>
+<li class="chapter" data-level="5.2.4" data-path="demand.html"><a href="demand.html#doubly-nest-layer-two-inputs-each-sub-nest-ces-problem"><i class="fa fa-check"></i><b>5.2.4</b> Doubly Nest Layer Two Inputs Each Sub-nest CES Problem</a></li>
+<li class="chapter" data-level="5.2.5" data-path="demand.html"><a href="demand.html#bfw-2022-nested-three-branch-four-layer-problem-mpl"><i class="fa fa-check"></i><b>5.2.5</b> BFW (2022) Nested Three Branch (Four Layer) Problem (MPL)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="supply.html"><a href="supply.html"><i class="fa fa-check"></i><b>6</b> Supply</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="supply.html"><a href="supply.html#bfw_mlogit"><i class="fa fa-check"></i><b>6.1</b> bfw_mlogit</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="supply.html"><a href="supply.html#default"><i class="fa fa-check"></i><b>6.1.1</b> Default</a></li>
+<li class="chapter" data-level="6.1.2" data-path="supply.html"><a href="supply.html#visualize-supply-curves-different-years"><i class="fa fa-check"></i><b>6.1.2</b> Visualize Supply Curves Different Years</a></li>
+</ul></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="index-and-code-links.html"><a href="index-and-code-links.html"><i class="fa fa-check"></i><b>A</b> Index and Code Links</a>
+<ul>
+<li class="chapter" data-level="A.1" data-path="index-and-code-links.html"><a href="index-and-code-links.html#introduction-links"><i class="fa fa-check"></i><b>A.1</b> Introduction links</a></li>
+<li class="chapter" data-level="A.2" data-path="index-and-code-links.html"><a href="index-and-code-links.html#core-functions-links"><i class="fa fa-check"></i><b>A.2</b> Core Functions links</a></li>
+<li class="chapter" data-level="A.3" data-path="index-and-code-links.html"><a href="index-and-code-links.html#parameters-links"><i class="fa fa-check"></i><b>A.3</b> Parameters links</a></li>
+<li class="chapter" data-level="A.4" data-path="index-and-code-links.html"><a href="index-and-code-links.html#data-links"><i class="fa fa-check"></i><b>A.4</b> Data links</a></li>
+<li class="chapter" data-level="A.5" data-path="index-and-code-links.html"><a href="index-and-code-links.html#demand-links"><i class="fa fa-check"></i><b>A.5</b> Demand links</a></li>
+<li class="chapter" data-level="A.6" data-path="index-and-code-links.html"><a href="index-and-code-links.html#supply-links"><i class="fa fa-check"></i><b>A.6</b> Supply links</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://fanwangecon.github.io/PrjLabEquiBFW/bookdown/index.html" target="blank">PrjLabEquiBFW Bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">BFW Equilibrium Gender LFP and Wage Code Companion</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="supply" class="section level1" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Supply</h1>
+
+<div id="bfw_mlogit" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> bfw_mlogit</h2>
+<p>This is the example vignette for function: bfw_mlogit from the
+<a href="https://fanwangecon.github.io/PrjLabEquiBFW/"><strong>PrjLabEquiBFW
+Package</strong></a><strong>.</strong></p>
+<div id="default" class="section level3" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> Default</h3>
+<pre><code>[mp_fl_labor_occprbty,mp_fl_labor_supplied] = bfw_mlogit();
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_wages Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx    value 
+            _    ___    ______
+
+    C011    1     1     2.1604
+    C012    2     2     5.6589
+    C013    3     3     5.8023
+    C111    4     4     4.5245
+    C112    5     5     5.4146
+    C113    6     6     8.0437
+
+BFW_SUPPLY_LEVELS_BF18;it_supplier_group=1;SNW_MP_CONTROL=;C011;time=;G01;fl_wage=2.1604
+Supply data;potwrker=0.85421;shrmarid=0.87768;shrufive=0.54077;applianc=0.95588;jobscrys=0.613
+BFW_SUPPLY_LEVELS_BF18;it_supplier_group=1;SNW_MP_CONTROL=;C012;time=;G01;fl_wage=5.6589
+Supply data;potwrker=0.85421;shrmarid=0.87768;shrufive=0.54077;applianc=0.95588;jobscrys=0.613
+BFW_SUPPLY_LEVELS_BF18;it_supplier_group=1;SNW_MP_CONTROL=;C013;time=;G01;fl_wage=5.8023
+Supply data;potwrker=0.85421;shrmarid=0.87768;shrufive=0.54077;applianc=0.95588;jobscrys=0.613
+BFW_SUPPLY_LEVELS_BF18;it_supplier_group=2;SNW_MP_CONTROL=;C111;time=;G11;fl_wage=4.5245
+Supply data;potwrker=1.8792;shrmarid=0.9391;shrufive=0.54027;applianc=0.93209;jobscrys=0.613
+BFW_SUPPLY_LEVELS_BF18;it_supplier_group=2;SNW_MP_CONTROL=;C112;time=;G11;fl_wage=5.4146
+Supply data;potwrker=1.8792;shrmarid=0.9391;shrufive=0.54027;applianc=0.93209;jobscrys=0.613
+BFW_SUPPLY_LEVELS_BF18;it_supplier_group=2;SNW_MP_CONTROL=;C113;time=;G11;fl_wage=8.0437
+Supply data;potwrker=1.8792;shrmarid=0.9391;shrufive=0.54027;applianc=0.93209;jobscrys=0.613
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_occprbty Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx     value  
+            _    ___    ________
+
+    C011    1     1     0.015821
+    C012    2     2      0.12787
+    C013    3     3      0.36854
+    C111    4     4     0.097357
+    C112    5     5      0.17795
+    C113    6     6      0.65443
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_supplied Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx     value  
+            _    ___    ________
+
+    C011    1     1     0.013514
+    C012    2     2      0.10923
+    C013    3     3      0.31481
+    C111    4     4      0.18296
+    C112    5     5      0.33441
+    C113    6     6       1.2298
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_supplied_3v0f Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx     value  
+            _    ___    ________
+
+    C011    1     1     0.013514
+    C012    2     2      0.10923
+    C013    3     3      0.31481
+    C111    4     4      0.18296
+    C112    5     5      0.33441
+    C113    6     6       1.2298
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fc_labor_occprbty_3v0f Functions
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+             i     idx                                       functionString                                   
+            ___    ___    ____________________________________________________________________________________
+
+    C011    &quot;1&quot;    &quot;1&quot;    &quot;@(w1,w2,w3)fc_ar_prob_wrk(fl_psi0_manual,psi1,w1,fc_prob_denom_wage(w1,w2,w3))&quot;    
+    C012    &quot;2&quot;    &quot;2&quot;    &quot;@(w1,w2,w3)fc_ar_prob_wrk(fl_psi0_routine,psi1,w2,fc_prob_denom_wage(w1,w2,w3))&quot;   
+    C013    &quot;3&quot;    &quot;3&quot;    &quot;@(w1,w2,w3)fc_ar_prob_wrk(fl_psi0_analytical,psi1,w3,fc_prob_denom_wage(w1,w2,w3))&quot;
+    C111    &quot;4&quot;    &quot;4&quot;    &quot;@(w1,w2,w3)fc_ar_prob_wrk(fl_psi0_manual,psi1,w1,fc_prob_denom_wage(w1,w2,w3))&quot;    
+    C112    &quot;5&quot;    &quot;5&quot;    &quot;@(w1,w2,w3)fc_ar_prob_wrk(fl_psi0_routine,psi1,w2,fc_prob_denom_wage(w1,w2,w3))&quot;   
+    C113    &quot;6&quot;    &quot;6&quot;    &quot;@(w1,w2,w3)fc_ar_prob_wrk(fl_psi0_analytical,psi1,w3,fc_prob_denom_wage(w1,w2,w3))&quot;
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fc_labor_supplied_3v0f Functions
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+             i     idx                                    functionString                                
+            ___    ___    ______________________________________________________________________________
+
+    C011    &quot;1&quot;    &quot;1&quot;    &quot;@(w1,w2,w3)fc_supply(fl_potwrklei_potwrker,fc_labor_occprbty_3v0f(w1,w2,w3))&quot;
+    C012    &quot;2&quot;    &quot;2&quot;    &quot;@(w1,w2,w3)fc_supply(fl_potwrklei_potwrker,fc_labor_occprbty_3v0f(w1,w2,w3))&quot;
+    C013    &quot;3&quot;    &quot;3&quot;    &quot;@(w1,w2,w3)fc_supply(fl_potwrklei_potwrker,fc_labor_occprbty_3v0f(w1,w2,w3))&quot;
+    C111    &quot;4&quot;    &quot;4&quot;    &quot;@(w1,w2,w3)fc_supply(fl_potwrklei_potwrker,fc_labor_occprbty_3v0f(w1,w2,w3))&quot;
+    C112    &quot;5&quot;    &quot;5&quot;    &quot;@(w1,w2,w3)fc_supply(fl_potwrklei_potwrker,fc_labor_occprbty_3v0f(w1,w2,w3))&quot;
+    C113    &quot;6&quot;    &quot;6&quot;    &quot;@(w1,w2,w3)fc_supply(fl_potwrklei_potwrker,fc_labor_occprbty_3v0f(w1,w2,w3))&quot;
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fc_labor_occprbty_1v2f Functions
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+             i     idx                                          functionString                                      
+            ___    ___    __________________________________________________________________________________________
+
+    C011    &quot;1&quot;    &quot;1&quot;    &quot;@(wage)fc_ar_prob_wrk(fl_psi0_manual,psi1,wage,fc_prob_denom_wage(wage,fl_w2,fl_w3))&quot;    
+    C012    &quot;2&quot;    &quot;2&quot;    &quot;@(wage)fc_ar_prob_wrk(fl_psi0_routine,psi1,wage,fc_prob_denom_wage(fl_w1,wage,fl_w3))&quot;   
+    C013    &quot;3&quot;    &quot;3&quot;    &quot;@(wage)fc_ar_prob_wrk(fl_psi0_analytical,psi1,wage,fc_prob_denom_wage(fl_w1,fl_w2,wage))&quot;
+    C111    &quot;4&quot;    &quot;4&quot;    &quot;@(wage)fc_ar_prob_wrk(fl_psi0_manual,psi1,wage,fc_prob_denom_wage(wage,fl_w2,fl_w3))&quot;    
+    C112    &quot;5&quot;    &quot;5&quot;    &quot;@(wage)fc_ar_prob_wrk(fl_psi0_routine,psi1,wage,fc_prob_denom_wage(fl_w1,wage,fl_w3))&quot;   
+    C113    &quot;6&quot;    &quot;6&quot;    &quot;@(wage)fc_ar_prob_wrk(fl_psi0_analytical,psi1,wage,fc_prob_denom_wage(fl_w1,fl_w2,wage))&quot;
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fc_labor_supplied_1v2f Functions
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+             i     idx                                functionString                            
+            ___    ___    ______________________________________________________________________
+
+    C011    &quot;1&quot;    &quot;1&quot;    &quot;@(wage)fc_supply(fl_potwrklei_potwrker,fc_labor_occprbty_1v2f(wage))&quot;
+    C012    &quot;2&quot;    &quot;2&quot;    &quot;@(wage)fc_supply(fl_potwrklei_potwrker,fc_labor_occprbty_1v2f(wage))&quot;
+    C013    &quot;3&quot;    &quot;3&quot;    &quot;@(wage)fc_supply(fl_potwrklei_potwrker,fc_labor_occprbty_1v2f(wage))&quot;
+    C111    &quot;4&quot;    &quot;4&quot;    &quot;@(wage)fc_supply(fl_potwrklei_potwrker,fc_labor_occprbty_1v2f(wage))&quot;
+    C112    &quot;5&quot;    &quot;5&quot;    &quot;@(wage)fc_supply(fl_potwrklei_potwrker,fc_labor_occprbty_1v2f(wage))&quot;
+    C113    &quot;6&quot;    &quot;6&quot;    &quot;@(wage)fc_supply(fl_potwrklei_potwrker,fc_labor_occprbty_1v2f(wage))&quot;</code></pre>
+<p><img src="img/bfwx_mlogit_images/figure_0.png" width="500" /></p>
+<p><img src="img/bfwx_mlogit_images/figure_1.png" width="500" /></p>
+</div>
+<div id="visualize-supply-curves-different-years" class="section level3" number="6.1.2">
+<h3><span class="header-section-number">6.1.2</span> Visualize Supply Curves Different Years</h3>
+<pre><code>% 1. Print and Graph options
+bl_verbose = false;
+bl_graph = true;
+ar_it_prob_or_quant = [1];
+
+% 2. Get Parameters and data
+bl_log_wage = true;
+bl_verbose_nest = false;
+% Get Parameters
+mp_params = bfw_mp_param_esti(bl_log_wage);
+mp_param_aux = bfw_mp_param_aux(bl_verbose_nest);
+mp_params = [mp_params ; mp_param_aux];
+% Get Data
+mp_data = bfw_mp_data(bl_verbose_nest);
+% Get Functions
+mp_func = bfw_mp_func_supply(bl_log_wage, bl_verbose_nest);
+% Get Controls
+mp_controls = bfw_mp_control();
+
+% 3. Data from which year, only integer year value allowed
+% ar_it_data_year = [1989 1994 2000 2008 2014];
+ar_it_data_year = [1989 2000 2014];
+for it_data_year=ar_it_data_year
+
+    % 4. Which categories to obtain data from, there are 12 possible
+    % For non-college equilibrium, six wages, three female, three males
+    % gen_occ = gender occupation
+    for bl_skilled = [false true]
+        if (bl_skilled)
+            mt_st_gen_occ_categories = [...
+                &quot;C011&quot;, &quot;C012&quot;, &quot;C013&quot;; ...
+                &quot;C111&quot;, &quot;C112&quot;, &quot;C113&quot;];
+        else
+            mt_st_gen_occ_categories = [...
+                &quot;C001&quot;, &quot;C002&quot;, &quot;C003&quot;; ...
+                &quot;C101&quot;, &quot;C102&quot;, &quot;C103&quot;];
+        end
+        
+        % 5. Array of wages, at most, since there are six nests, there are 12
+        % prices possible. And there are 12 quantity supplies possible, coming
+        % from four tyeps of workers, each supply 3 + home categories.
+        mp_wages = containers.Map(&#39;KeyType&#39;, &#39;char&#39;, &#39;ValueType&#39;, &#39;any&#39;);
+        % Obtain some equilibrium wage data as testing inputs
+        mp_path = bfw_mp_path();
+        spt_codem_data = mp_path(&#39;spt_codem_data&#39;);
+        tb_data_pq = mp_data(&#39;tb_data_pq&#39;);
+        tb_data_pq = tb_data_pq(:, [&quot;year&quot;, &quot;category&quot;, &quot;numberWorkers&quot;, &quot;meanWage&quot;]);
+        ar_st_gen_occ_categories = mt_st_gen_occ_categories(:)&#39;;
+        for st_gen_occ=ar_st_gen_occ_categories
+            tb_gen_occ_over_years = tb_data_pq(strcmp(tb_data_pq.category, st_gen_occ),:);
+            fl_wage_one_year = tb_gen_occ_over_years(tb_gen_occ_over_years.year == (it_data_year), :);
+            mp_wages(st_gen_occ) = fl_wage_one_year{1, &quot;meanWage&quot;};
+        end
+
+        % Print Wages
+        % ff_container_map_display(mp_wages);
+
+        % Get date offset
+        params_group = values(mp_data, {&#39;date_esti_offset&#39;});
+        [date_esti_offset] = params_group{:};
+
+        % Run function
+        [mp_fl_labor_occprbty,mp_fl_labor_supplied] = bfw_mlogit(...
+            mp_params, mp_data, mp_func, mp_controls, ...
+            mt_st_gen_occ_categories, it_data_year - date_esti_offset, mp_wages, ...
+            bl_verbose, bl_graph, ...
+            ar_it_prob_or_quant);
+    end
+end</code></pre>
+<p><img src="img/bfwx_mlogit_images/figure_2.png" width="500" /></p>
+<p><img src="img/bfwx_mlogit_images/figure_3.png" width="500" /></p>
+<p><img src="img/bfwx_mlogit_images/figure_4.png" width="500" /></p>
+<p><img src="img/bfwx_mlogit_images/figure_5.png" width="500" /></p>
+<p><img src="img/bfwx_mlogit_images/figure_6.png" width="500" /></p>
+<p><img src="img/bfwx_mlogit_images/figure_7.png" width="500" /></p>
+
+</div>
+</div>
+</div>
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="demand.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="index-and-code-links.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": [["BFW-Equilibrium-Gender-LFP-and-Wage-Code-Companion.pdf", "PDF"]],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

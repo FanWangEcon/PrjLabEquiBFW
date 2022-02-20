@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2021b"><title>bfw_mp_path</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(213, 80, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S2 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(60, 60, 60); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.CodeBlock { background-color: #F7F7F7; margin: 10px 0 10px 0;}
+.S3 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 0px none rgb(0, 0, 0); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S4 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 0px; padding: 0px 45px 4px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S5 { color: rgb(64, 64, 64); padding: 10px 0px 6px 17px; background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box; font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px; overflow-x: hidden; line-height: 17.234px;  }
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsErrorElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsErrorElement .diagnosticMessage-errorType {    overflow: auto;}
+.embeddedOutputsErrorElement.inlineElement {}
+.embeddedOutputsErrorElement.rightPaneElement {}
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsWarningElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsWarningElement .diagnosticMessage-warningType {    overflow: auto;}
+.embeddedOutputsWarningElement.inlineElement {}
+.embeddedOutputsWarningElement.rightPaneElement {}
+/* Copyright 2015-2019 The MathWorks, Inc. *//* In this file, styles are not scoped to rtcContainer since they could be in the Dojo Tooltip */.diagnosticMessage-wrapper {    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;    font-size: 12px;}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType {    color: rgb(255,100,0);}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType a {    color: rgb(255,100,0);    text-decoration: underline;}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType {    color: rgb(230,0,0);}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType a {    color: rgb(230,0,0);    text-decoration: underline;}
+.diagnosticMessage-wrapper .diagnosticMessage-messagePart,.diagnosticMessage-wrapper .diagnosticMessage-causePart {    white-space: pre-wrap;}
+.diagnosticMessage-wrapper .diagnosticMessage-stackPart {    white-space: pre;}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement {    white-space: pre;    word-wrap:  initial;    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsTextElement .textElement,.embeddedOutputsVariableStringElement .textElement {    overflow: auto;}
+.textElement,.rtcDataTipElement .textElement {    padding-top: 3px;}
+.embeddedOutputsTextElement.inlineElement,.embeddedOutputsVariableStringElement.inlineElement {}
+.inlineElement .textElement {}
+.embeddedOutputsTextElement.rightPaneElement,.embeddedOutputsVariableStringElement.rightPaneElement {    min-height: 16px;}
+.rightPaneElement .textElement {    padding-top: 2px;    padding-left: 9px;}
+.S6 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 0px none rgb(0, 0, 0); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S7 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(60, 60, 60); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>bfw_mp_path</span></h1><div  class = 'S1'><span>This is the example vignette for function: bfw_mp_path from the </span><a href = "https://fanwangecon.github.io/PrjLabEquiBFW/"><span style=' font-weight: bold;'>PrjLabEquiBFW Package</span></a><span style=' font-weight: bold;'>. </span></div><h2  class = 'S2'><span>Default Map of Path (Fan path)</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >bl_verbose = true;</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S4'><span style="white-space: pre"><span >mp_path = bfw_mp_path(bl_verbose);</span></span></div><div  class = 'S5'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="BBCC1D98" data-testid="output_0" style="width: 1146px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="1116" data-height="281" data-hashorizontaloverflow="false" style="max-height: 292px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_path_external String
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                             <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">i</strong>      <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">idx</strong>                                                <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">string</strong>                                           
+                            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">____</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">____</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">____________________________________________________________________________________________</strong>
+
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">spt_codem           </strong>    "1"     "1"     "C:\Users\fan\PrjLabEquiBFW\PrjLabEquiBFW\"                                                 
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">spt_codem_data      </strong>    "2"     "2"     "C:\Users\fan\PrjLabEquiBFW\PrjLabEquiBFW\_data\"                                           
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">spt_codem_doc       </strong>    "3"     "3"     "C:\Users\fan\PrjLabEquiBFW\PrjLabEquiBFW\doc\"                                             
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">spt_output_root     </strong>    "4"     "4"     "C:\Users\fan\Documents\Dropbox (UH-ECON)\Latex_BhalotraFernandez\"                         
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">spt_repo_root       </strong>    "5"     "5"     "C:\Users\fan\PrjLabEquiBFW\"                                                               
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">spt_simu_outputs_log</strong>    "6"     "6"     "C:\Users\fan\Documents\Dropbox (UH-ECON)\Latex_BhalotraFernandez\PrjLabEquiBFWOutput\log\" 
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">spt_simu_outputs_mat</strong>    "7"     "7"     "C:\Users\fan\Documents\Dropbox (UH-ECON)\Latex_BhalotraFernandez\PrjLabEquiBFWOutput\mat\" 
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">spt_simu_outputs_prf</strong>    "8"     "8"     "C:\Users\fan\Documents\Dropbox (UH-ECON)\Latex_BhalotraFernandez\PrjLabEquiBFWOutput\prof\"
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">spt_simu_outputs_vig</strong>    "9"     "9"     "C:\Users\fan\Documents\Dropbox (UH-ECON)\Latex_BhalotraFernandez\PrjLabEquiBFWOutput\vig\" 
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">spt_simu_results_csv</strong>    "10"    "10"    "C:\Users\fan\Documents\Dropbox (UH-ECON)\Latex_BhalotraFernandez\PrjLabEquiBFWOutput\res\" 
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">spt_simu_results_img</strong>    "11"    "11"    "C:\Users\fan\Documents\Dropbox (UH-ECON)\Latex_BhalotraFernandez\PrjLabEquiBFWOutput\img\" 
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">st_computer         </strong>    "12"    "12"    "fan"                                                                                       </div></div></div></div></div><h2  class = 'S2'><span>Map of Path for Alternative Path Installer</span></h2><div  class = 'S1'><span>Two directories, one for the repo and one for where outputs go, need to be specified. </span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >spt_repo_root = </span><span style="color: rgb(170, 4, 249);">"~\PrjLabEquiBFW"</span><span >;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >spt_output_root = </span><span style="color: rgb(170, 4, 249);">"~\Dropbox\PrjLabEquiBFW"</span><span >;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >bl_verbose = true;</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S4'><span style="white-space: pre"><span >mp_path = bfw_mp_path(spt_repo_root, spt_output_root, bl_verbose);</span></span></div><div  class = 'S5'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="D06DBC14" data-testid="output_1" style="width: 1146px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="1116" data-height="267" data-hashorizontaloverflow="false" style="max-height: 278px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_path_external String
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                             <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">i</strong>      <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">idx</strong>                           <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">string</strong>                       
+                            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">____</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">____</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">___________________________________________________</strong>
+
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">spt_codem           </strong>    "1"     "1"     "~\PrjLabEquiBFW\PrjLabEquiBFW\"                   
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">spt_codem_data      </strong>    "2"     "2"     "~\PrjLabEquiBFW\PrjLabEquiBFW\_data\"             
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">spt_codem_doc       </strong>    "3"     "3"     "~\PrjLabEquiBFW\PrjLabEquiBFW\doc\"               
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">spt_output_root     </strong>    "4"     "4"     "~\Dropbox\PrjLabEquiBFW"                          
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">spt_repo_root       </strong>    "5"     "5"     "~\PrjLabEquiBFW"                                  
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">spt_simu_outputs_log</strong>    "6"     "6"     "~\Dropbox\PrjLabEquiBFW\PrjLabEquiBFWOutput\log\" 
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">spt_simu_outputs_mat</strong>    "7"     "7"     "~\Dropbox\PrjLabEquiBFW\PrjLabEquiBFWOutput\mat\" 
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">spt_simu_outputs_prf</strong>    "8"     "8"     "~\Dropbox\PrjLabEquiBFW\PrjLabEquiBFWOutput\prof\"
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">spt_simu_outputs_vig</strong>    "9"     "9"     "~\Dropbox\PrjLabEquiBFW\PrjLabEquiBFWOutput\vig\" 
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">spt_simu_results_csv</strong>    "10"    "10"    "~\Dropbox\PrjLabEquiBFW\PrjLabEquiBFWOutput\res\" 
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">spt_simu_results_img</strong>    "11"    "11"    "~\Dropbox\PrjLabEquiBFW\PrjLabEquiBFWOutput\img\" </div></div></div></div></div><h2  class = 'S7'></h2>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% bfw_mp_path
+% This is the example vignette for function: bfw_mp_path from the <https://fanwangecon.github.io/PrjLabEquiBFW/ 
+% *PrjLabEquiBFW Package*>*.* 
+%% Default Map of Path (Fan path)
+
+bl_verbose = true;
+mp_path = bfw_mp_path(bl_verbose);
+%% Map of Path for Alternative Path Installer
+% Two directories, one for the repo and one for where outputs go, need to be 
+% specified. 
+
+spt_repo_root = "~\PrjLabEquiBFW";
+spt_output_root = "~\Dropbox\PrjLabEquiBFW";
+bl_verbose = true;
+mp_path = bfw_mp_path(spt_repo_root, spt_output_root, bl_verbose);
+%%
+##### SOURCE END #####
+-->
+</div></body></html>

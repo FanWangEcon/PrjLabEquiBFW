@@ -1,0 +1,22 @@
+- file: bfwx_mp_data
+  title: "bfwx_mp_data"
+  titleshort: "bfwx_mp_data"
+  description: |
+    bfw_mp_data
+  core :
+    - package: PrjLabEquiBFW
+      code: |
+        [bfw_mp_data()](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/paramsdata/bfw_mp_data.m)
+  date: 2022-02-17
+  date_start: 2022-02-17
+  output:
+    pdf_document:
+      pandoc_args: '../../../_output_kniti_pdf.yaml'
+      includes:
+        in_header: '../../../preamble.tex'
+    html_document:
+      pandoc_args: '../../../_output_kniti_html.yaml'
+      includes:
+        in_header: '../../../hdga.html'
+  always_allow_html: true
+  urlcolor: blue

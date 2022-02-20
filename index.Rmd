@@ -38,7 +38,7 @@ All functions are parts of a matlab toolbox that can be installed:
 
 The Code Companion can also be accessed via the bookdown site and PDF linked below:
 
-> [**bookdown pdf**](https://fanwangecon.github.io/PrjLabEquiBFW/bookdown/BFW-Equilibrium-Gender-LFP-and-Wage-Code-Companion.pdf), [**MathWorks File Exchange**](https://www.mathworks.com/matlabcentral/fileexchange/80164-PrjLabEquiBFW)
+> [**bookdown site**](https://fanwangecon.github.io/PrjLabEquiBFW/bookdown/), [**bookdown pdf**](https://fanwangecon.github.io/PrjLabEquiBFW/bookdown/BFW-Equilibrium-Gender-LFP-and-Wage-Code-Companion.pdf), [**MathWorks File Exchange**](https://www.mathworks.com/matlabcentral/fileexchange/80164-PrjLabEquiBFW)
 
 This bookdown file is a collection of mlx based vignettes for functions that are available from [PrjLabEquiBFW](https://github.com/FanWangEcon/PrjLabEquiBFW). Each Vignette file contains various examples for invoking each function.
 

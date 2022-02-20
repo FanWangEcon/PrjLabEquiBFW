@@ -95,6 +95,9 @@ if (~isempty(varargin))
     elseif (length(varargin)==6)
         [cl_mn_prho, cl_mn_pshare, cl_mn_yz_choices, ...
             mp_func, bl_verbose, bl_bfw_model] = varargin{:};
+    elseif (length(varargin) > 6)
+        error('bfw_crs_nested_ces_mpl:TooManyOptionalParameters', ...
+            'allows at most 6 optional parameters');
     end
 
 else

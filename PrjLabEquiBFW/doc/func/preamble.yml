@@ -20,3 +20,26 @@
         in_header: '../../../hdga.html'
   always_allow_html: true
   urlcolor: blue
+
+- file: bfwx_mp_func_supply
+  title: "Multinomial Logit Core Functions"
+  titleshort: "Multinomial Logit Core Functions"
+  description: |
+    This function generates a container map with key multinomial logit supply-side equations.
+  core :
+    - package: PrjLabEquiBFW
+      code: |
+        [bfw_mp_func_supply()](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/func/bfw_mp_func_supply.m)
+  date: 2022-02-16
+  date_start: 2022-02-12
+  output:
+    pdf_document:
+      pandoc_args: '../../../_output_kniti_pdf.yaml'
+      includes:
+        in_header: '../../../preamble.tex'
+    html_document:
+      pandoc_args: '../../../_output_kniti_html.yaml'
+      includes:
+        in_header: '../../../hdga.html'
+  always_allow_html: true
+  urlcolor: blue

@@ -12,10 +12,21 @@ rmd_files:
 
   - PrjLabEquiBFW/doc/func/main.Rmd
   - PrjLabEquiBFW/doc/func/bfwx_mp_func_demand.Rmd
+  - PrjLabEquiBFW/doc/func/bfwx_mp_func_supply.Rmd
+
+  - PrjLabEquiBFW/doc/params/main.Rmd
+  - PrjLabEquiBFW/doc/params/bfwx_mp_path.Rmd
+  - PrjLabEquiBFW/doc/params/bfwx_mp_param_esti.Rmd
+
+  - PrjLabEquiBFW/doc/data/main.Rmd
+  - PrjLabEquiBFW/doc/data/bfwx_mp_data.Rmd
 
   - PrjLabEquiBFW/doc/solvedemand/main.Rmd
   - PrjLabEquiBFW/doc/solvedemand/bfwx_crs_nested_ces.Rmd
   - PrjLabEquiBFW/doc/solvedemand/bfwx_crs_nested_ces_mpl.Rmd
+
+  - PrjLabEquiBFW/doc/solvesupply/main.Rmd
+  - PrjLabEquiBFW/doc/solvesupply/bfwx_mlogit.Rmd
 
   - README_appendix.md
   - title.Rmd

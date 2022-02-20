@@ -1,0 +1,81 @@
+---
+always_allow_html: 'true'
+core:
+- code: '[bfw_mp_func_supply()](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/func/bfw_mp_func_supply.m)
+
+    '
+  package: PrjLabEquiBFW
+date: '2022-02-16'
+date_start: '2022-02-12'
+description: 'This function generates a container map with key multinomial logit supply-side
+  equations.
+
+  '
+file: bfwx_mp_func_supply
+output:
+  html_document:
+    includes:
+      in_header: ../../../hdga.html
+    pandoc_args: ../../../_output_kniti_html.yaml
+  pdf_document:
+    includes:
+      in_header: ../../../preamble.tex
+    pandoc_args: ../../../_output_kniti_pdf.yaml
+title: Multinomial Logit Core Functions
+titleshort: Multinomial Logit Core Functions
+urlcolor: blue
+---
+
+## Multinomial Logit Core Functions
+
+This is the example vignette for function:
+[**bfw_mp_func_supply**](https://github.com/FanWangEcon/PrjLabEquiBFW/tree/main/PrjLabEquiBFW/func/bfw_mp_func_supply.m)
+from the [**PrjLabEquiBFW
+Package**](https://fanwangecon.github.io/PrjLabEquiBFW/)**.** This
+function generates a container map with key multinomial logit
+supply-side equations.
+
+### Test BL_LOG_WAGE is false
+
+Default test
+
+    bl_log_wage = false;
+    bl_verbose = true;
+    mp_func_supply = bfw_mp_func_supply(bl_log_wage, bl_verbose);
+
+    ----------------------------------------
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    CONTAINER NAME: mp_func Functions
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                             i     idx                                                                                                                                   functionString                                                                                                                               
+                            ___    ___    ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+        fc_ar_prob_wrk      "1"    "1"    "@(arpsi0,psi1,mtwage,probdenom)fc_v_occ(reshape(arpsi0,[1,length(arpsi0)]),psi1,mtwage)./probdenom"                                                                                                                                                                        
+        fc_log_pmdpo_occ    "2"    "2"    "@(psi0,psi1,arwage,pie1,pie2,pie3,pie4,pie5,pie6,t,prbchd,prbmar,prbapp,prbjsy)(psi0+psi1.*arwage)-(pie1+pie2.*(t)+pie3.*prbchd+pie4.*prbmar+pie5.*prbapp+pie6.*prbjsy)"                                                                                                   
+        fc_prob_denom       "3"    "3"    "@(arpsi0,psi1,arpie,arwage1,arwage2,arwage3,t,prbchd,prbmar,prbapp,prbjsy)fc_v_occ(arpsi0(1),psi1,arwage1)+fc_v_occ(arpsi0(2),psi1,arwage2)+fc_v_occ(arpsi0(3),psi1,arwage3)+fc_v_lei(arpie(1),arpie(2),arpie(3),arpie(4),arpie(5),arpie(6),t,prbchd,prbmar,prbapp,prbjsy)"
+        fc_prob_lei         "4"    "4"    "@(arpie,t,prbchd,prbmar,prbapp,prbjsy,probdenom)fc_v_lei(arpie(1),arpie(2),arpie(3),arpie(4),arpie(5),arpie(6),t,prbchd,prbmar,prbapp,prbjsy)./probdenom"                                                                                                                  
+        fc_s1               "5"    "5"    "@(p1,G_1,zeta_1_0,zeta_1_1)G_1./(1+(exp(-zeta_1_0-zeta_1_1.*p1)))"                                                                                                                                                                                                         
+        fc_s2               "6"    "6"    "@(p2,G_2,zeta_2_0,zeta_2_1)G_2./(1+(exp(-zeta_2_0-zeta_2_1.*p2)))"                                                                                                                                                                                                         
+        fc_supply           "7"    "7"    "@(potlabor,prob)potlabor.*prob"                                                                                                                                                                                                                                            
+
+### Test BL_LOG_WAGE is false
+
+Default test
+
+    bl_log_wage = true;
+    mp_func_supply = bfw_mp_func_supply(bl_log_wage, bl_verbose);
+
+    ----------------------------------------
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    CONTAINER NAME: mp_func Functions
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                             i     idx                                                                                                                                   functionString                                                                                                                               
+                            ___    ___    ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+        fc_ar_prob_wrk      "1"    "1"    "@(arpsi0,psi1,mtwage,probdenom)fc_v_occ(reshape(arpsi0,[1,length(arpsi0)]),psi1,mtwage)./probdenom"                                                                                                                                                                        
+        fc_log_pmdpo_occ    "2"    "2"    "@(psi0,psi1,arwage,pie1,pie2,pie3,pie4,pie5,pie6,t,prbchd,prbmar,prbapp,prbjsy)(psi0+psi1.*log(arwage))-(pie1+pie2.*(t)+pie3.*prbchd+pie4.*prbmar+pie5.*prbapp+pie6.*prbjsy)"                                                                                              
+        fc_prob_denom       "3"    "3"    "@(arpsi0,psi1,arpie,arwage1,arwage2,arwage3,t,prbchd,prbmar,prbapp,prbjsy)fc_v_occ(arpsi0(1),psi1,arwage1)+fc_v_occ(arpsi0(2),psi1,arwage2)+fc_v_occ(arpsi0(3),psi1,arwage3)+fc_v_lei(arpie(1),arpie(2),arpie(3),arpie(4),arpie(5),arpie(6),t,prbchd,prbmar,prbapp,prbjsy)"
+        fc_prob_lei         "4"    "4"    "@(arpie,t,prbchd,prbmar,prbapp,prbjsy,probdenom)fc_v_lei(arpie(1),arpie(2),arpie(3),arpie(4),arpie(5),arpie(6),t,prbchd,prbmar,prbapp,prbjsy)./probdenom"                                                                                                                  
+        fc_s1               "5"    "5"    "@(p1,G_1,zeta_1_0,zeta_1_1)G_1./(1+(exp(-zeta_1_0-zeta_1_1.*p1)))"                                                                                                                                                                                                         
+        fc_s2               "6"    "6"    "@(p2,G_2,zeta_2_0,zeta_2_1)G_2./(1+(exp(-zeta_2_0-zeta_2_1.*p2)))"                                                                                                                                                                                                         
+        fc_supply           "7"    "7"    "@(potlabor,prob)potlabor.*prob"                                                                                                                                                                                                                                            

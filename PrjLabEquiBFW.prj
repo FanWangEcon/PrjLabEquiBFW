@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.toolbox" plugin-version="1.0">
-  <configuration build-checksum="2818515975" file="C:\Users\fan\PrjLabEquiBFW\PrjLabEquiBFW.prj" location="C:\Users\fan\PrjLabEquiBFW" name="PrjLabEquiBFW" target="target.toolbox" target-name="Package Toolbox">
+  <configuration build-checksum="2397524640" file="C:\Users\fan\PrjLabEquiBFW\PrjLabEquiBFW.prj" location="C:\Users\fan\PrjLabEquiBFW" name="PrjLabEquiBFW" target="target.toolbox" target-name="Package Toolbox">
     <param.appname>PrjLabEquiBFW</param.appname>
     <param.authnamewatermark>Fan Wang</param.authnamewatermark>
     <param.email>fanwecon@gmail.com</param.email>
@@ -7,7 +7,7 @@
     <param.summary>BFW Equilibrium Gender LFP and Wage Code Companion</param.summary>
     <param.description>BFW Equilibrium Gender LFP and Wage Code Companion</param.description>
     <param.screenshot>C:\Users\fan\Downloads\SUPPLY_WAGES_OC0D_3_2018.png</param.screenshot>
-    <param.version>0.1.1</param.version>
+    <param.version>0.1.2</param.version>
     <param.output>${PROJECT_ROOT}\PrjLabEquiBFW.mltbx</param.output>
     <param.products.name />
     <param.products.id />
@@ -72,7 +72,9 @@ htmlpdfm/*
     <param.javaclasspath.excludes />
     <param.exported.on.package>false</param.exported.on.package>
     <param.required.addons>
-      <requiredaddons />
+      <requiredaddons>
+        <requiredAddOn downloadURL="" earliest="earliest" fromRepository="false" id="629aec6f-8f88-4bdc-8c6e-6d731d1ae90b" include="false" latest="latest">MEconTools</requiredAddOn>
+      </requiredaddons>
     </param.required.addons>
     <param.matlab.project.id />
     <param.matlab.project.name />
@@ -121,11 +123,14 @@ htmlpdfm/*
       <file>${PROJECT_ROOT}\PrjLabEquiBFW</file>
     </fileset.rootdir>
     <fileset.rootfiles>
+      <file>${PROJECT_ROOT}\PrjLabEquiBFW\_data</file>
       <file>${PROJECT_ROOT}\PrjLabEquiBFW\demos.xml</file>
       <file>${PROJECT_ROOT}\PrjLabEquiBFW\doc</file>
       <file>${PROJECT_ROOT}\PrjLabEquiBFW\func</file>
       <file>${PROJECT_ROOT}\PrjLabEquiBFW\info.xml</file>
-      <file>${PROJECT_ROOT}\PrjLabEquiBFW\params</file>
+      <file>${PROJECT_ROOT}\PrjLabEquiBFW\paramsdata</file>
+      <file>${PROJECT_ROOT}\PrjLabEquiBFW\solvedemand</file>
+      <file>${PROJECT_ROOT}\PrjLabEquiBFW\solvesupply</file>
     </fileset.rootfiles>
     <fileset.depfun.included />
     <fileset.depfun.excluded />

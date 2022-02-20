@@ -1,0 +1,17 @@
+group,groupName,category,sex,skill
+G00,female-unskilled,C001,female,unskilled
+G00,female-unskilled,C002,female,unskilled
+G00,female-unskilled,C003,female,unskilled
+G00,female-unskilled,C004,female,unskilled
+G01,female-skilled,C011,female,skilled
+G01,female-skilled,C012,female,skilled
+G01,female-skilled,C013,female,skilled
+G01,female-skilled,C014,female,skilled
+G10,male-unskilled,C101,male,unskilled
+G10,male-unskilled,C102,male,unskilled
+G10,male-unskilled,C103,male,unskilled
+G10,male-unskilled,C104,male,unskilled
+G11,male-skilled,C111,male,skilled
+G11,male-skilled,C112,male,skilled
+G11,male-skilled,C113,male,skilled
+G11,male-skilled,C114,male,skilled

@@ -1,14 +1,4 @@
-# Objective
-
-Solving constant return to scale nested CES problem, in iterative backward
-structure. The solution is actually used in
-*PrjFLFPMexicoBFW/caliestidemand/bfw_qpdata_esti_invoke_mlvl.m* when solving
-*htl* up to down. But the solution there is nested inside other problems.
-
-There are several core functions:
-
-1. sub-nest solution: given parameters, provide optimal choices
-2. n-nest solution: there are N nests, assume there are 2 inputs in each nest, each nest has 2 + 1 parameters, elasticity and share as well as well as the output parameter, but the inner output parameter is endogenous except for the outter-most nest. So the input structure is if there are 2 nests, there should be (1+2)*2 + 1 = 7 parameters. If there are 3 nests, there should be (1 +**** 2 + 4)*2 + 1 = 15 parameters.
+# Nesed CES Solutions
 
 ## Nest structure
 

@@ -93,6 +93,9 @@ if (~isempty(varargin))
     elseif (length(varargin)==7)
         [fl_yz, cl_mn_prho, cl_mn_pshare, cl_mn_price, ...
             mp_func, bl_verbose, bl_bfw_model] = varargin{:};
+    elseif (length(varargin) > 7)
+        error('bfw_crs_nested_ces:TooManyOptionalParameters', ...
+            'allows at most 7 optional parameters');
     end
 
 else

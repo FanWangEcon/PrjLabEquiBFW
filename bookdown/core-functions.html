@@ -5,35 +5,26 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 Core Functions | BFW Equilibrium Gender LFP and Wage Code Companion</title>
-  <meta name="description" content="<p>Given labor quantity demanded, using first-order relative optimality conditions, find the marginal product of labor given CES production function.
-Takes as inputs share and elasticity parameters across layers of sub-nests, as well as quantity demanded at each bottom-most CES nest layer.
-Works with Constant Elasticity of Substitution problems with constant returns, up to four nest layers, and two inputs in each sub-nest.
-Allows for uneven branches, so that some branches go up to four layers, but others have less layers, works with BFW (2022) nested labor input problem.</p>" />
+  <meta name="description" content="bfwx_mlogit" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 Core Functions | BFW Equilibrium Gender LFP and Wage Code Companion" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="<p>Given labor quantity demanded, using first-order relative optimality conditions, find the marginal product of labor given CES production function.
-Takes as inputs share and elasticity parameters across layers of sub-nests, as well as quantity demanded at each bottom-most CES nest layer.
-Works with Constant Elasticity of Substitution problems with constant returns, up to four nest layers, and two inputs in each sub-nest.
-Allows for uneven branches, so that some branches go up to four layers, but others have less layers, works with BFW (2022) nested labor input problem.</p>" />
+  <meta property="og:description" content="bfwx_mlogit" />
   <meta name="github-repo" content="fanwangecon/PrjLabEquiBFW" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 2 Core Functions | BFW Equilibrium Gender LFP and Wage Code Companion" />
   
-  <meta name="twitter:description" content="<p>Given labor quantity demanded, using first-order relative optimality conditions, find the marginal product of labor given CES production function.
-Takes as inputs share and elasticity parameters across layers of sub-nests, as well as quantity demanded at each bottom-most CES nest layer.
-Works with Constant Elasticity of Substitution problems with constant returns, up to four nest layers, and two inputs in each sub-nest.
-Allows for uneven branches, so that some branches go up to four layers, but others have less layers, works with BFW (2022) nested labor input problem.</p>" />
+  <meta name="twitter:description" content="bfwx_mlogit" />
   
 
 <meta name="author" content="Sonia R. Bhalotra, Manuel Fernández, and Fan Wang" />
 
 
-<meta name="date" content="2022-02-15" />
+<meta name="date" content="2022-02-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -41,7 +32,7 @@ Allows for uneven branches, so that some branches go up to four layers, but othe
   
   
 <link rel="prev" href="introduction.html"/>
-<link rel="next" href="demand.html"/>
+<link rel="next" href="parameters.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -123,25 +114,61 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="2.1.1" data-path="core-functions.html"><a href="core-functions.html#default-test"><i class="fa fa-check"></i><b>2.1.1</b> Default Test</a></li>
 </ul></li>
+<li class="chapter" data-level="2.2" data-path="core-functions.html"><a href="core-functions.html#multinomial-logit-core-functions"><i class="fa fa-check"></i><b>2.2</b> Multinomial Logit Core Functions</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="core-functions.html"><a href="core-functions.html#test-bl_log_wage-is-false"><i class="fa fa-check"></i><b>2.2.1</b> Test BL_LOG_WAGE is false</a></li>
+<li class="chapter" data-level="2.2.2" data-path="core-functions.html"><a href="core-functions.html#test-bl_log_wage-is-false-1"><i class="fa fa-check"></i><b>2.2.2</b> Test BL_LOG_WAGE is false</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="demand.html"><a href="demand.html"><i class="fa fa-check"></i><b>3</b> Demand</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="demand.html"><a href="demand.html#solve-nested-ces-optimal-demand-crs"><i class="fa fa-check"></i><b>3.1</b> Solve Nested CES Optimal Demand (CRS)</a>
-<ul>
-<li class="chapter" data-level="3.1.1" data-path="demand.html"><a href="demand.html#key-inputs-and-outputs-for-bfw_mp_func_demand"><i class="fa fa-check"></i><b>3.1.1</b> Key Inputs and Outputs for <span><strong>bfw_mp_func_demand</strong></span></a></li>
-<li class="chapter" data-level="3.1.2" data-path="demand.html"><a href="demand.html#single-nest-layer-two-inputs-ces-problem-demand"><i class="fa fa-check"></i><b>3.1.2</b> Single Nest Layer Two Inputs CES Problem (Demand)</a></li>
-<li class="chapter" data-level="3.1.3" data-path="demand.html"><a href="demand.html#single-nest-layer-two-inputs-ces-problem-vary-share-and-elasticity-demand"><i class="fa fa-check"></i><b>3.1.3</b> Single Nest Layer Two Inputs CES Problem, Vary Share and Elasticity (Demand)</a></li>
-<li class="chapter" data-level="3.1.4" data-path="demand.html"><a href="demand.html#doubly-nest-layer-two-inputs-each-sub-nest-ces-problem-demand"><i class="fa fa-check"></i><b>3.1.4</b> Doubly Nest Layer Two Inputs Each Sub-nest CES Problem (Demand)</a></li>
-<li class="chapter" data-level="3.1.5" data-path="demand.html"><a href="demand.html#doubly-nest-layer-two-inputs-each-sub-nest-ces-problemsolution-check-demand"><i class="fa fa-check"></i><b>3.1.5</b> Doubly Nest Layer Two Inputs Each Sub-nest CES Problem–Solution Check (Demand)</a></li>
-<li class="chapter" data-level="3.1.6" data-path="demand.html"><a href="demand.html#bfw-2022-nested-three-branch-four-layer-problem-demand"><i class="fa fa-check"></i><b>3.1.6</b> BFW (2022) Nested Three Branch (Four Layer) Problem (Demand)</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="demand.html"><a href="demand.html#compute-nested-ces-mpl-given-demand-crs"><i class="fa fa-check"></i><b>3.2</b> Compute Nested CES MPL Given Demand (CRS)</a>
+<li class="chapter" data-level="3" data-path="parameters.html"><a href="parameters.html"><i class="fa fa-check"></i><b>3</b> Parameters</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="demand.html"><a href="demand.html#key-inputs-and-outputs-for-bfw_crs_nested_ces_mpl"><i class="fa fa-check"></i><b>3.2.1</b> Key Inputs and Outputs for <span><strong>bfw_crs_nested_ces_mpl</strong></span></a></li>
-<li class="chapter" data-level="3.2.2" data-path="demand.html"><a href="demand.html#single-nest-layer-two-inputs-ces-problem-mpl"><i class="fa fa-check"></i><b>3.2.2</b> Single Nest Layer Two Inputs CES Problem (MPL)</a></li>
-<li class="chapter" data-level="3.2.3" data-path="demand.html"><a href="demand.html#single-nest-layer-two-inputs-ces-problem-vary-share-and-elasticity-mpl"><i class="fa fa-check"></i><b>3.2.3</b> Single Nest Layer Two Inputs CES Problem, Vary Share and Elasticity (MPL)</a></li>
-<li class="chapter" data-level="3.2.4" data-path="demand.html"><a href="demand.html#doubly-nest-layer-two-inputs-each-sub-nest-ces-problem"><i class="fa fa-check"></i><b>3.2.4</b> Doubly Nest Layer Two Inputs Each Sub-nest CES Problem</a></li>
-<li class="chapter" data-level="3.2.5" data-path="demand.html"><a href="demand.html#bfw-2022-nested-three-branch-four-layer-problem-mpl"><i class="fa fa-check"></i><b>3.2.5</b> BFW (2022) Nested Three Branch (Four Layer) Problem (MPL)</a></li>
+<li class="chapter" data-level="3.1" data-path="parameters.html"><a href="parameters.html#bfw_mp_path"><i class="fa fa-check"></i><b>3.1</b> bfw_mp_path</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="parameters.html"><a href="parameters.html#default-map-of-path-fan-path"><i class="fa fa-check"></i><b>3.1.1</b> Default Map of Path (Fan path)</a></li>
+<li class="chapter" data-level="3.1.2" data-path="parameters.html"><a href="parameters.html#map-of-path-for-alternative-path-installer"><i class="fa fa-check"></i><b>3.1.2</b> Map of Path for Alternative Path Installer</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="parameters.html"><a href="parameters.html#bfw_mp_param_esti"><i class="fa fa-check"></i><b>3.2</b> bfw_mp_param_esti</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="parameters.html"><a href="parameters.html#map-of-estimated-parameters"><i class="fa fa-check"></i><b>3.2.1</b> Map of Estimated Parameters</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>4</b> Data</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data.html"><a href="data.html#bfw_mp_data"><i class="fa fa-check"></i><b>4.1</b> bfw_mp_data</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="data.html"><a href="data.html#get-all-data"><i class="fa fa-check"></i><b>4.1.1</b> Get All Data</a></li>
+<li class="chapter" data-level="4.1.2" data-path="data.html"><a href="data.html#dataset-1"><i class="fa fa-check"></i><b>4.1.2</b> Dataset 1</a></li>
+<li class="chapter" data-level="4.1.3" data-path="data.html"><a href="data.html#dataset-1-aux"><i class="fa fa-check"></i><b>4.1.3</b> Dataset 1 Aux</a></li>
+<li class="chapter" data-level="4.1.4" data-path="data.html"><a href="data.html#dataset-2"><i class="fa fa-check"></i><b>4.1.4</b> Dataset 2</a></li>
+<li class="chapter" data-level="4.1.5" data-path="data.html"><a href="data.html#dataset-2-aux"><i class="fa fa-check"></i><b>4.1.5</b> Dataset 2 Aux</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="demand.html"><a href="demand.html"><i class="fa fa-check"></i><b>5</b> Demand</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="demand.html"><a href="demand.html#solve-nested-ces-optimal-demand-crs"><i class="fa fa-check"></i><b>5.1</b> Solve Nested CES Optimal Demand (CRS)</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="demand.html"><a href="demand.html#key-inputs-and-outputs-for-bfw_mp_func_demand"><i class="fa fa-check"></i><b>5.1.1</b> Key Inputs and Outputs for <span><strong>bfw_mp_func_demand</strong></span></a></li>
+<li class="chapter" data-level="5.1.2" data-path="demand.html"><a href="demand.html#single-nest-layer-two-inputs-ces-problem-demand"><i class="fa fa-check"></i><b>5.1.2</b> Single Nest Layer Two Inputs CES Problem (Demand)</a></li>
+<li class="chapter" data-level="5.1.3" data-path="demand.html"><a href="demand.html#single-nest-layer-two-inputs-ces-problem-vary-share-and-elasticity-demand"><i class="fa fa-check"></i><b>5.1.3</b> Single Nest Layer Two Inputs CES Problem, Vary Share and Elasticity (Demand)</a></li>
+<li class="chapter" data-level="5.1.4" data-path="demand.html"><a href="demand.html#doubly-nest-layer-two-inputs-each-sub-nest-ces-problem-demand"><i class="fa fa-check"></i><b>5.1.4</b> Doubly Nest Layer Two Inputs Each Sub-nest CES Problem (Demand)</a></li>
+<li class="chapter" data-level="5.1.5" data-path="demand.html"><a href="demand.html#doubly-nest-layer-two-inputs-each-sub-nest-ces-problemsolution-check-demand"><i class="fa fa-check"></i><b>5.1.5</b> Doubly Nest Layer Two Inputs Each Sub-nest CES Problem–Solution Check (Demand)</a></li>
+<li class="chapter" data-level="5.1.6" data-path="demand.html"><a href="demand.html#bfw-2022-nested-three-branch-four-layer-problem-demand"><i class="fa fa-check"></i><b>5.1.6</b> BFW (2022) Nested Three Branch (Four Layer) Problem (Demand)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="demand.html"><a href="demand.html#compute-nested-ces-mpl-given-demand-crs"><i class="fa fa-check"></i><b>5.2</b> Compute Nested CES MPL Given Demand (CRS)</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="demand.html"><a href="demand.html#key-inputs-and-outputs-for-bfw_crs_nested_ces_mpl"><i class="fa fa-check"></i><b>5.2.1</b> Key Inputs and Outputs for <span><strong>bfw_crs_nested_ces_mpl</strong></span></a></li>
+<li class="chapter" data-level="5.2.2" data-path="demand.html"><a href="demand.html#single-nest-layer-two-inputs-ces-problem-mpl"><i class="fa fa-check"></i><b>5.2.2</b> Single Nest Layer Two Inputs CES Problem (MPL)</a></li>
+<li class="chapter" data-level="5.2.3" data-path="demand.html"><a href="demand.html#single-nest-layer-two-inputs-ces-problem-vary-share-and-elasticity-mpl"><i class="fa fa-check"></i><b>5.2.3</b> Single Nest Layer Two Inputs CES Problem, Vary Share and Elasticity (MPL)</a></li>
+<li class="chapter" data-level="5.2.4" data-path="demand.html"><a href="demand.html#doubly-nest-layer-two-inputs-each-sub-nest-ces-problem"><i class="fa fa-check"></i><b>5.2.4</b> Doubly Nest Layer Two Inputs Each Sub-nest CES Problem</a></li>
+<li class="chapter" data-level="5.2.5" data-path="demand.html"><a href="demand.html#bfw-2022-nested-three-branch-four-layer-problem-mpl"><i class="fa fa-check"></i><b>5.2.5</b> BFW (2022) Nested Three Branch (Four Layer) Problem (MPL)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="supply.html"><a href="supply.html"><i class="fa fa-check"></i><b>6</b> Supply</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="supply.html"><a href="supply.html#bfw_mlogit"><i class="fa fa-check"></i><b>6.1</b> bfw_mlogit</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="supply.html"><a href="supply.html#default"><i class="fa fa-check"></i><b>6.1.1</b> Default</a></li>
+<li class="chapter" data-level="6.1.2" data-path="supply.html"><a href="supply.html#visualize-supply-curves-different-years"><i class="fa fa-check"></i><b>6.1.2</b> Visualize Supply Curves Different Years</a></li>
 </ul></li>
 </ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
@@ -149,7 +176,10 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="A.1" data-path="index-and-code-links.html"><a href="index-and-code-links.html#introduction-links"><i class="fa fa-check"></i><b>A.1</b> Introduction links</a></li>
 <li class="chapter" data-level="A.2" data-path="index-and-code-links.html"><a href="index-and-code-links.html#core-functions-links"><i class="fa fa-check"></i><b>A.2</b> Core Functions links</a></li>
-<li class="chapter" data-level="A.3" data-path="index-and-code-links.html"><a href="index-and-code-links.html#demand-links"><i class="fa fa-check"></i><b>A.3</b> Demand links</a></li>
+<li class="chapter" data-level="A.3" data-path="index-and-code-links.html"><a href="index-and-code-links.html#parameters-links"><i class="fa fa-check"></i><b>A.3</b> Parameters links</a></li>
+<li class="chapter" data-level="A.4" data-path="index-and-code-links.html"><a href="index-and-code-links.html#data-links"><i class="fa fa-check"></i><b>A.4</b> Data links</a></li>
+<li class="chapter" data-level="A.5" data-path="index-and-code-links.html"><a href="index-and-code-links.html#demand-links"><i class="fa fa-check"></i><b>A.5</b> Demand links</a></li>
+<li class="chapter" data-level="A.6" data-path="index-and-code-links.html"><a href="index-and-code-links.html#supply-links"><i class="fa fa-check"></i><b>A.6</b> Supply links</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://fanwangecon.github.io/PrjLabEquiBFW/bookdown/index.html" target="blank">PrjLabEquiBFW Bookdown</a></li>
@@ -180,8 +210,8 @@ div.csl-indent {
 <a href="https://github.com/FanWangEcon/PrjLabEquiBFW/tree/main/PrjLabEquiBFW/func/bfw_mp_func_demand.m"><strong>bfw_mp_func_demand</strong></a>
 from the <a href="https://fanwangecon.github.io/PrjLabEquiBFW/"><strong>PrjLabEquiBFW
 Package</strong></a><strong>.</strong> This
-function generates a container map with key CES demand-side equation for
-a particular sub-nest.</p>
+function generates a container map with key CES demand-side equations
+for a particular sub-nest.</p>
 <div id="default-test" class="section level3" number="2.1.1">
 <h3><span class="header-section-number">2.1.1</span> Default Test</h3>
 <p>Default test</p>
@@ -209,6 +239,59 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 </div>
 </div>
+<div id="multinomial-logit-core-functions" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Multinomial Logit Core Functions</h2>
+<p>This is the example vignette for function:
+<a href="https://github.com/FanWangEcon/PrjLabEquiBFW/tree/main/PrjLabEquiBFW/func/bfw_mp_func_supply.m"><strong>bfw_mp_func_supply</strong></a>
+from the <a href="https://fanwangecon.github.io/PrjLabEquiBFW/"><strong>PrjLabEquiBFW
+Package</strong></a><strong>.</strong> This
+function generates a container map with key multinomial logit
+supply-side equations.</p>
+<div id="test-bl_log_wage-is-false" class="section level3" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Test BL_LOG_WAGE is false</h3>
+<p>Default test</p>
+<pre><code>bl_log_wage = false;
+bl_verbose = true;
+mp_func_supply = bfw_mp_func_supply(bl_log_wage, bl_verbose);
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_func Functions
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                         i     idx                                                                                                                                   functionString                                                                                                                               
+                        ___    ___    ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+    fc_ar_prob_wrk      &quot;1&quot;    &quot;1&quot;    &quot;@(arpsi0,psi1,mtwage,probdenom)fc_v_occ(reshape(arpsi0,[1,length(arpsi0)]),psi1,mtwage)./probdenom&quot;                                                                                                                                                                        
+    fc_log_pmdpo_occ    &quot;2&quot;    &quot;2&quot;    &quot;@(psi0,psi1,arwage,pie1,pie2,pie3,pie4,pie5,pie6,t,prbchd,prbmar,prbapp,prbjsy)(psi0+psi1.*arwage)-(pie1+pie2.*(t)+pie3.*prbchd+pie4.*prbmar+pie5.*prbapp+pie6.*prbjsy)&quot;                                                                                                   
+    fc_prob_denom       &quot;3&quot;    &quot;3&quot;    &quot;@(arpsi0,psi1,arpie,arwage1,arwage2,arwage3,t,prbchd,prbmar,prbapp,prbjsy)fc_v_occ(arpsi0(1),psi1,arwage1)+fc_v_occ(arpsi0(2),psi1,arwage2)+fc_v_occ(arpsi0(3),psi1,arwage3)+fc_v_lei(arpie(1),arpie(2),arpie(3),arpie(4),arpie(5),arpie(6),t,prbchd,prbmar,prbapp,prbjsy)&quot;
+    fc_prob_lei         &quot;4&quot;    &quot;4&quot;    &quot;@(arpie,t,prbchd,prbmar,prbapp,prbjsy,probdenom)fc_v_lei(arpie(1),arpie(2),arpie(3),arpie(4),arpie(5),arpie(6),t,prbchd,prbmar,prbapp,prbjsy)./probdenom&quot;                                                                                                                  
+    fc_s1               &quot;5&quot;    &quot;5&quot;    &quot;@(p1,G_1,zeta_1_0,zeta_1_1)G_1./(1+(exp(-zeta_1_0-zeta_1_1.*p1)))&quot;                                                                                                                                                                                                         
+    fc_s2               &quot;6&quot;    &quot;6&quot;    &quot;@(p2,G_2,zeta_2_0,zeta_2_1)G_2./(1+(exp(-zeta_2_0-zeta_2_1.*p2)))&quot;                                                                                                                                                                                                         
+    fc_supply           &quot;7&quot;    &quot;7&quot;    &quot;@(potlabor,prob)potlabor.*prob&quot;                                                                                                                                                                                                                                            </code></pre>
+</div>
+<div id="test-bl_log_wage-is-false-1" class="section level3" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Test BL_LOG_WAGE is false</h3>
+<p>Default test</p>
+<pre><code>bl_log_wage = true;
+mp_func_supply = bfw_mp_func_supply(bl_log_wage, bl_verbose);
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_func Functions
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                         i     idx                                                                                                                                   functionString                                                                                                                               
+                        ___    ___    ____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+    fc_ar_prob_wrk      &quot;1&quot;    &quot;1&quot;    &quot;@(arpsi0,psi1,mtwage,probdenom)fc_v_occ(reshape(arpsi0,[1,length(arpsi0)]),psi1,mtwage)./probdenom&quot;                                                                                                                                                                        
+    fc_log_pmdpo_occ    &quot;2&quot;    &quot;2&quot;    &quot;@(psi0,psi1,arwage,pie1,pie2,pie3,pie4,pie5,pie6,t,prbchd,prbmar,prbapp,prbjsy)(psi0+psi1.*log(arwage))-(pie1+pie2.*(t)+pie3.*prbchd+pie4.*prbmar+pie5.*prbapp+pie6.*prbjsy)&quot;                                                                                              
+    fc_prob_denom       &quot;3&quot;    &quot;3&quot;    &quot;@(arpsi0,psi1,arpie,arwage1,arwage2,arwage3,t,prbchd,prbmar,prbapp,prbjsy)fc_v_occ(arpsi0(1),psi1,arwage1)+fc_v_occ(arpsi0(2),psi1,arwage2)+fc_v_occ(arpsi0(3),psi1,arwage3)+fc_v_lei(arpie(1),arpie(2),arpie(3),arpie(4),arpie(5),arpie(6),t,prbchd,prbmar,prbapp,prbjsy)&quot;
+    fc_prob_lei         &quot;4&quot;    &quot;4&quot;    &quot;@(arpie,t,prbchd,prbmar,prbapp,prbjsy,probdenom)fc_v_lei(arpie(1),arpie(2),arpie(3),arpie(4),arpie(5),arpie(6),t,prbchd,prbmar,prbapp,prbjsy)./probdenom&quot;                                                                                                                  
+    fc_s1               &quot;5&quot;    &quot;5&quot;    &quot;@(p1,G_1,zeta_1_0,zeta_1_1)G_1./(1+(exp(-zeta_1_0-zeta_1_1.*p1)))&quot;                                                                                                                                                                                                         
+    fc_s2               &quot;6&quot;    &quot;6&quot;    &quot;@(p2,G_2,zeta_2_0,zeta_2_1)G_2./(1+(exp(-zeta_2_0-zeta_2_1.*p2)))&quot;                                                                                                                                                                                                         
+    fc_supply           &quot;7&quot;    &quot;7&quot;    &quot;@(potlabor,prob)potlabor.*prob&quot;                                                                                                                                                                                                                                            </code></pre>
+
+</div>
+</div>
 </div>
             </section>
 
@@ -216,7 +299,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
         </div>
       </div>
 <a href="introduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="demand.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="parameters.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
