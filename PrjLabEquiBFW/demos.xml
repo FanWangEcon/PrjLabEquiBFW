@@ -14,4 +14,31 @@
          <file>doc/func/html/bfwx_mp_func_demand.html</file>
       </demoitem>
    </demosection>
+   <demosection>
+      <label>params</label>
+      <demoitem>
+         <label>bfwx_mp_control</label>
+         <type>other</type>
+         <source>bfwx_mp_control</source>
+         <file>doc/params/html/bfwx_mp_control.html</file>
+      </demoitem>
+      <demoitem>
+         <label>bfwx_mp_param_aux</label>
+         <type>other</type>
+         <source>bfwx_mp_param_aux</source>
+         <file>doc/params/html/bfwx_mp_param_aux.html</file>
+      </demoitem>
+      <demoitem>
+         <label>bfwx_mp_param_esti</label>
+         <type>other</type>
+         <source>bfwx_mp_param_esti</source>
+         <file>doc/params/html/bfwx_mp_param_esti.html</file>
+      </demoitem>
+      <demoitem>
+         <label>bfwx_mp_path</label>
+         <type>other</type>
+         <source>bfwx_mp_path</source>
+         <file>doc/params/html/bfwx_mp_path.html</file>
+      </demoitem>
+   </demosection>
 </demos>
