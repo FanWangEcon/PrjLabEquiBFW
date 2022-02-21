@@ -48,18 +48,21 @@ function [varargout]=bfw_mlogit(varargin)
 
 %% Default and Parse
 if (~isempty(varargin))
-    
+
     [bl_verbose, bl_graph] = deal(false, false);
     ar_it_prob_or_quant = [1,2];
+
+    bl_log_wage = true;
+    bl_verbose_nest = false;
 
     if (length(varargin)==4)
         [mp_params, mp_data, mp_controls, ...
             mt_st_gen_occ_categories, it_data_year] = varargin{:};
-        mp_func = bfw_mp_func('default');
+        mp_func = bfw_mp_func_supply(bl_log_wage, bl_verbose_nest);
     elseif (length(varargin)==5)
         [mp_params, mp_data, mp_controls, ...
             mt_st_gen_occ_categories, it_data_year] = varargin{:};
-        mp_func = bfw_mp_func('default');
+        mp_func = bfw_mp_func_supply(bl_log_wage, bl_verbose_nest);
     elseif (length(varargin)==6)
         [mp_params, mp_data, mp_func, mp_controls, ...
             mt_st_gen_occ_categories, it_data_year] = varargin{:};
@@ -142,7 +145,7 @@ else
         fl_wage_one_year = tb_gen_occ_over_years(tb_gen_occ_over_years.year == (it_data_year + date_esti_offset), :);
         mp_wages(st_gen_occ) = fl_wage_one_year{1, "meanWage"};
     end
-    
+
     % Print Wages
     ff_container_map_display(mp_wages);
 end

@@ -15,31 +15,19 @@ bl_verbose = true;
 %     'splannerjaeemk', 'splannerjmky', 'svalpol', 'svalpolsmall', 'svalpolunemploy'};
 st_out_folder = mp_path('spt_simu_outputs_vig');
 
-it_vig_group = 1;
-
+it_vig_group = 99;
+cl_st_subfolder_a = {'func', 'params', 'data'};
+cl_st_subfolder_b = {'solvedemand', 'solvesupply'};
+cl_st_subfolder_c = {'solveequiskl'};
 if (it_vig_group == 1)
 % 2 Parameters
-    cl_st_subfolder = {'func'};
+    cl_st_subfolder = cl_st_subfolder_a;
 elseif (it_vig_group == 2)
-% Sections 3, 4, 5, 6
-    cl_st_subfolder = {...
-        'svalpol', ... % sec3
-        'svalpolsmall', ... % sec4
-        'svalpolunemploy', ... % sec5
-        'svalpolstimulus' ...  % sec6
-        };
+    cl_st_subfolder = cl_st_subfolder_b;
 elseif (it_vig_group == 3)
-    cl_st_subfolder = {'sdist'};
-elseif (it_vig_group == 4)
-    cl_st_subfolder = {'splannercheckval', 'splannerjaeemk', 'splannerjmky'};
-elseif (it_vig_group == 5)
-    cl_st_subfolder = {'fgov', 'calibrate'};
-elseif (it_vig_group == 6)
-    % Added on 2021 12 06 comparative statistics
-    cl_st_subfolder = {'compstat'};
+    cl_st_subfolder = cl_st_subfolder_c;
 elseif (it_vig_group == 99)
-%     , 'calibrate'
-    cl_st_subfolder = {'svalpolsmall'};
+    cl_st_subfolder = [cl_st_subfolder_a, cl_st_subfolder_b, cl_st_subfolder_c];
 end
 
 ff_mlx2htmlpdf_runandexport(...

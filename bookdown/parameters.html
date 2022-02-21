@@ -5,26 +5,26 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 Parameters | BFW Equilibrium Gender LFP and Wage Code Companion</title>
-  <meta name="description" content="bfwx_mlogit" />
+  <meta name="description" content="bfw_solveequi_w2q2w" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Parameters | BFW Equilibrium Gender LFP and Wage Code Companion" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="bfwx_mlogit" />
+  <meta property="og:description" content="bfw_solveequi_w2q2w" />
   <meta name="github-repo" content="fanwangecon/PrjLabEquiBFW" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 3 Parameters | BFW Equilibrium Gender LFP and Wage Code Companion" />
   
-  <meta name="twitter:description" content="bfwx_mlogit" />
+  <meta name="twitter:description" content="bfw_solveequi_w2q2w" />
   
 
 <meta name="author" content="Sonia R. Bhalotra, Manuel Fernández, and Fan Wang" />
 
 
-<meta name="date" content="2022-02-19" />
+<meta name="date" content="2022-02-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -119,6 +119,10 @@ div.csl-indent {
 <li class="chapter" data-level="2.2.1" data-path="core-functions.html"><a href="core-functions.html#test-bl_log_wage-is-false"><i class="fa fa-check"></i><b>2.2.1</b> Test BL_LOG_WAGE is false</a></li>
 <li class="chapter" data-level="2.2.2" data-path="core-functions.html"><a href="core-functions.html#test-bl_log_wage-is-false-1"><i class="fa fa-check"></i><b>2.2.2</b> Test BL_LOG_WAGE is false</a></li>
 </ul></li>
+<li class="chapter" data-level="2.3" data-path="core-functions.html"><a href="core-functions.html#equilibrium-core-functions"><i class="fa fa-check"></i><b>2.3</b> Equilibrium Core Functions</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="core-functions.html"><a href="core-functions.html#default-test-1"><i class="fa fa-check"></i><b>2.3.1</b> Default Test</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="parameters.html"><a href="parameters.html"><i class="fa fa-check"></i><b>3</b> Parameters</a>
 <ul>
@@ -127,9 +131,13 @@ div.csl-indent {
 <li class="chapter" data-level="3.1.1" data-path="parameters.html"><a href="parameters.html#default-map-of-path-fan-path"><i class="fa fa-check"></i><b>3.1.1</b> Default Map of Path (Fan path)</a></li>
 <li class="chapter" data-level="3.1.2" data-path="parameters.html"><a href="parameters.html#map-of-path-for-alternative-path-installer"><i class="fa fa-check"></i><b>3.1.2</b> Map of Path for Alternative Path Installer</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="parameters.html"><a href="parameters.html#bfw_mp_param_esti"><i class="fa fa-check"></i><b>3.2</b> bfw_mp_param_esti</a>
+<li class="chapter" data-level="3.2" data-path="parameters.html"><a href="parameters.html#bfw_mp_control"><i class="fa fa-check"></i><b>3.2</b> bfw_mp_control</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="parameters.html"><a href="parameters.html#map-of-estimated-parameters"><i class="fa fa-check"></i><b>3.2.1</b> Map of Estimated Parameters</a></li>
+<li class="chapter" data-level="3.2.1" data-path="parameters.html"><a href="parameters.html#map-of-control-parameters"><i class="fa fa-check"></i><b>3.2.1</b> Map of Control Parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="parameters.html"><a href="parameters.html#bfw_mp_param_esti"><i class="fa fa-check"></i><b>3.3</b> bfw_mp_param_esti</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="parameters.html"><a href="parameters.html#map-of-estimated-parameters"><i class="fa fa-check"></i><b>3.3.1</b> Map of Estimated Parameters</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>4</b> Data</a>
@@ -171,6 +179,19 @@ div.csl-indent {
 <li class="chapter" data-level="6.1.2" data-path="supply.html"><a href="supply.html#visualize-supply-curves-different-years"><i class="fa fa-check"></i><b>6.1.2</b> Visualize Supply Curves Different Years</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="7" data-path="equilibrium-by-skill-nest-group.html"><a href="equilibrium-by-skill-nest-group.html"><i class="fa fa-check"></i><b>7</b> Equilibrium by Skill Nest Group</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="equilibrium-by-skill-nest-group.html"><a href="equilibrium-by-skill-nest-group.html#root-search-equilibrium-wage-equations-by-skill-group"><i class="fa fa-check"></i><b>7.1</b> Root Search Equilibrium Wage Equations By Skill Group</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="equilibrium-by-skill-nest-group.html"><a href="equilibrium-by-skill-nest-group.html#default-1"><i class="fa fa-check"></i><b>7.1.1</b> Default</a></li>
+<li class="chapter" data-level="7.1.2" data-path="equilibrium-by-skill-nest-group.html"><a href="equilibrium-by-skill-nest-group.html#vary-parameters-solve-equilibrium-quantitieswages-root-search"><i class="fa fa-check"></i><b>7.1.2</b> Vary Parameters, Solve Equilibrium Quantities/Wages, Root Search</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="equilibrium-by-skill-nest-group.html"><a href="equilibrium-by-skill-nest-group.html#equilibrium-w-to-q-to-w-contraction-by-skill-group"><i class="fa fa-check"></i><b>7.2</b> Equilibrium W to Q to W Contraction By Skill Group</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="equilibrium-by-skill-nest-group.html"><a href="equilibrium-by-skill-nest-group.html#default-2"><i class="fa fa-check"></i><b>7.2.1</b> Default</a></li>
+<li class="chapter" data-level="7.2.2" data-path="equilibrium-by-skill-nest-group.html"><a href="equilibrium-by-skill-nest-group.html#vary-parameters-solve-equilibrium-quantities-wages-w-to-q-to-w-contraction"><i class="fa fa-check"></i><b>7.2.2</b> Vary Parameters, Solve Equilibrium Quantities Wages, W to Q to W Contraction</a></li>
+</ul></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="index-and-code-links.html"><a href="index-and-code-links.html"><i class="fa fa-check"></i><b>A</b> Index and Code Links</a>
 <ul>
@@ -180,6 +201,7 @@ div.csl-indent {
 <li class="chapter" data-level="A.4" data-path="index-and-code-links.html"><a href="index-and-code-links.html#data-links"><i class="fa fa-check"></i><b>A.4</b> Data links</a></li>
 <li class="chapter" data-level="A.5" data-path="index-and-code-links.html"><a href="index-and-code-links.html#demand-links"><i class="fa fa-check"></i><b>A.5</b> Demand links</a></li>
 <li class="chapter" data-level="A.6" data-path="index-and-code-links.html"><a href="index-and-code-links.html#supply-links"><i class="fa fa-check"></i><b>A.6</b> Supply links</a></li>
+<li class="chapter" data-level="A.7" data-path="index-and-code-links.html"><a href="index-and-code-links.html#equilibrium-by-skill-nest-group-links"><i class="fa fa-check"></i><b>A.7</b> Equilibrium by Skill Nest Group links</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://fanwangecon.github.io/PrjLabEquiBFW/bookdown/index.html" target="blank">PrjLabEquiBFW Bookdown</a></li>
@@ -264,14 +286,278 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 </div>
 </div>
-<div id="bfw_mp_param_esti" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> bfw_mp_param_esti</h2>
+<div id="bfw_mp_control" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> bfw_mp_control</h2>
+<p>This is the example vignette for function: bfw_mp_control from the
+<a href="https://fanwangecon.github.io/PrjLabEquiBFW/"><strong>PrjLabEquiBFW
+Package</strong></a><strong>.</strong></p>
+<div id="map-of-control-parameters" class="section level3" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Map of Control Parameters</h3>
+<pre><code>[bl_display_status, bl_display_verbose_status, bl_verbose] = deal(true, true, true);
+mp_func_supply = bfw_mp_control(bl_display_status, bl_display_verbose_status, bl_verbose);
+
+pos = 7 ; key = fmin_controls_a
+                   Display: &#39;off&#39;
+               MaxFunEvals: 2500
+                   MaxIter: 2000
+                    TolFun: 1.0000e-05
+                      TolX: 1.0000e-05
+               FunValCheck: []
+                 OutputFcn: []
+                  PlotFcns: []
+           ActiveConstrTol: []
+                 Algorithm: []
+    AlwaysHonorConstraints: []
+           DerivativeCheck: []
+               Diagnostics: []
+             DiffMaxChange: []
+             DiffMinChange: []
+            FinDiffRelStep: []
+               FinDiffType: []
+         GoalsExactAchieve: []
+                GradConstr: []
+                   GradObj: []
+                   HessFcn: []
+                   Hessian: []
+                  HessMult: []
+               HessPattern: []
+                HessUpdate: []
+          InitBarrierParam: []
+     InitTrustRegionRadius: []
+                  Jacobian: []
+                 JacobMult: []
+              JacobPattern: []
+                LargeScale: []
+                  MaxNodes: []
+                MaxPCGIter: []
+             MaxProjCGIter: []
+                MaxSQPIter: []
+                   MaxTime: []
+             MeritFunction: []
+                 MinAbsMax: []
+        NoStopIfFlatInfeas: []
+            ObjectiveLimit: []
+      PhaseOneTotalScaling: []
+            Preconditioner: []
+          PrecondBandWidth: []
+            RelLineSrchBnd: []
+    RelLineSrchBndDuration: []
+              ScaleProblem: []
+       SubproblemAlgorithm: []
+                    TolCon: []
+                 TolConSQP: []
+                TolGradCon: []
+                    TolPCG: []
+                 TolProjCG: []
+              TolProjCGAbs: []
+                  TypicalX: []
+               UseParallel: []
+
+pos = 8 ; key = fmin_controls_b
+                   Display: &#39;off&#39;
+               MaxFunEvals: []
+                   MaxIter: []
+                    TolFun: []
+                      TolX: []
+               FunValCheck: []
+                 OutputFcn: []
+                  PlotFcns: []
+           ActiveConstrTol: []
+                 Algorithm: []
+    AlwaysHonorConstraints: []
+           DerivativeCheck: []
+               Diagnostics: []
+             DiffMaxChange: []
+             DiffMinChange: []
+            FinDiffRelStep: []
+               FinDiffType: []
+         GoalsExactAchieve: []
+                GradConstr: []
+                   GradObj: []
+                   HessFcn: []
+                   Hessian: []
+                  HessMult: []
+               HessPattern: []
+                HessUpdate: []
+          InitBarrierParam: []
+     InitTrustRegionRadius: []
+                  Jacobian: []
+                 JacobMult: []
+              JacobPattern: []
+                LargeScale: []
+                  MaxNodes: []
+                MaxPCGIter: []
+             MaxProjCGIter: []
+                MaxSQPIter: []
+                   MaxTime: []
+             MeritFunction: []
+                 MinAbsMax: []
+        NoStopIfFlatInfeas: []
+            ObjectiveLimit: []
+      PhaseOneTotalScaling: []
+            Preconditioner: []
+          PrecondBandWidth: []
+            RelLineSrchBnd: []
+    RelLineSrchBndDuration: []
+              ScaleProblem: []
+       SubproblemAlgorithm: []
+                    TolCon: []
+                 TolConSQP: []
+                TolGradCon: []
+                    TolPCG: []
+                 TolProjCG: []
+              TolProjCGAbs: []
+                  TypicalX: []
+               UseParallel: []
+
+pos = 9 ; key = fmin_controls_c
+                   Display: &#39;iter&#39;
+               MaxFunEvals: 750
+                   MaxIter: 500
+                    TolFun: 1.0000e-05
+                      TolX: 1.0000e-05
+               FunValCheck: []
+                 OutputFcn: []
+                  PlotFcns: []
+           ActiveConstrTol: []
+                 Algorithm: []
+    AlwaysHonorConstraints: []
+           DerivativeCheck: []
+               Diagnostics: []
+             DiffMaxChange: []
+             DiffMinChange: []
+            FinDiffRelStep: []
+               FinDiffType: []
+         GoalsExactAchieve: []
+                GradConstr: []
+                   GradObj: []
+                   HessFcn: []
+                   Hessian: []
+                  HessMult: []
+               HessPattern: []
+                HessUpdate: []
+          InitBarrierParam: []
+     InitTrustRegionRadius: []
+                  Jacobian: []
+                 JacobMult: []
+              JacobPattern: []
+                LargeScale: []
+                  MaxNodes: []
+                MaxPCGIter: []
+             MaxProjCGIter: []
+                MaxSQPIter: []
+                   MaxTime: []
+             MeritFunction: []
+                 MinAbsMax: []
+        NoStopIfFlatInfeas: []
+            ObjectiveLimit: []
+      PhaseOneTotalScaling: []
+            Preconditioner: []
+          PrecondBandWidth: []
+            RelLineSrchBnd: []
+    RelLineSrchBndDuration: []
+              ScaleProblem: []
+       SubproblemAlgorithm: []
+                    TolCon: []
+                 TolConSQP: []
+                TolGradCon: []
+                    TolPCG: []
+                 TolProjCG: []
+              TolProjCGAbs: []
+                  TypicalX: []
+               UseParallel: []
+
+pos = 10 ; key = fmin_controls_d
+                   Display: &#39;iter&#39;
+               MaxFunEvals: 5000
+                   MaxIter: 15
+                    TolFun: 1.0000e-06
+                      TolX: 1.0000e-06
+               FunValCheck: []
+                 OutputFcn: []
+                  PlotFcns: {@optimplotfval  @optimplotx  @optimplotstepsize  @optimplotfunccount}
+           ActiveConstrTol: []
+                 Algorithm: []
+    AlwaysHonorConstraints: []
+           DerivativeCheck: []
+               Diagnostics: []
+             DiffMaxChange: []
+             DiffMinChange: []
+            FinDiffRelStep: []
+               FinDiffType: []
+         GoalsExactAchieve: []
+                GradConstr: []
+                   GradObj: []
+                   HessFcn: []
+                   Hessian: []
+                  HessMult: []
+               HessPattern: []
+                HessUpdate: []
+          InitBarrierParam: []
+     InitTrustRegionRadius: []
+                  Jacobian: []
+                 JacobMult: []
+              JacobPattern: []
+                LargeScale: []
+                  MaxNodes: []
+                MaxPCGIter: []
+             MaxProjCGIter: []
+                MaxSQPIter: []
+                   MaxTime: []
+             MeritFunction: []
+                 MinAbsMax: []
+        NoStopIfFlatInfeas: []
+            ObjectiveLimit: []
+      PhaseOneTotalScaling: []
+            Preconditioner: []
+          PrecondBandWidth: []
+            RelLineSrchBnd: []
+    RelLineSrchBndDuration: []
+              ScaleProblem: []
+       SubproblemAlgorithm: []
+                    TolCon: []
+                 TolConSQP: []
+                TolGradCon: []
+                    TolPCG: []
+                 TolProjCG: []
+              TolProjCGAbs: []
+                  TypicalX: []
+               UseParallel: []
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_controls Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                                              i    idx    value
+                                              _    ___    _____
+
+    bl_bfw_solveequi_kwfw_display             1     2       1  
+    bl_bfw_solveequi_kwfw_display_verbose     2     3       1  
+    bl_bfw_solveequi_w2q2w_display            3     4       1  
+    bl_bfw_solveequi_w2q2w_display_verbose    4     5       1  
+    bl_timer                                  5     6       1  
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_controls String
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                         i     idx       string  
+                        ___    ____    __________
+
+    PES                 &quot;1&quot;    &quot;1&quot;     &quot;_i&quot;      
+    srdp_equi_method    &quot;2&quot;    &quot;11&quot;    &quot;SRDP&quot;    
+    srdp_method         &quot;3&quot;    &quot;12&quot;    &quot;NESTFAST&quot;</code></pre>
+
+</div>
+</div>
+<div id="bfw_mp_param_esti" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> bfw_mp_param_esti</h2>
 <p>This is the example vignette for function:
 <a href="https://github.com/FanWangEcon/PrjLabEquiBFW/tree/main/PrjLabEquiBFW/params/bfw_mp_param_esti.m"><strong>bfw_mp_param_esti</strong></a>
 from the <a href="https://fanwangecon.github.io/PrjLabEquiBFW/"><strong>PrjLabEquiBFW
 Package</strong></a><strong>.</strong></p>
-<div id="map-of-estimated-parameters" class="section level3" number="3.2.1">
-<h3><span class="header-section-number">3.2.1</span> Map of Estimated Parameters</h3>
+<div id="map-of-estimated-parameters" class="section level3" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Map of Estimated Parameters</h3>
 <pre><code>bl_log_wage = true;
 bl_verbose = true;
 mp_func_supply = bfw_mp_param_esti(bl_log_wage, bl_verbose);

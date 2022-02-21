@@ -43,3 +43,26 @@
         in_header: '../../../hdga.html'
   always_allow_html: true
   urlcolor: blue
+
+- file: bfwx_mp_func_equi
+  title: "Equilibrium Core Functions"
+  titleshort: "Equilibrium Core Functions"
+  description: |
+    This function generates a container map with key equilibrium equations.
+  core :
+    - package: PrjLabEquiBFW
+      code: |
+        [bfw_mp_func_equi()](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/func/bfw_mp_func_equi.m)
+  date: 2022-02-20
+  date_start: 2022-02-20
+  output:
+    pdf_document:
+      pandoc_args: '../../../_output_kniti_pdf.yaml'
+      includes:
+        in_header: '../../../preamble.tex'
+    html_document:
+      pandoc_args: '../../../_output_kniti_html.yaml'
+      includes:
+        in_header: '../../../hdga.html'
+  always_allow_html: true
+  urlcolor: blue

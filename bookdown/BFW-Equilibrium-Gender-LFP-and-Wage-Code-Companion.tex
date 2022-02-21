@@ -7,7 +7,7 @@
 ]{book}
 \title{BFW Equilibrium Gender LFP and Wage Code Companion}
 \author{Sonia R. Bhalotra, Manuel Fernández, and Fan Wang}
-\date{2022-02-19}
+\date{2022-02-21}
 
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
@@ -133,8 +133,10 @@ Download and install the Matlab toolbox: \href{https://github.com/FanWangEcon/Pr
 The Code Companion can also be accessed via the bookdown site and PDF linked below:
 
 \begin{quote}
-\href{https://fanwangecon.github.io/PrjLabEquiBFW/bookdown/}{\textbf{bookdown site}}, \href{https://fanwangecon.github.io/PrjLabEquiBFW/bookdown/BFW-Equilibrium-Gender-LFP-and-Wage-Code-Companion.pdf}{\textbf{bookdown pdf}}, \href{https://www.mathworks.com/matlabcentral/fileexchange/80164-PrjLabEquiBFW}{\textbf{MathWorks File Exchange}}
+\href{https://fanwangecon.github.io/PrjLabEquiBFW/bookdown/}{\textbf{bookdown site}}, \href{https://fanwangecon.github.io/PrjLabEquiBFW/bookdown/BFW-Equilibrium-Gender-LFP-and-Wage-Code-Companion.pdf}{\textbf{bookdown pdf}}, \href{https://www.mathworks.com/matlabcentral/fileexchange/107025-prjlabequibfw}{\textbf{MathWorks File Exchange}}
 \end{quote}
+
+\url{https://www.mathworks.com/matlabcentral/fileexchange/}
 
 This bookdown file is a collection of mlx based vignettes for functions that are available from \href{https://github.com/FanWangEcon/PrjLabEquiBFW}{PrjLabEquiBFW}. Each Vignette file contains various examples for invoking each function.
 
@@ -255,6 +257,37 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
     fc_supply           "7"    "7"    "@(potlabor,prob)potlabor.*prob"                                                                                                                                                                                                                                            
 \end{verbatim}
 
+\hypertarget{equilibrium-core-functions}{%
+\section{Equilibrium Core Functions}\label{equilibrium-core-functions}}
+
+This is the example vignette for function:
+\href{https://github.com/FanWangEcon/PrjLabEquiBFW/tree/main/PrjLabEquiBFW/func/bfw_mp_func_equi.m}{\textbf{bfw\_mp\_func\_equi}}
+from the \href{https://fanwangecon.github.io/PrjLabEquiBFW/}{\textbf{PrjLabEquiBFW
+Package}}\textbf{.}
+
+\hypertarget{default-test-1}{%
+\subsection{Default Test}\label{default-test-1}}
+
+Default test
+
+\begin{verbatim}
+bl_verbose = true;
+mp_func_demand = bfw_mp_func_equi(bl_verbose);
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_func Functions
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                             i     idx                                                                                     functionString                                                                                  
+                            ___    ___    _________________________________________________________________________________________________________________________________________________________________________________
+
+    f_x_root                "1"    "1"    "@(x,price_ratio,yfz_per_input,rho)(1-x)+(x).*(price_ratio.*(x./(1-x))).^((rho)./(1-rho))-(yfz_per_input).^rho"                                                                  
+    fc_p1_of_p2             "2"    "2"    "@(p2,G_2,zeta_2_0,zeta_2_1,Y,Z,rho,beta_1,beta_2)((((((1+exp(-zeta_2_0-zeta_2_1.*p2))./(G_2)).*(Y/Z)).^rho).*(1/beta_1)-(beta_2/beta_1)).^((rho-1)/(rho))).*(beta_1/beta_2).*p2"
+    fc_p1_of_p2andSupply    "3"    "3"    "@(p2,supplyQofP,Y,Z,rho,beta_1,beta_2)((((((Y/Z)./supplyQofP)).^rho).*(1/beta_1)-(beta_2/beta_1)).^((rho-1)/(rho))).*(beta_1/beta_2).*p2"                                       
+    fc_p2_of_p1             "4"    "4"    "@(p1,G_1,zeta_1_0,zeta_1_1,Y,Z,rho,beta_1,beta_2)((((((1+exp(-zeta_1_0-zeta_1_1.*p1))./(G_1)).*(Y/Z)).^rho).*(1/beta_2)-(beta_1/beta_2)).^((rho-1)/(rho))).*(beta_2/beta_1).*p1"
+    fc_p2_of_p1andSupply    "5"    "5"    "@(p1,supplyQofP,Y,Z,rho,beta_1,beta_2)((((((Y/Z)./supplyQofP)).^rho).*(1/beta_2)-(beta_1/beta_2)).^((rho-1)/(rho))).*(beta_2/beta_1).*p1"                                       
+\end{verbatim}
+
 \hypertarget{parameters}{%
 \chapter{Parameters}\label{parameters}}
 
@@ -323,6 +356,273 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
     spt_simu_outputs_vig    "9"     "9"     "~\Dropbox\PrjLabEquiBFW\PrjLabEquiBFWOutput\vig\" 
     spt_simu_results_csv    "10"    "10"    "~\Dropbox\PrjLabEquiBFW\PrjLabEquiBFWOutput\res\" 
     spt_simu_results_img    "11"    "11"    "~\Dropbox\PrjLabEquiBFW\PrjLabEquiBFWOutput\img\" 
+\end{verbatim}
+
+\hypertarget{bfw_mp_control}{%
+\section{bfw\_mp\_control}\label{bfw_mp_control}}
+
+This is the example vignette for function: bfw\_mp\_control from the
+\href{https://fanwangecon.github.io/PrjLabEquiBFW/}{\textbf{PrjLabEquiBFW
+Package}}\textbf{.}
+
+\hypertarget{map-of-control-parameters}{%
+\subsection{Map of Control Parameters}\label{map-of-control-parameters}}
+
+\begin{verbatim}
+[bl_display_status, bl_display_verbose_status, bl_verbose] = deal(true, true, true);
+mp_func_supply = bfw_mp_control(bl_display_status, bl_display_verbose_status, bl_verbose);
+
+pos = 7 ; key = fmin_controls_a
+                   Display: 'off'
+               MaxFunEvals: 2500
+                   MaxIter: 2000
+                    TolFun: 1.0000e-05
+                      TolX: 1.0000e-05
+               FunValCheck: []
+                 OutputFcn: []
+                  PlotFcns: []
+           ActiveConstrTol: []
+                 Algorithm: []
+    AlwaysHonorConstraints: []
+           DerivativeCheck: []
+               Diagnostics: []
+             DiffMaxChange: []
+             DiffMinChange: []
+            FinDiffRelStep: []
+               FinDiffType: []
+         GoalsExactAchieve: []
+                GradConstr: []
+                   GradObj: []
+                   HessFcn: []
+                   Hessian: []
+                  HessMult: []
+               HessPattern: []
+                HessUpdate: []
+          InitBarrierParam: []
+     InitTrustRegionRadius: []
+                  Jacobian: []
+                 JacobMult: []
+              JacobPattern: []
+                LargeScale: []
+                  MaxNodes: []
+                MaxPCGIter: []
+             MaxProjCGIter: []
+                MaxSQPIter: []
+                   MaxTime: []
+             MeritFunction: []
+                 MinAbsMax: []
+        NoStopIfFlatInfeas: []
+            ObjectiveLimit: []
+      PhaseOneTotalScaling: []
+            Preconditioner: []
+          PrecondBandWidth: []
+            RelLineSrchBnd: []
+    RelLineSrchBndDuration: []
+              ScaleProblem: []
+       SubproblemAlgorithm: []
+                    TolCon: []
+                 TolConSQP: []
+                TolGradCon: []
+                    TolPCG: []
+                 TolProjCG: []
+              TolProjCGAbs: []
+                  TypicalX: []
+               UseParallel: []
+
+pos = 8 ; key = fmin_controls_b
+                   Display: 'off'
+               MaxFunEvals: []
+                   MaxIter: []
+                    TolFun: []
+                      TolX: []
+               FunValCheck: []
+                 OutputFcn: []
+                  PlotFcns: []
+           ActiveConstrTol: []
+                 Algorithm: []
+    AlwaysHonorConstraints: []
+           DerivativeCheck: []
+               Diagnostics: []
+             DiffMaxChange: []
+             DiffMinChange: []
+            FinDiffRelStep: []
+               FinDiffType: []
+         GoalsExactAchieve: []
+                GradConstr: []
+                   GradObj: []
+                   HessFcn: []
+                   Hessian: []
+                  HessMult: []
+               HessPattern: []
+                HessUpdate: []
+          InitBarrierParam: []
+     InitTrustRegionRadius: []
+                  Jacobian: []
+                 JacobMult: []
+              JacobPattern: []
+                LargeScale: []
+                  MaxNodes: []
+                MaxPCGIter: []
+             MaxProjCGIter: []
+                MaxSQPIter: []
+                   MaxTime: []
+             MeritFunction: []
+                 MinAbsMax: []
+        NoStopIfFlatInfeas: []
+            ObjectiveLimit: []
+      PhaseOneTotalScaling: []
+            Preconditioner: []
+          PrecondBandWidth: []
+            RelLineSrchBnd: []
+    RelLineSrchBndDuration: []
+              ScaleProblem: []
+       SubproblemAlgorithm: []
+                    TolCon: []
+                 TolConSQP: []
+                TolGradCon: []
+                    TolPCG: []
+                 TolProjCG: []
+              TolProjCGAbs: []
+                  TypicalX: []
+               UseParallel: []
+
+pos = 9 ; key = fmin_controls_c
+                   Display: 'iter'
+               MaxFunEvals: 750
+                   MaxIter: 500
+                    TolFun: 1.0000e-05
+                      TolX: 1.0000e-05
+               FunValCheck: []
+                 OutputFcn: []
+                  PlotFcns: []
+           ActiveConstrTol: []
+                 Algorithm: []
+    AlwaysHonorConstraints: []
+           DerivativeCheck: []
+               Diagnostics: []
+             DiffMaxChange: []
+             DiffMinChange: []
+            FinDiffRelStep: []
+               FinDiffType: []
+         GoalsExactAchieve: []
+                GradConstr: []
+                   GradObj: []
+                   HessFcn: []
+                   Hessian: []
+                  HessMult: []
+               HessPattern: []
+                HessUpdate: []
+          InitBarrierParam: []
+     InitTrustRegionRadius: []
+                  Jacobian: []
+                 JacobMult: []
+              JacobPattern: []
+                LargeScale: []
+                  MaxNodes: []
+                MaxPCGIter: []
+             MaxProjCGIter: []
+                MaxSQPIter: []
+                   MaxTime: []
+             MeritFunction: []
+                 MinAbsMax: []
+        NoStopIfFlatInfeas: []
+            ObjectiveLimit: []
+      PhaseOneTotalScaling: []
+            Preconditioner: []
+          PrecondBandWidth: []
+            RelLineSrchBnd: []
+    RelLineSrchBndDuration: []
+              ScaleProblem: []
+       SubproblemAlgorithm: []
+                    TolCon: []
+                 TolConSQP: []
+                TolGradCon: []
+                    TolPCG: []
+                 TolProjCG: []
+              TolProjCGAbs: []
+                  TypicalX: []
+               UseParallel: []
+
+pos = 10 ; key = fmin_controls_d
+                   Display: 'iter'
+               MaxFunEvals: 5000
+                   MaxIter: 15
+                    TolFun: 1.0000e-06
+                      TolX: 1.0000e-06
+               FunValCheck: []
+                 OutputFcn: []
+                  PlotFcns: {@optimplotfval  @optimplotx  @optimplotstepsize  @optimplotfunccount}
+           ActiveConstrTol: []
+                 Algorithm: []
+    AlwaysHonorConstraints: []
+           DerivativeCheck: []
+               Diagnostics: []
+             DiffMaxChange: []
+             DiffMinChange: []
+            FinDiffRelStep: []
+               FinDiffType: []
+         GoalsExactAchieve: []
+                GradConstr: []
+                   GradObj: []
+                   HessFcn: []
+                   Hessian: []
+                  HessMult: []
+               HessPattern: []
+                HessUpdate: []
+          InitBarrierParam: []
+     InitTrustRegionRadius: []
+                  Jacobian: []
+                 JacobMult: []
+              JacobPattern: []
+                LargeScale: []
+                  MaxNodes: []
+                MaxPCGIter: []
+             MaxProjCGIter: []
+                MaxSQPIter: []
+                   MaxTime: []
+             MeritFunction: []
+                 MinAbsMax: []
+        NoStopIfFlatInfeas: []
+            ObjectiveLimit: []
+      PhaseOneTotalScaling: []
+            Preconditioner: []
+          PrecondBandWidth: []
+            RelLineSrchBnd: []
+    RelLineSrchBndDuration: []
+              ScaleProblem: []
+       SubproblemAlgorithm: []
+                    TolCon: []
+                 TolConSQP: []
+                TolGradCon: []
+                    TolPCG: []
+                 TolProjCG: []
+              TolProjCGAbs: []
+                  TypicalX: []
+               UseParallel: []
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_controls Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                                              i    idx    value
+                                              _    ___    _____
+
+    bl_bfw_solveequi_kwfw_display             1     2       1  
+    bl_bfw_solveequi_kwfw_display_verbose     2     3       1  
+    bl_bfw_solveequi_w2q2w_display            3     4       1  
+    bl_bfw_solveequi_w2q2w_display_verbose    4     5       1  
+    bl_timer                                  5     6       1  
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_controls String
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                         i     idx       string  
+                        ___    ____    __________
+
+    PES                 "1"    "1"     "_i"      
+    srdp_equi_method    "2"    "11"    "SRDP"    
+    srdp_method         "3"    "12"    "NESTFAST"
 \end{verbatim}
 
 \hypertarget{bfw_mp_param_esti}{%
@@ -1502,8 +1802,7 @@ fl_yz=0.89726
 
 celldisp(cl_mn_prho);
 
-cl_mn_prho
- 
+
 cl_mn_prho{1} =
  
     0.5017
@@ -1541,8 +1840,7 @@ cl_mn_prho{4} =
 
 celldisp(cl_mn_pshare);
 
-cl_mn_pshare
- 
+
 cl_mn_pshare{1} =
  
     0.6965
@@ -1580,8 +1878,7 @@ cl_mn_pshare{4} =
 
 celldisp(cl_mn_price);
 
-cl_mn_price
- 
+
 cl_mn_price{1} =
  
    NaN   NaN
@@ -2741,6 +3038,1098 @@ end
 
 \includegraphics[width=5.20833in,height=\textheight]{img/bfwx_mlogit_images/figure_7.png}
 
+\hypertarget{equilibrium-by-skill-nest-group}{%
+\chapter{Equilibrium by Skill Nest Group}\label{equilibrium-by-skill-nest-group}}
+
+\hypertarget{root-search-equilibrium-wage-equations-by-skill-group}{%
+\section{Root Search Equilibrium Wage Equations By Skill Group}\label{root-search-equilibrium-wage-equations-by-skill-group}}
+
+This is the example vignette for function: bfw\_solveequi\_kwfw from the
+\href{https://fanwangecon.github.io/PrjLabEquiBFW/}{\textbf{PrjLabEquiBFW
+Package}}\textbf{.}
+
+\hypertarget{default-1}{%
+\subsection{Default}\label{default-1}}
+
+\begin{verbatim}
+[mp_fl_labor_occprbty,mp_fl_labor_supplied] = bfw_solveequi_kwfw();
+
+Completed BFW_SOLVEEQUI_KWFW;fl_potwrker_1=9.9687;fl_potwrker_2=12.5164;ar_fl_max_ratio_1=0.36095     0.25032     0.20764;ar_fl_max_ratio_2=0.34704     0.23222     0.16538
+BFW_SOLVEEQUI_KWFW-initial-Q;category_key=;C001;sexrhs=;Female;occ=;Manual;wxox=3.5484;laborsupplied=2.2735
+BFW_SOLVEEQUI_KWFW-initial-Q;category_key=;C002;sexrhs=;Female;occ=;Routine;wxox=4.9268;laborsupplied=1.6222
+BFW_SOLVEEQUI_KWFW-initial-Q;category_key=;C003;sexrhs=;Female;occ=;Analytical;wxox=3.523;laborsupplied=1.341
+BFW_SOLVEEQUI_KWFW-initial-Q;category_key=;C101;sexrhs=;Male;occ=;Manual;wxox=1.7656;laborsupplied=4.2925
+BFW_SOLVEEQUI_KWFW-initial-Q;category_key=;C102;sexrhs=;Male;occ=;Routine;wxox=5.9065;laborsupplied=3.7644
+BFW_SOLVEEQUI_KWFW-initial-Q;category_key=;C103;sexrhs=;Male;occ=;Analytical;wxox=2.222;laborsupplied=1.5416
+Completed BFW_SOLVEEQUI_KWFW;fl_mse_excess=4.4821e-13;ar_w1_iter_endo=1.5779       1.819      3.7951;ar_w2_iter_hat=1.2165      1.8629       3.227;ar_w2_iter_gap=-6.527e-12 -1.9215e-07  8.4457e-07
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_wages Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx    value 
+            _    ___    ______
+
+    C001    1     1     1.2165
+    C002    2     2     1.8629
+    C003    3     3      3.227
+    C101    4     4     1.5779
+    C102    5     5      1.819
+    C103    6     6     3.7951
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_demanded Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx    value 
+            _    ___    ______
+
+    C001    1     1     1.6514
+    C002    2     2     1.0896
+    C003    3     3     1.4662
+    C101    4     4     4.3057
+    C102    5     5     3.1524
+    C103    6     6     1.9726
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_supplied Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx    value 
+            _    ___    ______
+
+    C001    1     1     1.6514
+    C002    2     2     1.0896
+    C003    3     3     1.4662
+    C101    4     4     4.3057
+    C102    5     5     3.1524
+    C103    6     6     1.9726
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_occprbty Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx     value  
+            _    ___    ________
+
+    C001    1     1      0.13194
+    C002    2     2     0.087055
+    C003    3     3      0.11714
+    C101    4     4      0.43193
+    C102    5     5      0.31623
+    C103    6     6      0.19788
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_excess_demand Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx       value   
+            _    ___    ___________
+
+    C001    1     1     -3.4607e-08
+    C002    2     2     -2.3265e-07
+    C003    3     3       6.268e-07
+    C101    4     4     -2.6645e-15
+    C102    5     5     -2.2204e-15
+    C103    6     6     -2.2204e-16
+\end{verbatim}
+
+\hypertarget{vary-parameters-solve-equilibrium-quantitieswages-root-search}{%
+\subsection{Vary Parameters, Solve Equilibrium Quantities/Wages, Root Search}\label{vary-parameters-solve-equilibrium-quantitieswages-root-search}}
+
+\begin{verbatim}
+% 2. Get Parameters and data
+bl_log_wage = true;
+bl_verbose_nest = false;
+
+% Get Parameters
+mp_params = bfw_mp_param_esti(bl_log_wage);
+mp_param_aux = bfw_mp_param_aux(bl_verbose_nest);
+mp_params = [mp_params ; mp_param_aux];
+
+% Get Data
+mp_data = bfw_mp_data(bl_verbose_nest);
+
+% Get Functions
+mp_func_demand = bfw_mp_func_demand(bl_verbose_nest);
+mp_func_supply = bfw_mp_func_supply(bl_log_wage, bl_verbose_nest);
+mp_func_equi = bfw_mp_func_equi(bl_verbose_nest);
+mp_func = [mp_func_equi; mp_func_supply; mp_func_demand];
+
+% Get Controls
+mp_controls = bfw_mp_control();
+mp_controls('bl_bfw_solveequi_kwfw_display') = false;
+mp_controls('bl_bfw_solveequi_kwfw_display_verbose') = false;
+
+st_exa_common_str = 'bfw_solveequi_kwfw()';
+for it_example_inputs = [1,2,3,4]
+
+    % Different testing scenariors
+    if (it_example_inputs == 1)
+        fl_rho_manual = 0.18;
+        fl_rho_routine = 0.18;
+        fl_rho_analytical = 0.18;
+
+        fl_beta_1_manual = 1 - 0.26;
+        fl_beta_1_routine = 1 - 0.30;
+        fl_beta_1_analytical = 1 - 0.40;
+
+        fl_Y_manual = 3.4084;
+        fl_Y_routine = 2.3402;
+        fl_Y_analytical = 1.7552;
+
+        fl_w1o1_init = 2.315707;
+        fl_w1o2_init = 3.217799;
+        fl_w1o3_init = 4.329016;
+
+        fl_w2o1_init = 1.942;
+        fl_w2o2_init = 3.2247;
+        fl_w2o3_init = 3.3738;
+
+        it_data_year = 1989;
+        fl_potwrker_1 = 9.9687;
+        fl_potwrker_2 = 12.5164;
+        bl_skilled = false;
+        
+        st_exa_string = "homogeneous rho at 0.18, unskilled";
+
+    elseif (it_example_inputs == 2)
+        fl_rho_manual = 0.64678;
+        fl_rho_routine = 0.64678;
+        fl_rho_analytical = 0.64678;
+
+        fl_beta_1_manual = 0.63427;
+        fl_beta_1_routine = 0.58738;
+        fl_beta_1_analytical = 0.5784;
+
+        fl_Y_manual = 3.2291;
+        fl_Y_routine = 2.2223;
+        fl_Y_analytical = 1.7487;
+
+        fl_w1o1_init = 2.3157;
+        fl_w1o2_init = 3.2178;
+        fl_w1o3_init = 4.329;
+
+        fl_w2o1_init = 1.942;
+        fl_w2o2_init = 3.2247;
+        fl_w2o3_init = 3.3738;
+
+        it_data_year = 1989;
+        fl_potwrker_1 = 9.9687;
+        fl_potwrker_2 = 12.5164;
+
+        bl_skilled = false;
+
+        st_exa_string = "homogeneous rho at 0.64, unskilled";
+
+    elseif (it_example_inputs == 3)
+        fl_rho_manual = 0.34186;
+        fl_rho_routine = 0.34186;
+        fl_rho_analytical = 0.34186;
+
+        fl_beta_1_manual = 0.63075;
+        fl_beta_1_routine = 0.6326;
+        fl_beta_1_analytical = 0.53894;
+
+        fl_Y_manual = 5.5703;
+        fl_Y_routine = 4.6673;
+        fl_Y_analytical = 2.5644;
+
+        fl_w1o1_init = 2.263;
+        fl_w1o2_init = 2.5991;
+        fl_w1o3_init = 3.6533;
+
+        fl_w2o1_init = 1.7636;
+        fl_w2o2_init = 2.4062;
+        fl_w2o3_init = 2.8429;
+
+        it_data_year = 2010;
+        fl_potwrker_1 = 16.4952;
+        fl_potwrker_2 = 19.4271;
+
+        bl_skilled = false;
+
+        st_exa_string = "homogeneous rho at 0.34, unskilled";
+
+    elseif (it_example_inputs == 4)
+        fl_rho_manual = 0.75002424;
+        fl_rho_routine = 0.244249613;
+        fl_rho_analytical = 0.244249613;
+
+        fl_beta_1_manual = 0.703785173;
+        fl_beta_1_routine = 0.687107264;
+        fl_beta_1_analytical = 0.706254232;
+
+        fl_Y_manual = 0.124479951;
+        fl_Y_routine = 0.39857586;
+        fl_Y_analytical = 1.388880655;
+
+        fl_w1o1_init = 5.758649;
+        fl_w1o2_init = 6.221019;
+        fl_w1o3_init = 7.977073;
+
+        fl_w2o1_init = 2.376239;
+        fl_w2o2_init = 4.863073;
+        fl_w2o3_init = 5.881686;
+
+        it_data_year = 1996;
+        fl_potwrker_1 = 16.4952;
+        fl_potwrker_2 = 19.4271;
+
+        bl_skilled = true;
+
+        st_exa_string = "heter rho (0.75, 0.24, 0.24), skilled";
+
+    end
+
+    mp_params('fl_rho_manual') = fl_rho_manual;
+    mp_params('fl_rho_routine') = fl_rho_routine;
+    mp_params('fl_rho_analytical') = fl_rho_analytical;
+
+    mp_params('fl_beta_1_manual') = fl_beta_1_manual;
+    mp_params('fl_beta_1_routine') = fl_beta_1_routine;
+    mp_params('fl_beta_1_analytical') = fl_beta_1_analytical;
+
+    mp_params('fl_Y_manual') = fl_Y_manual;
+    mp_params('fl_Y_routine') = fl_Y_routine;
+    mp_params('fl_Y_analytical') = fl_Y_analytical;
+
+    mp_data('fl_w1o1_init') = fl_w1o1_init;
+    mp_data('fl_w1o2_init') = fl_w1o2_init;
+    mp_data('fl_w1o3_init') = fl_w1o3_init;
+
+    mp_data('fl_w2o1_init') = fl_w2o1_init;
+    mp_data('fl_w2o2_init') = fl_w2o2_init;
+    mp_data('fl_w2o3_init') = fl_w2o3_init;
+
+    mp_data('fl_potwrker_1') = fl_potwrker_1;
+    mp_data('fl_potwrker_2') = fl_potwrker_2;
+
+    it_data_year = it_data_year - 1989;
+    bl_checkminmax = true;
+    it_solve_n1n2n3 = 3;
+    [ar_w1_iter_endo, ar_w2_iter_hat, ar_w2_iter_gap, ...
+        mp_wages, mp_fl_labor_demanded, mp_fl_labor_supplied, ...
+        mp_fl_labor_occprbty, fl_mse_excess_demand, mp_fl_labor_excess_demand] = ...
+        bfw_solveequi_kwfw(mp_params, mp_data, mp_func, mp_controls, ...
+        it_solve_n1n2n3, it_data_year, bl_skilled, bl_checkminmax);
+
+    disp('');
+    disp('');
+    disp('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX');
+    disp(['EXAMPLE ' num2str(it_example_inputs) ', ' st_exa_common_str ', ' char(st_exa_string)]);
+    disp('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX');
+    ff_container_map_display(mp_wages);
+    ff_container_map_display(mp_fl_labor_demanded);
+    ff_container_map_display(mp_fl_labor_supplied);
+    ff_container_map_display(mp_fl_labor_occprbty);
+    ff_container_map_display(mp_fl_labor_excess_demand);
+
+end
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+EXAMPLE 1, bfw_solveequi_kwfw(), homogeneous rho at 0.18, unskilled
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_wages Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx    value 
+            _    ___    ______
+
+    C001    1     1     1.2165
+    C002    2     2     1.8629
+    C003    3     3      3.227
+    C101    4     4     1.5779
+    C102    5     5      1.819
+    C103    6     6     3.7951
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_demanded Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx    value 
+            _    ___    ______
+
+    C001    1     1     1.6514
+    C002    2     2     1.0896
+    C003    3     3     1.4662
+    C101    4     4     4.3057
+    C102    5     5     3.1524
+    C103    6     6     1.9726
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_supplied Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx    value 
+            _    ___    ______
+
+    C001    1     1     1.6514
+    C002    2     2     1.0896
+    C003    3     3     1.4662
+    C101    4     4     4.3057
+    C102    5     5     3.1524
+    C103    6     6     1.9726
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_occprbty Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx     value  
+            _    ___    ________
+
+    C001    1     1      0.13194
+    C002    2     2     0.087055
+    C003    3     3      0.11714
+    C101    4     4      0.43193
+    C102    5     5      0.31623
+    C103    6     6      0.19788
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_excess_demand Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx       value   
+            _    ___    ___________
+
+    C001    1     1     -3.4607e-08
+    C002    2     2     -2.3265e-07
+    C003    3     3       6.268e-07
+    C101    4     4     -2.6645e-15
+    C102    5     5     -2.2204e-15
+    C103    6     6     -2.2204e-16
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+EXAMPLE 2, bfw_solveequi_kwfw(), homogeneous rho at 0.64, unskilled
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_wages Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx    value 
+            _    ___    ______
+
+    C001    1     1     1.2481
+    C002    2     2     1.8712
+    C003    3     3     3.1468
+    C101    4     4     1.5614
+    C102    5     5     1.8288
+    C103    6     6     3.8377
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_demanded Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx    value 
+            _    ___    ______
+
+    C001    1     1     1.6914
+    C002    2     2     1.0934
+    C003    3     3     1.4297
+    C101    4     4     4.2646
+    C102    5     5     3.1707
+    C103    6     6     1.9952
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_supplied Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx    value 
+            _    ___    ______
+
+    C001    1     1     1.6914
+    C002    2     2     1.0934
+    C003    3     3     1.4297
+    C101    4     4     4.2646
+    C102    5     5     3.1707
+    C103    6     6     1.9952
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_occprbty Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx     value  
+            _    ___    ________
+
+    C001    1     1      0.13513
+    C002    2     2     0.087358
+    C003    3     3      0.11423
+    C101    4     4      0.42779
+    C102    5     5      0.31807
+    C103    6     6      0.20015
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_excess_demand Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx       value   
+            _    ___    ___________
+
+    C001    1     1      -9.373e-09
+    C002    2     2     -1.9675e-07
+    C003    3     3      3.6084e-07
+    C101    4     4     -8.8818e-16
+    C102    5     5      1.3323e-15
+    C103    6     6     -2.2204e-16
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+EXAMPLE 3, bfw_solveequi_kwfw(), homogeneous rho at 0.34, unskilled
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_wages Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx    value 
+            _    ___    ______
+
+    C001    1     1     1.5675
+    C002    2     2     2.5998
+    C003    3     3     3.0763
+    C101    4     4     1.9027
+    C102    5     5     2.7234
+    C103    6     6       3.72
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_demanded Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx    value 
+            _    ___    ______
+
+    C001    1     1     3.9729
+    C002    2     2     2.8316
+    C003    3     3     2.6363
+    C101    4     4     6.6763
+    C102    5     5     6.0249
+    C103    6     6     2.5039
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_supplied Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx    value 
+            _    ___    ______
+
+    C001    1     1     3.9729
+    C002    2     2     2.8316
+    C003    3     3     2.6363
+    C101    4     4     6.6763
+    C102    5     5     6.0249
+    C103    6     6     2.5039
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_occprbty Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx     value 
+            _    ___    _______
+
+    C001    1     1      0.2045
+    C002    2     2     0.14575
+    C003    3     3      0.1357
+    C101    4     4     0.40474
+    C102    5     5     0.36525
+    C103    6     6      0.1518
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_excess_demand Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx       value   
+            _    ___    ___________
+
+    C001    1     1      8.8193e-08
+    C002    2     2      6.1579e-07
+    C003    3     3     -1.2231e-06
+    C101    4     4     -3.5527e-15
+    C102    5     5      1.7764e-15
+    C103    6     6               0
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+EXAMPLE 4, bfw_solveequi_kwfw(), heter rho (0.75, 0.24, 0.24), skilled
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_wages Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx    value 
+            _    ___    ______
+
+    C011    1     1     2.2661
+    C012    2     2     5.3853
+    C013    3     3     6.7077
+    C111    4     4     3.5562
+    C112    5     5      6.838
+    C113    6     6     9.4355
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_demanded Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx     value  
+            _    ___    ________
+
+    C011    1     1     0.032483
+    C012    2     2      0.23898
+    C013    3     3      0.83121
+    C111    4     4       0.1707
+    C112    5     5      0.49335
+    C113    6     6       1.6895
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_supplied Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx     value  
+            _    ___    ________
+
+    C011    1     1     0.032483
+    C012    2     2      0.23898
+    C013    3     3      0.83121
+    C111    4     4       0.1707
+    C112    5     5      0.49335
+    C113    6     6       1.6895
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_occprbty Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx     value  
+            _    ___    ________
+
+    C011    1     1     0.018322
+    C012    2     2       0.1348
+    C013    3     3      0.46886
+    C111    4     4     0.068174
+    C112    5     5      0.19703
+    C113    6     6      0.67473
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_excess_demand Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx       value   
+            _    ___    ___________
+
+    C011    1     1     -1.8041e-09
+    C012    2     2      5.6774e-08
+    C013    3     3      8.1332e-08
+    C111    4     4     -2.7756e-17
+    C112    5     5      5.5511e-17
+    C113    6     6      2.2204e-16
+\end{verbatim}
+
+\hypertarget{equilibrium-w-to-q-to-w-contraction-by-skill-group}{%
+\section{Equilibrium W to Q to W Contraction By Skill Group}\label{equilibrium-w-to-q-to-w-contraction-by-skill-group}}
+
+This is the example vignette for function: bfw\_solveequi\_w2q2w from the
+\href{https://fanwangecon.github.io/PrjLabEquiBFW/}{\textbf{PrjLabEquiBFW
+Package}}\textbf{.}
+
+\hypertarget{default-2}{%
+\subsection{Default}\label{default-2}}
+
+\begin{verbatim}
+[mp_fl_labor_occprbty,mp_fl_labor_supplied] = bfw_solveequi_w2q2w();
+
+ITER:;it_speed_shifter_ctr=1;it_equi_wage_ctr=1;bl_continue=1;fl_ds_gap_mse=1.0294;fl_total_wage_change_mse=2.4494
+    2.9507    2.8632    5.2962
+    1.7458    2.4472    3.9586
+
+    4.2925    3.7644    1.5416
+    2.2735    1.6222    1.3410
+
+    3.9933    2.9733    1.8551
+    2.1150    1.2813    1.6136
+
+ITER:;it_speed_shifter_ctr=1;it_equi_wage_ctr=2;bl_continue=1;fl_ds_gap_mse=0.62115;fl_total_wage_change_mse=1.2697
+    2.0535    2.6792    5.8550
+    1.4375    2.3313    4.0597
+
+    4.9024    3.0389    1.6928
+    2.1150    1.2813    1.6136
+
+    4.1907    2.9908    1.7891
+    1.8080    1.2610    1.7054
+
+ITER:;it_speed_shifter_ctr=1;it_equi_wage_ctr=10;bl_continue=1;fl_ds_gap_mse=0.0075186;fl_total_wage_change_mse=0.025808
+    1.5739    1.8511    3.9011
+    1.2165    1.8810    3.2705
+
+    4.3801    3.1280    1.9299
+    1.6748    1.0915    1.4595
+
+    4.3088    3.1446    1.9595
+    1.6475    1.0973    1.4818
+
+ITER:;it_speed_shifter_ctr=1;it_equi_wage_ctr=20;bl_continue=1;fl_ds_gap_mse=6.4007e-05;fl_total_wage_change_mse=0.0002943
+    1.5762    1.8205    3.8023
+    1.2159    1.8637    3.2298
+
+    4.3126    3.1498    1.9685
+    1.6528    1.0893    1.4649
+
+    4.3065    3.1520    1.9717
+    1.6505    1.0900    1.4673
+
+ITER:;it_speed_shifter_ctr=1;it_equi_wage_ctr=30;bl_continue=1;fl_ds_gap_mse=6.0214e-07;fl_total_wage_change_mse=2.8652e-06
+    1.5778    1.8191    3.7958
+    1.2164    1.8629    3.2273
+
+    4.3064    3.1522    1.9722
+    1.6515    1.0896    1.4660
+
+    4.3058    3.1524    1.9726
+    1.6513    1.0897    1.4663
+
+ITER:;it_speed_shifter_ctr=1;it_equi_wage_ctr=39;bl_continue=0;fl_ds_gap_mse=9.1058e-09;fl_total_wage_change_mse=4.3545e-08
+    1.5780    1.8190    3.7950
+    1.2165    1.8628    3.2270
+
+    4.3057    3.1524    1.9727
+    1.6514    1.0896    1.4662
+
+    4.3057    3.1524    1.9727
+    1.6514    1.0896    1.4662
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_wages Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx    value 
+            _    ___    ______
+
+    C001    1     1     1.2165
+    C002    2     2     1.8628
+    C003    3     3      3.227
+    C101    4     4      1.578
+    C102    5     5      1.819
+    C103    6     6      3.795
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_supplied Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx    value 
+            _    ___    ______
+
+    C001    1     1     1.6514
+    C002    2     2     1.0896
+    C003    3     3     1.4662
+    C101    4     4     4.3057
+    C102    5     5     3.1524
+    C103    6     6     1.9727
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_demanded Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx    value 
+            _    ___    ______
+
+    C001    1     1     1.6514
+    C002    2     2     1.0896
+    C003    3     3     1.4662
+    C101    4     4     4.3057
+    C102    5     5     3.1524
+    C103    6     6     1.9727
+\end{verbatim}
+
+\hypertarget{vary-parameters-solve-equilibrium-quantities-wages-w-to-q-to-w-contraction}{%
+\subsection{Vary Parameters, Solve Equilibrium Quantities Wages, W to Q to W Contraction}\label{vary-parameters-solve-equilibrium-quantities-wages-w-to-q-to-w-contraction}}
+
+\begin{verbatim}
+% 2. Get Parameters and data
+bl_log_wage = true;
+bl_verbose_nest = false;
+
+% Get Parameters
+mp_params = bfw_mp_param_esti(bl_log_wage);
+mp_param_aux = bfw_mp_param_aux(bl_verbose_nest);
+mp_params = [mp_params ; mp_param_aux];
+
+% Get Data
+mp_data = bfw_mp_data(bl_verbose_nest);
+
+% Get Functions
+mp_func_demand = bfw_mp_func_demand(bl_verbose_nest);
+mp_func_supply = bfw_mp_func_supply(bl_log_wage, bl_verbose_nest);
+mp_func_equi = bfw_mp_func_equi(bl_verbose_nest);
+mp_func = [mp_func_equi; mp_func_supply; mp_func_demand];
+
+% Get Controls
+mp_controls = bfw_mp_control();
+mp_controls('bl_bfw_solveequi_w2q2w_display') = false;
+mp_controls('bl_bfw_solveequi_w2q2w_display_verbose') = false;
+
+st_exa_common_str = 'bfw_solveequi_w2q2w()';
+for it_example_inputs = [1,2,3,4]
+
+    % Different testing scenariors
+    if (it_example_inputs == 1)
+        fl_rho_manual = 0.18;
+        fl_rho_routine = 0.18;
+        fl_rho_analytical = 0.18;
+
+        fl_beta_1_manual = 1 - 0.26;
+        fl_beta_1_routine = 1 - 0.30;
+        fl_beta_1_analytical = 1 - 0.40;
+
+        fl_Y_manual = 3.4084;
+        fl_Y_routine = 2.3402;
+        fl_Y_analytical = 1.7552;
+
+        fl_w1o1_init = 2.315707;
+        fl_w1o2_init = 3.217799;
+        fl_w1o3_init = 4.329016;
+
+        fl_w2o1_init = 1.942;
+        fl_w2o2_init = 3.2247;
+        fl_w2o3_init = 3.3738;
+
+        it_data_year = 1989;
+        fl_potwrker_1 = 9.9687;
+        fl_potwrker_2 = 12.5164;
+        bl_skilled = false;
+        
+        st_exa_string = "homogeneous rho at 0.18, unskilled";
+
+    elseif (it_example_inputs == 2)
+        fl_rho_manual = 0.64678;
+        fl_rho_routine = 0.64678;
+        fl_rho_analytical = 0.64678;
+
+        fl_beta_1_manual = 0.63427;
+        fl_beta_1_routine = 0.58738;
+        fl_beta_1_analytical = 0.5784;
+
+        fl_Y_manual = 3.2291;
+        fl_Y_routine = 2.2223;
+        fl_Y_analytical = 1.7487;
+
+        fl_w1o1_init = 2.3157;
+        fl_w1o2_init = 3.2178;
+        fl_w1o3_init = 4.329;
+
+        fl_w2o1_init = 1.942;
+        fl_w2o2_init = 3.2247;
+        fl_w2o3_init = 3.3738;
+
+        it_data_year = 1989;
+        fl_potwrker_1 = 9.9687;
+        fl_potwrker_2 = 12.5164;
+
+        bl_skilled = false;
+
+        st_exa_string = "homogeneous rho at 0.64, unskilled";
+
+    elseif (it_example_inputs == 3)
+        fl_rho_manual = 0.34186;
+        fl_rho_routine = 0.34186;
+        fl_rho_analytical = 0.34186;
+
+        fl_beta_1_manual = 0.63075;
+        fl_beta_1_routine = 0.6326;
+        fl_beta_1_analytical = 0.53894;
+
+        fl_Y_manual = 5.5703;
+        fl_Y_routine = 4.6673;
+        fl_Y_analytical = 2.5644;
+
+        fl_w1o1_init = 2.263;
+        fl_w1o2_init = 2.5991;
+        fl_w1o3_init = 3.6533;
+
+        fl_w2o1_init = 1.7636;
+        fl_w2o2_init = 2.4062;
+        fl_w2o3_init = 2.8429;
+
+        it_data_year = 2010;
+        fl_potwrker_1 = 16.4952;
+        fl_potwrker_2 = 19.4271;
+
+        bl_skilled = false;
+
+        st_exa_string = "homogeneous rho at 0.34, unskilled";
+
+    elseif (it_example_inputs == 4)
+        fl_rho_manual = 0.75002424;
+        fl_rho_routine = 0.244249613;
+        fl_rho_analytical = 0.244249613;
+
+        fl_beta_1_manual = 0.703785173;
+        fl_beta_1_routine = 0.687107264;
+        fl_beta_1_analytical = 0.706254232;
+
+        fl_Y_manual = 0.124479951;
+        fl_Y_routine = 0.39857586;
+        fl_Y_analytical = 1.388880655;
+
+        fl_w1o1_init = 5.758649;
+        fl_w1o2_init = 6.221019;
+        fl_w1o3_init = 7.977073;
+
+        fl_w2o1_init = 2.376239;
+        fl_w2o2_init = 4.863073;
+        fl_w2o3_init = 5.881686;
+
+        it_data_year = 1996;
+        fl_potwrker_1 = 16.4952;
+        fl_potwrker_2 = 19.4271;
+
+        bl_skilled = true;
+
+        st_exa_string = "heter rho (0.75, 0.24, 0.24), skilled";
+
+    end
+
+    mp_params('fl_rho_manual') = fl_rho_manual;
+    mp_params('fl_rho_routine') = fl_rho_routine;
+    mp_params('fl_rho_analytical') = fl_rho_analytical;
+
+    mp_params('fl_beta_1_manual') = fl_beta_1_manual;
+    mp_params('fl_beta_1_routine') = fl_beta_1_routine;
+    mp_params('fl_beta_1_analytical') = fl_beta_1_analytical;
+
+    mp_params('fl_Y_manual') = fl_Y_manual;
+    mp_params('fl_Y_routine') = fl_Y_routine;
+    mp_params('fl_Y_analytical') = fl_Y_analytical;
+
+    mp_data('fl_w1o1_init') = fl_w1o1_init;
+    mp_data('fl_w1o2_init') = fl_w1o2_init;
+    mp_data('fl_w1o3_init') = fl_w1o3_init;
+
+    mp_data('fl_w2o1_init') = fl_w2o1_init;
+    mp_data('fl_w2o2_init') = fl_w2o2_init;
+    mp_data('fl_w2o3_init') = fl_w2o3_init;
+
+    mp_data('fl_potwrker_1') = fl_potwrker_1;
+    mp_data('fl_potwrker_2') = fl_potwrker_2;
+
+    it_data_year = it_data_year - 1989;
+    bl_checkminmax = true;
+    it_solve_n1n2n3 = 3;
+    [~, ~, ~, ~, ~, ~, ~, ~, ~, ...
+        mp_wages, mp_fl_labor_demanded, mp_fl_labor_supplied, ...
+        mp_fl_labor_occprbty] = ...
+        bfw_solveequi_w2q2w(mp_params, mp_data, mp_func, mp_controls, ...
+        it_solve_n1n2n3, it_data_year, bl_skilled, bl_checkminmax);
+
+    disp('');
+    disp('');
+    disp('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX');
+    disp(['EXAMPLE ' num2str(it_example_inputs) ', ' st_exa_common_str ', ' char(st_exa_string)]);
+    disp('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX');
+    ff_container_map_display(mp_wages);
+    ff_container_map_display(mp_fl_labor_demanded);
+    ff_container_map_display(mp_fl_labor_supplied);
+    ff_container_map_display(mp_fl_labor_occprbty);
+
+end
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+EXAMPLE 1, bfw_solveequi_w2q2w(), homogeneous rho at 0.18, unskilled
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_wages Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx    value 
+            _    ___    ______
+
+    C001    1     1     1.2165
+    C002    2     2     1.8628
+    C003    3     3      3.227
+    C101    4     4      1.578
+    C102    5     5      1.819
+    C103    6     6      3.795
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_demanded Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx    value 
+            _    ___    ______
+
+    C001    1     1     1.6514
+    C002    2     2     1.0896
+    C003    3     3     1.4662
+    C101    4     4     4.3057
+    C102    5     5     3.1524
+    C103    6     6     1.9727
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_supplied Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx    value 
+            _    ___    ______
+
+    C001    1     1     1.6514
+    C002    2     2     1.0896
+    C003    3     3     1.4662
+    C101    4     4     4.3057
+    C102    5     5     3.1524
+    C103    6     6     1.9727
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_occprbty Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx     value  
+            _    ___    ________
+
+    C001    1     1      0.13194
+    C002    2     2     0.087055
+    C003    3     3      0.11714
+    C101    4     4      0.43193
+    C102    5     5      0.31623
+    C103    6     6      0.19788
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+EXAMPLE 2, bfw_solveequi_w2q2w(), homogeneous rho at 0.64, unskilled
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_wages Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx    value 
+            _    ___    ______
+
+    C001    1     1     1.2482
+    C002    2     2     1.8713
+    C003    3     3     3.1469
+    C101    4     4     1.5614
+    C102    5     5     1.8289
+    C103    6     6     3.8378
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_demanded Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx    value 
+            _    ___    ______
+
+    C001    1     1     1.6914
+    C002    2     2     1.0934
+    C003    3     3     1.4297
+    C101    4     4     4.2646
+    C102    5     5     3.1708
+    C103    6     6     1.9952
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_supplied Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx    value 
+            _    ___    ______
+
+    C001    1     1     1.6914
+    C002    2     2     1.0934
+    C003    3     3     1.4297
+    C101    4     4     4.2645
+    C102    5     5     3.1707
+    C103    6     6     1.9952
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_occprbty Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx     value  
+            _    ___    ________
+
+    C001    1     1      0.13514
+    C002    2     2     0.087359
+    C003    3     3      0.11423
+    C101    4     4      0.42779
+    C102    5     5      0.31807
+    C103    6     6      0.20014
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+EXAMPLE 3, bfw_solveequi_w2q2w(), homogeneous rho at 0.34, unskilled
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_wages Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx    value 
+            _    ___    ______
+
+    C001    1     1     1.5675
+    C002    2     2     2.5998
+    C003    3     3     3.0763
+    C101    4     4     1.9027
+    C102    5     5     2.7234
+    C103    6     6       3.72
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_demanded Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx    value 
+            _    ___    ______
+
+    C001    1     1     3.9729
+    C002    2     2     2.8316
+    C003    3     3     2.6364
+    C101    4     4     6.6763
+    C102    5     5     6.0249
+    C103    6     6     2.5039
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_supplied Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx    value 
+            _    ___    ______
+
+    C001    1     1     3.9729
+    C002    2     2     2.8316
+    C003    3     3     2.6363
+    C101    4     4     6.6763
+    C102    5     5     6.0249
+    C103    6     6     2.5039
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_occprbty Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx     value 
+            _    ___    _______
+
+    C001    1     1      0.2045
+    C002    2     2     0.14576
+    C003    3     3      0.1357
+    C101    4     4     0.40474
+    C102    5     5     0.36525
+    C103    6     6      0.1518
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+EXAMPLE 4, bfw_solveequi_w2q2w(), heter rho (0.75, 0.24, 0.24), skilled
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_wages Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx    value 
+            _    ___    ______
+
+    C011    1     1     2.2661
+    C012    2     2     5.3851
+    C013    3     3     6.7078
+    C111    4     4     3.5562
+    C112    5     5     6.8374
+    C113    6     6     9.4358
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_demanded Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx     value  
+            _    ___    ________
+
+    C011    1     1     0.032483
+    C012    2     2      0.23899
+    C013    3     3       0.8312
+    C111    4     4       0.1707
+    C112    5     5      0.49341
+    C113    6     6       1.6894
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_supplied Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx     value  
+            _    ___    ________
+
+    C011    1     1     0.032483
+    C012    2     2      0.23897
+    C013    3     3      0.83122
+    C111    4     4       0.1707
+    C112    5     5      0.49336
+    C113    6     6       1.6895
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_occprbty Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            i    idx     value  
+            _    ___    ________
+
+    C011    1     1     0.018322
+    C012    2     2      0.13479
+    C013    3     3      0.46886
+    C111    4     4     0.068174
+    C112    5     5      0.19704
+    C113    6     6      0.67473
+\end{verbatim}
+
 \hypertarget{appendix-appendix}{%
 \appendix}
 
@@ -2790,6 +4179,16 @@ end
   \item
     \textbf{PrjLabEquiBFW}: \emph{\href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/func/bfw_mp_func_supply.m}{bfw\_mp\_func\_supply()}}
   \end{itemize}
+\item
+  \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/func/htmlpdfm/bfwx_mp_func_equi.html}{Equilibrium Core Functions}: \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/func/bfwx_mp_func_equi.mlx}{\textbf{mlx}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/func/htmlpdfm/bfwx_mp_func_equi.m}{\textbf{m}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/func/htmlpdfm/bfwx_mp_func_equi.pdf}{\textbf{pdf}} \textbar{} \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/func/htmlpdfm/bfwx_mp_func_equi.html}{\textbf{html}}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This function generates a container map with key equilibrium equations.
+  \item
+    \textbf{PrjLabEquiBFW}: \emph{\href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/func/bfw_mp_func_equi.m}{bfw\_mp\_func\_equi()}}
+  \end{itemize}
 \end{enumerate}
 
 \hypertarget{parameters-links}{%
@@ -2807,6 +4206,16 @@ end
     bfw\_mp\_path
   \item
     \textbf{PrjLabEquiBFW}: \emph{\href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/paramsdata/bfw_mp_path.m}{bfw\_mp\_path()}}
+  \end{itemize}
+\item
+  \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/params/htmlpdfm/bfwx_mp_control.html}{bfwx\_mp\_control}: \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/params/bfwx_mp_control.mlx}{\textbf{mlx}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/params/htmlpdfm/bfwx_mp_control.m}{\textbf{m}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/params/htmlpdfm/bfwx_mp_control.pdf}{\textbf{pdf}} \textbar{} \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/params/htmlpdfm/bfwx_mp_control.html}{\textbf{html}}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    bfw\_mp\_control
+  \item
+    \textbf{PrjLabEquiBFW}: \emph{\href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/paramsdata/bfw_mp_control.m}{bfw\_mp\_control()}}
   \end{itemize}
 \item
   \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/params/htmlpdfm/bfwx_mp_param_esti.html}{bfw\_mp\_param\_esti}: \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/params/bfwx_mp_param_esti.mlx}{\textbf{mlx}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/params/htmlpdfm/bfwx_mp_param_esti.m}{\textbf{m}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/params/htmlpdfm/bfwx_mp_param_esti.pdf}{\textbf{pdf}} \textbar{} \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/params/htmlpdfm/bfwx_mp_param_esti.html}{\textbf{html}}
@@ -2893,6 +4302,34 @@ end
     bfwx\_mlogit
   \item
     \textbf{PrjLabEquiBFW}: \emph{\href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/solvesupply/bfwx_mlogit.m}{bfwx\_mlogit()}}
+  \end{itemize}
+\end{enumerate}
+
+\hypertarget{equilibrium-by-skill-nest-group-links}{%
+\section{Equilibrium by Skill Nest Group links}\label{equilibrium-by-skill-nest-group-links}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/solveequiskl/htmlpdfm/bfwx_solveequi_kwfw.html}{bfw\_solveequi\_kwfw}: \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/solveequiskl/bfwx_solveequi_kwfw.mlx}{\textbf{mlx}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/solveequiskl/htmlpdfm/bfwx_solveequi_kwfw.m}{\textbf{m}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/solveequiskl/htmlpdfm/bfwx_solveequi_kwfw.pdf}{\textbf{pdf}} \textbar{} \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/solveequiskl/htmlpdfm/bfwx_solveequi_kwfw.html}{\textbf{html}}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    bfw\_solveequi\_kwfw
+  \item
+    \textbf{PrjLabEquiBFW}: \emph{\href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/solveequiskl/bfw_solveequi_kwfw.m}{bfw\_solveequi\_kwfw()}}
+  \end{itemize}
+\item
+  \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/solveequiskl/htmlpdfm/bfwx_solveequi_w2q2w.html}{bfw\_solveequi\_w2q2w}: \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/solveequiskl/bfwx_solveequi_w2q2w.mlx}{\textbf{mlx}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/solveequiskl/htmlpdfm/bfwx_solveequi_w2q2w.m}{\textbf{m}} \textbar{} \href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/solveequiskl/htmlpdfm/bfwx_solveequi_w2q2w.pdf}{\textbf{pdf}} \textbar{} \href{https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/solveequiskl/htmlpdfm/bfwx_solveequi_w2q2w.html}{\textbf{html}}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    bfw\_solveequi\_w2q2w
+  \item
+    \textbf{PrjLabEquiBFW}: \emph{\href{https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/solveequiskl/bfw_solveequi_w2q2w.m}{bfw\_solveequi\_w2q2w()}}
   \end{itemize}
 \end{enumerate}
 

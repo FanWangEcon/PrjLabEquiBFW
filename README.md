@@ -8,7 +8,7 @@ All functions are parts of a matlab toolbox that can be installed:
 
 The Code Companion can also be accessed via the bookdown site and PDF linked below:
 
-> [**bookdown site**](https://fanwangecon.github.io/PrjLabEquiBFW/bookdown/), [**bookdown pdf**](https://fanwangecon.github.io/PrjLabEquiBFW/bookdown/BFW-Equilibrium-Gender-LFP-and-Wage-Code-Companion.pdf), [**MathWorks File Exchange**](https://www.mathworks.com/matlabcentral/fileexchange/80164-PrjLabEquiBFW)
+> [**bookdown site**](https://fanwangecon.github.io/PrjLabEquiBFW/bookdown/), [**bookdown pdf**](https://fanwangecon.github.io/PrjLabEquiBFW/bookdown/BFW-Equilibrium-Gender-LFP-and-Wage-Code-Companion.pdf), [**MathWorks File Exchange**](https://www.mathworks.com/matlabcentral/fileexchange/107025-prjlabequibfw)
 
 This bookdown file is a collection of mlx based vignettes for functions that are available from [PrjLabEquiBFW](https://github.com/FanWangEcon/PrjLabEquiBFW). Each Vignette file contains various examples for invoking each function.
 
@@ -53,13 +53,19 @@ installedToolbox = matlab.addons.toolbox.installToolbox(toolboxFile, agreeToLice
 2. [Multinomial Logit Core Functions](https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/func/htmlpdfm/bfwx_mp_func_supply.html): [**mlx**](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/func/bfwx_mp_func_supply.mlx) \| [**m**](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/func/htmlpdfm/bfwx_mp_func_supply.m) \| [**pdf**](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/func/htmlpdfm/bfwx_mp_func_supply.pdf) \| [**html**](https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/func/htmlpdfm/bfwx_mp_func_supply.html)
 	+ This function generates a container map with key multinomial logit supply-side equations.
 	+ **PrjLabEquiBFW**: *[bfw_mp_func_supply()](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/func/bfw_mp_func_supply.m)*
+3. [Equilibrium Core Functions](https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/func/htmlpdfm/bfwx_mp_func_equi.html): [**mlx**](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/func/bfwx_mp_func_equi.mlx) \| [**m**](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/func/htmlpdfm/bfwx_mp_func_equi.m) \| [**pdf**](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/func/htmlpdfm/bfwx_mp_func_equi.pdf) \| [**html**](https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/func/htmlpdfm/bfwx_mp_func_equi.html)
+	+ This function generates a container map with key equilibrium equations.
+	+ **PrjLabEquiBFW**: *[bfw_mp_func_equi()](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/func/bfw_mp_func_equi.m)*
 
 # 3  Parameters
 
 1. [bfwx_mp_path](https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/params/htmlpdfm/bfwx_mp_path.html): [**mlx**](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/params/bfwx_mp_path.mlx) \| [**m**](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/params/htmlpdfm/bfwx_mp_path.m) \| [**pdf**](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/params/htmlpdfm/bfwx_mp_path.pdf) \| [**html**](https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/params/htmlpdfm/bfwx_mp_path.html)
 	+ bfw_mp_path
 	+ **PrjLabEquiBFW**: *[bfw_mp_path()](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/paramsdata/bfw_mp_path.m)*
-2. [bfw_mp_param_esti](https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/params/htmlpdfm/bfwx_mp_param_esti.html): [**mlx**](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/params/bfwx_mp_param_esti.mlx) \| [**m**](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/params/htmlpdfm/bfwx_mp_param_esti.m) \| [**pdf**](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/params/htmlpdfm/bfwx_mp_param_esti.pdf) \| [**html**](https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/params/htmlpdfm/bfwx_mp_param_esti.html)
+2. [bfwx_mp_control](https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/params/htmlpdfm/bfwx_mp_control.html): [**mlx**](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/params/bfwx_mp_control.mlx) \| [**m**](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/params/htmlpdfm/bfwx_mp_control.m) \| [**pdf**](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/params/htmlpdfm/bfwx_mp_control.pdf) \| [**html**](https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/params/htmlpdfm/bfwx_mp_control.html)
+	+ bfw_mp_control
+	+ **PrjLabEquiBFW**: *[bfw_mp_control()](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/paramsdata/bfw_mp_control.m)*
+3. [bfw_mp_param_esti](https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/params/htmlpdfm/bfwx_mp_param_esti.html): [**mlx**](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/params/bfwx_mp_param_esti.mlx) \| [**m**](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/params/htmlpdfm/bfwx_mp_param_esti.m) \| [**pdf**](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/params/htmlpdfm/bfwx_mp_param_esti.pdf) \| [**html**](https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/params/htmlpdfm/bfwx_mp_param_esti.html)
 	+ bfw_mp_param_esti
 	+ **PrjLabEquiBFW**: *[bfw_mp_param_esti()](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/paramsdata/bfw_mp_param_esti.m)*
 
@@ -89,6 +95,15 @@ installedToolbox = matlab.addons.toolbox.installToolbox(toolboxFile, agreeToLice
 1. [bfwx_mlogit](https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/solvesupply/htmlpdfm/bfwx_mlogit.html): [**mlx**](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/solvesupply/bfwx_mlogit.mlx) \| [**m**](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/solvesupply/htmlpdfm/bfwx_mlogit.m) \| [**pdf**](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/solvesupply/htmlpdfm/bfwx_mlogit.pdf) \| [**html**](https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/solvesupply/htmlpdfm/bfwx_mlogit.html)
 	+ bfwx_mlogit
 	+ **PrjLabEquiBFW**: *[bfwx_mlogit()](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/solvesupply/bfwx_mlogit.m)*
+
+# 7  Equilibrium by Skill Nest Group
+
+1. [bfw_solveequi_kwfw](https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/solveequiskl/htmlpdfm/bfwx_solveequi_kwfw.html): [**mlx**](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/solveequiskl/bfwx_solveequi_kwfw.mlx) \| [**m**](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/solveequiskl/htmlpdfm/bfwx_solveequi_kwfw.m) \| [**pdf**](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/solveequiskl/htmlpdfm/bfwx_solveequi_kwfw.pdf) \| [**html**](https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/solveequiskl/htmlpdfm/bfwx_solveequi_kwfw.html)
+	+ bfw_solveequi_kwfw
+	+ **PrjLabEquiBFW**: *[bfw_solveequi_kwfw()](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/solveequiskl/bfw_solveequi_kwfw.m)*
+2. [bfw_solveequi_w2q2w](https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/solveequiskl/htmlpdfm/bfwx_solveequi_w2q2w.html): [**mlx**](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/solveequiskl/bfwx_solveequi_w2q2w.mlx) \| [**m**](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/solveequiskl/htmlpdfm/bfwx_solveequi_w2q2w.m) \| [**pdf**](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/master/PrjLabEquiBFW/doc/solveequiskl/htmlpdfm/bfwx_solveequi_w2q2w.pdf) \| [**html**](https://fanwangecon.github.io/PrjLabEquiBFW/PrjLabEquiBFW/doc/solveequiskl/htmlpdfm/bfwx_solveequi_w2q2w.html)
+	+ bfw_solveequi_w2q2w
+	+ **PrjLabEquiBFW**: *[bfw_solveequi_w2q2w()](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/solveequiskl/bfw_solveequi_w2q2w.m)*
 
 ----
 Please contact [![](https://img.shields.io/github/followers/fanwangecon?label=FanWangEcon&style=social)](https://github.com/FanWangEcon) [![](https://img.shields.io/twitter/follow/fanwangecon?label=%20&style=social)](https://twitter.com/fanwangecon) for issues or problems.

@@ -1,0 +1,552 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2021b"><title>Root Search Equilibrium Wage Equations By Skill Group</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(213, 80, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S2 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(60, 60, 60); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.CodeBlock { background-color: #F7F7F7; margin: 10px 0 10px 0;}
+.S3 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 4px 4px 0px 0px; padding: 6px 45px 4px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S4 { color: rgb(64, 64, 64); padding: 10px 0px 6px 17px; background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box; font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px; overflow-x: hidden; line-height: 17.234px;  }
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsErrorElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsErrorElement .diagnosticMessage-errorType {    overflow: auto;}
+.embeddedOutputsErrorElement.inlineElement {}
+.embeddedOutputsErrorElement.rightPaneElement {}
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsWarningElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsWarningElement .diagnosticMessage-warningType {    overflow: auto;}
+.embeddedOutputsWarningElement.inlineElement {}
+.embeddedOutputsWarningElement.rightPaneElement {}
+/* Copyright 2015-2019 The MathWorks, Inc. *//* In this file, styles are not scoped to rtcContainer since they could be in the Dojo Tooltip */.diagnosticMessage-wrapper {    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;    font-size: 12px;}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType {    color: rgb(255,100,0);}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType a {    color: rgb(255,100,0);    text-decoration: underline;}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType {    color: rgb(230,0,0);}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType a {    color: rgb(230,0,0);    text-decoration: underline;}
+.diagnosticMessage-wrapper .diagnosticMessage-messagePart,.diagnosticMessage-wrapper .diagnosticMessage-causePart {    white-space: pre-wrap;}
+.diagnosticMessage-wrapper .diagnosticMessage-stackPart {    white-space: pre;}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement {    white-space: pre;    word-wrap:  initial;    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsTextElement .textElement,.embeddedOutputsVariableStringElement .textElement {    overflow: auto;}
+.textElement,.rtcDataTipElement .textElement {    padding-top: 3px;}
+.embeddedOutputsTextElement.inlineElement,.embeddedOutputsVariableStringElement.inlineElement {}
+.inlineElement .textElement {}
+.embeddedOutputsTextElement.rightPaneElement,.embeddedOutputsVariableStringElement.rightPaneElement {    min-height: 16px;}
+.rightPaneElement .textElement {    padding-top: 2px;    padding-left: 9px;}
+.S5 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 0px none rgb(0, 0, 0); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S6 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 0px none rgb(0, 0, 0); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S7 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 0px; padding: 0px 45px 4px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S8 { margin: 20px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(60, 60, 60); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>Root Search Equilibrium Wage Equations By Skill Group</span></h1><div  class = 'S1'><span>This is the example vignette for function: bfw_solveequi_kwfw from the </span><a href = "https://fanwangecon.github.io/PrjLabEquiBFW/"><span style=' font-weight: bold;'>PrjLabEquiBFW Package</span></a><span style=' font-weight: bold;'>. </span></div><h2  class = 'S2'><span>Default</span></h2><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S3'><span style="white-space: pre"><span >[mp_fl_labor_occprbty,mp_fl_labor_supplied] = bfw_solveequi_kwfw();</span></span></div><div  class = 'S4'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement scrollableOutput" uid="A51A6506" data-testid="output_0" style="width: 1138px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="1108" data-height="1132" data-hashorizontaloverflow="true" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">Completed BFW_SOLVEEQUI_KWFW;fl_potwrker_1=9.9687;fl_potwrker_2=12.5164;ar_fl_max_ratio_1=0.36095     0.25032     0.20764;ar_fl_max_ratio_2=0.34704     0.23222     0.16538
+BFW_SOLVEEQUI_KWFW-initial-Q;category_key=;C001;sexrhs=;Female;occ=;Manual;wxox=3.5484;laborsupplied=2.2735
+BFW_SOLVEEQUI_KWFW-initial-Q;category_key=;C002;sexrhs=;Female;occ=;Routine;wxox=4.9268;laborsupplied=1.6222
+BFW_SOLVEEQUI_KWFW-initial-Q;category_key=;C003;sexrhs=;Female;occ=;Analytical;wxox=3.523;laborsupplied=1.341
+BFW_SOLVEEQUI_KWFW-initial-Q;category_key=;C101;sexrhs=;Male;occ=;Manual;wxox=1.7656;laborsupplied=4.2925
+BFW_SOLVEEQUI_KWFW-initial-Q;category_key=;C102;sexrhs=;Male;occ=;Routine;wxox=5.9065;laborsupplied=3.7644
+BFW_SOLVEEQUI_KWFW-initial-Q;category_key=;C103;sexrhs=;Male;occ=;Analytical;wxox=2.222;laborsupplied=1.5416
+Completed BFW_SOLVEEQUI_KWFW;fl_mse_excess=4.4821e-13;ar_w1_iter_endo=1.5779       1.819      3.7951;ar_w2_iter_hat=1.2165      1.8629       3.227;ar_w2_iter_gap=-6.527e-12 -1.9215e-07  8.4457e-07
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_wages Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">i</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">idx</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">value</strong> 
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">_</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">___</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">______</strong>
+
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C001</strong>    1     1     1.2165
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C002</strong>    2     2     1.8629
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C003</strong>    3     3      3.227
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C101</strong>    4     4     1.5779
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C102</strong>    5     5      1.819
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C103</strong>    6     6     3.7951
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_demanded Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">i</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">idx</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">value</strong> 
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">_</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">___</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">______</strong>
+
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C001</strong>    1     1     1.6514
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C002</strong>    2     2     1.0896
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C003</strong>    3     3     1.4662
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C101</strong>    4     4     4.3057
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C102</strong>    5     5     3.1524
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C103</strong>    6     6     1.9726
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_supplied Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">i</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">idx</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">value</strong> 
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">_</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">___</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">______</strong>
+
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C001</strong>    1     1     1.6514
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C002</strong>    2     2     1.0896
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C003</strong>    3     3     1.4662
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C101</strong>    4     4     4.3057
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C102</strong>    5     5     3.1524
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C103</strong>    6     6     1.9726
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_occprbty Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">i</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">idx</strong>     <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">value</strong>  
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">_</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">___</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">________</strong>
+
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C001</strong>    1     1      0.13194
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C002</strong>    2     2     0.087055
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C003</strong>    3     3      0.11714
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C101</strong>    4     4      0.43193
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C102</strong>    5     5      0.31623
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C103</strong>    6     6      0.19788
+
+----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_excess_demand Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">i</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">idx</strong>       <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">value</strong>   
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">_</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">___</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">___________</strong>
+
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C001</strong>    1     1     -3.4607e-08
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C002</strong>    2     2     -2.3265e-07
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C003</strong>    3     3       6.268e-07
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C101</strong>    4     4     -2.6645e-15
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C102</strong>    5     5     -2.2204e-15
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C103</strong>    6     6     -2.2204e-16</div></div></div></div></div><h2  class = 'S2'><span>Vary Parameters, Solve Equilibrium Quantities/Wages, Root Search</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span style="color: rgb(2, 128, 9);">% 2. Get Parameters and data</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >bl_log_wage = true;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >bl_verbose_nest = false;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span style="color: rgb(2, 128, 9);">% Get Parameters</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >mp_params = bfw_mp_param_esti(bl_log_wage);</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >mp_param_aux = bfw_mp_param_aux(bl_verbose_nest);</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >mp_params = [mp_params ; mp_param_aux];</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span style="color: rgb(2, 128, 9);">% Get Data</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >mp_data = bfw_mp_data(bl_verbose_nest);</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span style="color: rgb(2, 128, 9);">% Get Functions</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >mp_func_demand = bfw_mp_func_demand(bl_verbose_nest);</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >mp_func_supply = bfw_mp_func_supply(bl_log_wage, bl_verbose_nest);</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >mp_func_equi = bfw_mp_func_equi(bl_verbose_nest);</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >mp_func = [mp_func_equi; mp_func_supply; mp_func_demand];</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span style="color: rgb(2, 128, 9);">% Get Controls</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >mp_controls = bfw_mp_control();</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >mp_controls(</span><span style="color: rgb(170, 4, 249);">'bl_bfw_solveequi_kwfw_display'</span><span >) = false;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >mp_controls(</span><span style="color: rgb(170, 4, 249);">'bl_bfw_solveequi_kwfw_display_verbose'</span><span >) = false;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >st_exa_common_str = </span><span style="color: rgb(170, 4, 249);">'bfw_solveequi_kwfw()'</span><span >;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">for </span><span >it_example_inputs = [1,2,3,4]</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    </span><span style="color: rgb(2, 128, 9);">% Different testing scenariors</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    </span><span style="color: rgb(14, 0, 255);">if </span><span >(it_example_inputs == 1)</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_rho_manual = 0.18;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_rho_routine = 0.18;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_rho_analytical = 0.18;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_beta_1_manual = 1 - 0.26;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_beta_1_routine = 1 - 0.30;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_beta_1_analytical = 1 - 0.40;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_Y_manual = 3.4084;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_Y_routine = 2.3402;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_Y_analytical = 1.7552;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_w1o1_init = 2.315707;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_w1o2_init = 3.217799;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_w1o3_init = 4.329016;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_w2o1_init = 1.942;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_w2o2_init = 3.2247;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_w2o3_init = 3.3738;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        it_data_year = 1989;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_potwrker_1 = 9.9687;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_potwrker_2 = 12.5164;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        bl_skilled = false;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        </span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        st_exa_string = </span><span style="color: rgb(170, 4, 249);">"homogeneous rho at 0.18, unskilled"</span><span >;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    </span><span style="color: rgb(14, 0, 255);">elseif </span><span >(it_example_inputs == 2)</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_rho_manual = 0.64678;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_rho_routine = 0.64678;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_rho_analytical = 0.64678;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_beta_1_manual = 0.63427;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_beta_1_routine = 0.58738;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_beta_1_analytical = 0.5784;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_Y_manual = 3.2291;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_Y_routine = 2.2223;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_Y_analytical = 1.7487;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_w1o1_init = 2.3157;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_w1o2_init = 3.2178;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_w1o3_init = 4.329;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_w2o1_init = 1.942;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_w2o2_init = 3.2247;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_w2o3_init = 3.3738;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        it_data_year = 1989;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_potwrker_1 = 9.9687;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_potwrker_2 = 12.5164;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        bl_skilled = false;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        st_exa_string = </span><span style="color: rgb(170, 4, 249);">"homogeneous rho at 0.64, unskilled"</span><span >;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    </span><span style="color: rgb(14, 0, 255);">elseif </span><span >(it_example_inputs == 3)</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_rho_manual = 0.34186;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_rho_routine = 0.34186;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_rho_analytical = 0.34186;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_beta_1_manual = 0.63075;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_beta_1_routine = 0.6326;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_beta_1_analytical = 0.53894;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_Y_manual = 5.5703;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_Y_routine = 4.6673;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_Y_analytical = 2.5644;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_w1o1_init = 2.263;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_w1o2_init = 2.5991;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_w1o3_init = 3.6533;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_w2o1_init = 1.7636;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_w2o2_init = 2.4062;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_w2o3_init = 2.8429;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        it_data_year = 2010;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_potwrker_1 = 16.4952;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_potwrker_2 = 19.4271;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        bl_skilled = false;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        st_exa_string = </span><span style="color: rgb(170, 4, 249);">"homogeneous rho at 0.34, unskilled"</span><span >;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    </span><span style="color: rgb(14, 0, 255);">elseif </span><span >(it_example_inputs == 4)</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_rho_manual = 0.75002424;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_rho_routine = 0.244249613;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_rho_analytical = 0.244249613;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_beta_1_manual = 0.703785173;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_beta_1_routine = 0.687107264;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_beta_1_analytical = 0.706254232;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_Y_manual = 0.124479951;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_Y_routine = 0.39857586;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_Y_analytical = 1.388880655;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_w1o1_init = 5.758649;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_w1o2_init = 6.221019;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_w1o3_init = 7.977073;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_w2o1_init = 2.376239;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_w2o2_init = 4.863073;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_w2o3_init = 5.881686;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        it_data_year = 1996;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_potwrker_1 = 16.4952;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        fl_potwrker_2 = 19.4271;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        bl_skilled = true;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        st_exa_string = </span><span style="color: rgb(170, 4, 249);">"heter rho (0.75, 0.24, 0.24), skilled"</span><span >;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    </span><span style="color: rgb(14, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    mp_params(</span><span style="color: rgb(170, 4, 249);">'fl_rho_manual'</span><span >) = fl_rho_manual;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    mp_params(</span><span style="color: rgb(170, 4, 249);">'fl_rho_routine'</span><span >) = fl_rho_routine;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    mp_params(</span><span style="color: rgb(170, 4, 249);">'fl_rho_analytical'</span><span >) = fl_rho_analytical;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    mp_params(</span><span style="color: rgb(170, 4, 249);">'fl_beta_1_manual'</span><span >) = fl_beta_1_manual;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    mp_params(</span><span style="color: rgb(170, 4, 249);">'fl_beta_1_routine'</span><span >) = fl_beta_1_routine;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    mp_params(</span><span style="color: rgb(170, 4, 249);">'fl_beta_1_analytical'</span><span >) = fl_beta_1_analytical;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    mp_params(</span><span style="color: rgb(170, 4, 249);">'fl_Y_manual'</span><span >) = fl_Y_manual;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    mp_params(</span><span style="color: rgb(170, 4, 249);">'fl_Y_routine'</span><span >) = fl_Y_routine;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    mp_params(</span><span style="color: rgb(170, 4, 249);">'fl_Y_analytical'</span><span >) = fl_Y_analytical;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    mp_data(</span><span style="color: rgb(170, 4, 249);">'fl_w1o1_init'</span><span >) = fl_w1o1_init;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    mp_data(</span><span style="color: rgb(170, 4, 249);">'fl_w1o2_init'</span><span >) = fl_w1o2_init;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    mp_data(</span><span style="color: rgb(170, 4, 249);">'fl_w1o3_init'</span><span >) = fl_w1o3_init;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    mp_data(</span><span style="color: rgb(170, 4, 249);">'fl_w2o1_init'</span><span >) = fl_w2o1_init;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    mp_data(</span><span style="color: rgb(170, 4, 249);">'fl_w2o2_init'</span><span >) = fl_w2o2_init;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    mp_data(</span><span style="color: rgb(170, 4, 249);">'fl_w2o3_init'</span><span >) = fl_w2o3_init;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    mp_data(</span><span style="color: rgb(170, 4, 249);">'fl_potwrker_1'</span><span >) = fl_potwrker_1;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    mp_data(</span><span style="color: rgb(170, 4, 249);">'fl_potwrker_2'</span><span >) = fl_potwrker_2;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    it_data_year = it_data_year - 1989;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    bl_checkminmax = true;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    it_solve_n1n2n3 = 3;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    [ar_w1_iter_endo, ar_w2_iter_hat, ar_w2_iter_gap, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        mp_wages, mp_fl_labor_demanded, mp_fl_labor_supplied, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        mp_fl_labor_occprbty, fl_mse_excess_demand, mp_fl_labor_excess_demand] = </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        bfw_solveequi_kwfw(mp_params, mp_data, mp_func, mp_controls, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >        it_solve_n1n2n3, it_data_year, bl_skilled, bl_checkminmax);</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    disp(</span><span style="color: rgb(170, 4, 249);">''</span><span >);</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    disp(</span><span style="color: rgb(170, 4, 249);">''</span><span >);</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    disp(</span><span style="color: rgb(170, 4, 249);">'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'</span><span >);</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    disp([</span><span style="color: rgb(170, 4, 249);">'EXAMPLE ' </span><span >num2str(it_example_inputs) </span><span style="color: rgb(170, 4, 249);">', ' </span><span >st_exa_common_str </span><span style="color: rgb(170, 4, 249);">', ' </span><span >char(st_exa_string)]);</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    disp(</span><span style="color: rgb(170, 4, 249);">'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'</span><span >);</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    ff_container_map_display(mp_wages);</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    ff_container_map_display(mp_fl_labor_demanded);</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    ff_container_map_display(mp_fl_labor_supplied);</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    ff_container_map_display(mp_fl_labor_occprbty);</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >    ff_container_map_display(mp_fl_labor_excess_demand);</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'></div></div><div class="inlineWrapper outputs"><div  class = 'S7'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div><div  class = 'S4'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="C439F1B8" data-testid="output_1" style="width: 1138px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="1108" data-height="18" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="11DECEEC" data-testid="output_2" style="width: 1138px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="1108" data-height="17" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">EXAMPLE 1, bfw_solveequi_kwfw(), homogeneous rho at 0.18, unskilled</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="8F5E8B2A" data-testid="output_3" style="width: 1138px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="1108" data-height="18" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="16C31F14" data-testid="output_4" style="width: 1138px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="1108" data-height="194" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_wages Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">i</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">idx</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">value</strong> 
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">_</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">___</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">______</strong>
+
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C001</strong>    1     1     1.2165
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C002</strong>    2     2     1.8629
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C003</strong>    3     3      3.227
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C101</strong>    4     4     1.5779
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C102</strong>    5     5      1.819
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C103</strong>    6     6     3.7951</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="6B58BE6D" data-testid="output_5" style="width: 1138px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="1108" data-height="194" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_demanded Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">i</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">idx</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">value</strong> 
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">_</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">___</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">______</strong>
+
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C001</strong>    1     1     1.6514
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C002</strong>    2     2     1.0896
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C003</strong>    3     3     1.4662
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C101</strong>    4     4     4.3057
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C102</strong>    5     5     3.1524
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C103</strong>    6     6     1.9726</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="7FF0FA81" data-testid="output_6" style="width: 1138px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="1108" data-height="194" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_supplied Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">i</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">idx</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">value</strong> 
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">_</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">___</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">______</strong>
+
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C001</strong>    1     1     1.6514
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C002</strong>    2     2     1.0896
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C003</strong>    3     3     1.4662
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C101</strong>    4     4     4.3057
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C102</strong>    5     5     3.1524
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C103</strong>    6     6     1.9726</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="79919ED3" data-testid="output_7" style="width: 1138px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="1108" data-height="194" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_occprbty Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">i</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">idx</strong>     <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">value</strong>  
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">_</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">___</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">________</strong>
+
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C001</strong>    1     1      0.13194
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C002</strong>    2     2     0.087055
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C003</strong>    3     3      0.11714
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C101</strong>    4     4      0.43193
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C102</strong>    5     5      0.31623
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C103</strong>    6     6      0.19788</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="212B75C3" data-testid="output_8" style="width: 1138px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="1108" data-height="194" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_excess_demand Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">i</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">idx</strong>       <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">value</strong>   
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">_</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">___</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">___________</strong>
+
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C001</strong>    1     1     -3.4607e-08
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C002</strong>    2     2     -2.3265e-07
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C003</strong>    3     3       6.268e-07
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C101</strong>    4     4     -2.6645e-15
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C102</strong>    5     5     -2.2204e-15
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C103</strong>    6     6     -2.2204e-16</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="FCE8878A" data-testid="output_9" style="width: 1138px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="1108" data-height="18" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="8915ADC4" data-testid="output_10" style="width: 1138px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="1108" data-height="17" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">EXAMPLE 2, bfw_solveequi_kwfw(), homogeneous rho at 0.64, unskilled</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="2FB35AAC" data-testid="output_11" style="width: 1138px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="1108" data-height="18" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="5DAC8712" data-testid="output_12" style="width: 1138px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="1108" data-height="194" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_wages Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">i</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">idx</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">value</strong> 
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">_</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">___</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">______</strong>
+
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C001</strong>    1     1     1.2481
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C002</strong>    2     2     1.8712
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C003</strong>    3     3     3.1468
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C101</strong>    4     4     1.5614
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C102</strong>    5     5     1.8288
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C103</strong>    6     6     3.8377</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="FBD0C099" data-testid="output_13" style="width: 1138px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="1108" data-height="194" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_demanded Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">i</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">idx</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">value</strong> 
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">_</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">___</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">______</strong>
+
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C001</strong>    1     1     1.6914
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C002</strong>    2     2     1.0934
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C003</strong>    3     3     1.4297
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C101</strong>    4     4     4.2646
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C102</strong>    5     5     3.1707
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C103</strong>    6     6     1.9952</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="E9987226" data-testid="output_14" style="width: 1138px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="1108" data-height="194" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_supplied Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">i</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">idx</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">value</strong> 
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">_</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">___</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">______</strong>
+
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C001</strong>    1     1     1.6914
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C002</strong>    2     2     1.0934
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C003</strong>    3     3     1.4297
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C101</strong>    4     4     4.2646
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C102</strong>    5     5     3.1707
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C103</strong>    6     6     1.9952</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="7F2E2BFD" data-testid="output_15" style="width: 1138px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="1108" data-height="194" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_occprbty Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">i</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">idx</strong>     <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">value</strong>  
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">_</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">___</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">________</strong>
+
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C001</strong>    1     1      0.13513
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C002</strong>    2     2     0.087358
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C003</strong>    3     3      0.11423
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C101</strong>    4     4      0.42779
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C102</strong>    5     5      0.31807
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C103</strong>    6     6      0.20015</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="9CBB5886" data-testid="output_16" style="width: 1138px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="1108" data-height="194" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_excess_demand Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">i</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">idx</strong>       <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">value</strong>   
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">_</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">___</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">___________</strong>
+
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C001</strong>    1     1      -9.373e-09
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C002</strong>    2     2     -1.9675e-07
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C003</strong>    3     3      3.6084e-07
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C101</strong>    4     4     -8.8818e-16
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C102</strong>    5     5      1.3323e-15
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C103</strong>    6     6     -2.2204e-16</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="FE8C3A78" data-testid="output_17" style="width: 1138px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="1108" data-height="18" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="9DD244BC" data-testid="output_18" style="width: 1138px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="1108" data-height="17" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">EXAMPLE 3, bfw_solveequi_kwfw(), homogeneous rho at 0.34, unskilled</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="F39B0F53" data-testid="output_19" style="width: 1138px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="1108" data-height="18" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="79159819" data-testid="output_20" style="width: 1138px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="1108" data-height="194" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_wages Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">i</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">idx</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">value</strong> 
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">_</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">___</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">______</strong>
+
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C001</strong>    1     1     1.5675
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C002</strong>    2     2     2.5998
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C003</strong>    3     3     3.0763
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C101</strong>    4     4     1.9027
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C102</strong>    5     5     2.7234
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C103</strong>    6     6       3.72</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="C0A702DA" data-testid="output_21" style="width: 1138px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="1108" data-height="194" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_demanded Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">i</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">idx</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">value</strong> 
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">_</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">___</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">______</strong>
+
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C001</strong>    1     1     3.9729
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C002</strong>    2     2     2.8316
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C003</strong>    3     3     2.6363
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C101</strong>    4     4     6.6763
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C102</strong>    5     5     6.0249
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C103</strong>    6     6     2.5039</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="ADB71518" data-testid="output_22" style="width: 1138px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="1108" data-height="194" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_supplied Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">i</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">idx</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">value</strong> 
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">_</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">___</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">______</strong>
+
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C001</strong>    1     1     3.9729
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C002</strong>    2     2     2.8316
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C003</strong>    3     3     2.6363
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C101</strong>    4     4     6.6763
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C102</strong>    5     5     6.0249
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C103</strong>    6     6     2.5039</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="3223CC5B" data-testid="output_23" style="width: 1138px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="1108" data-height="194" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_occprbty Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">i</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">idx</strong>     <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">value</strong> 
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">_</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">___</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">_______</strong>
+
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C001</strong>    1     1      0.2045
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C002</strong>    2     2     0.14575
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C003</strong>    3     3      0.1357
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C101</strong>    4     4     0.40474
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C102</strong>    5     5     0.36525
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C103</strong>    6     6      0.1518</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="898E88DF" data-testid="output_24" style="width: 1138px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="1108" data-height="194" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_excess_demand Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">i</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">idx</strong>       <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">value</strong>   
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">_</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">___</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">___________</strong>
+
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C001</strong>    1     1      8.8193e-08
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C002</strong>    2     2      6.1579e-07
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C003</strong>    3     3     -1.2231e-06
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C101</strong>    4     4     -3.5527e-15
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C102</strong>    5     5      1.7764e-15
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C103</strong>    6     6               0</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="5EA7C487" data-testid="output_25" style="width: 1138px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="1108" data-height="18" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="83033652" data-testid="output_26" style="width: 1138px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="1108" data-height="17" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">EXAMPLE 4, bfw_solveequi_kwfw(), heter rho (0.75, 0.24, 0.24), skilled</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="1412988F" data-testid="output_27" style="width: 1138px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="1108" data-height="18" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="EA1746EE" data-testid="output_28" style="width: 1138px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="1108" data-height="194" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_wages Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">i</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">idx</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">value</strong> 
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">_</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">___</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">______</strong>
+
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C011</strong>    1     1     2.2661
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C012</strong>    2     2     5.3853
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C013</strong>    3     3     6.7077
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C111</strong>    4     4     3.5562
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C112</strong>    5     5      6.838
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C113</strong>    6     6     9.4355</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="CBD4C47D" data-testid="output_29" style="width: 1138px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="1108" data-height="194" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_demanded Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">i</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">idx</strong>     <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">value</strong>  
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">_</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">___</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">________</strong>
+
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C011</strong>    1     1     0.032483
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C012</strong>    2     2      0.23898
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C013</strong>    3     3      0.83121
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C111</strong>    4     4       0.1707
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C112</strong>    5     5      0.49335
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C113</strong>    6     6       1.6895</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="CDAAB372" data-testid="output_30" style="width: 1138px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="1108" data-height="194" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_supplied Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">i</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">idx</strong>     <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">value</strong>  
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">_</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">___</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">________</strong>
+
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C011</strong>    1     1     0.032483
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C012</strong>    2     2      0.23898
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C013</strong>    3     3      0.83121
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C111</strong>    4     4       0.1707
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C112</strong>    5     5      0.49335
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C113</strong>    6     6       1.6895</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="121B820B" data-testid="output_31" style="width: 1138px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="1108" data-height="194" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_occprbty Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">i</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">idx</strong>     <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">value</strong>  
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">_</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">___</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">________</strong>
+
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C011</strong>    1     1     0.018322
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C012</strong>    2     2       0.1348
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C013</strong>    3     3      0.46886
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C111</strong>    4     4     0.068174
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C112</strong>    5     5      0.19703
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C113</strong>    6     6      0.67473</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="126AE248" data-testid="output_32" style="width: 1138px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="textElement eoOutputContent" data-width="1108" data-height="194" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">----------------------------------------
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+CONTAINER NAME: mp_fl_labor_excess_demand Scalars
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">i</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">idx</strong>       <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">value</strong>   
+            <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">_</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">___</strong>    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">___________</strong>
+
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C011</strong>    1     1     -1.8041e-09
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C012</strong>    2     2      5.6774e-08
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C013</strong>    3     3      8.1332e-08
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C111</strong>    4     4     -2.7756e-17
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C112</strong>    5     5      5.5511e-17
+    <strong style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">C113</strong>    6     6      2.2204e-16</div></div></div></div></div><h2  class = 'S8'></h2>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% Root Search Equilibrium Wage Equations By Skill Group
+% This is the example vignette for function: bfw_solveequi_kwfw from the <https://fanwangecon.github.io/PrjLabEquiBFW/ 
+% *PrjLabEquiBFW Package*>*.* 
+%% Default
+
+[mp_fl_labor_occprbty,mp_fl_labor_supplied] = bfw_solveequi_kwfw();
+%% Vary Parameters, Solve Equilibrium Quantities/Wages, Root Search
+
+% 2. Get Parameters and data
+bl_log_wage = true;
+bl_verbose_nest = false;
+
+% Get Parameters
+mp_params = bfw_mp_param_esti(bl_log_wage);
+mp_param_aux = bfw_mp_param_aux(bl_verbose_nest);
+mp_params = [mp_params ; mp_param_aux];
+
+% Get Data
+mp_data = bfw_mp_data(bl_verbose_nest);
+
+% Get Functions
+mp_func_demand = bfw_mp_func_demand(bl_verbose_nest);
+mp_func_supply = bfw_mp_func_supply(bl_log_wage, bl_verbose_nest);
+mp_func_equi = bfw_mp_func_equi(bl_verbose_nest);
+mp_func = [mp_func_equi; mp_func_supply; mp_func_demand];
+
+% Get Controls
+mp_controls = bfw_mp_control();
+mp_controls('bl_bfw_solveequi_kwfw_display') = false;
+mp_controls('bl_bfw_solveequi_kwfw_display_verbose') = false;
+
+st_exa_common_str = 'bfw_solveequi_kwfw()';
+for it_example_inputs = [1,2,3,4]
+
+    % Different testing scenariors
+    if (it_example_inputs == 1)
+        fl_rho_manual = 0.18;
+        fl_rho_routine = 0.18;
+        fl_rho_analytical = 0.18;
+
+        fl_beta_1_manual = 1 - 0.26;
+        fl_beta_1_routine = 1 - 0.30;
+        fl_beta_1_analytical = 1 - 0.40;
+
+        fl_Y_manual = 3.4084;
+        fl_Y_routine = 2.3402;
+        fl_Y_analytical = 1.7552;
+
+        fl_w1o1_init = 2.315707;
+        fl_w1o2_init = 3.217799;
+        fl_w1o3_init = 4.329016;
+
+        fl_w2o1_init = 1.942;
+        fl_w2o2_init = 3.2247;
+        fl_w2o3_init = 3.3738;
+
+        it_data_year = 1989;
+        fl_potwrker_1 = 9.9687;
+        fl_potwrker_2 = 12.5164;
+        bl_skilled = false;
+        
+        st_exa_string = "homogeneous rho at 0.18, unskilled";
+
+    elseif (it_example_inputs == 2)
+        fl_rho_manual = 0.64678;
+        fl_rho_routine = 0.64678;
+        fl_rho_analytical = 0.64678;
+
+        fl_beta_1_manual = 0.63427;
+        fl_beta_1_routine = 0.58738;
+        fl_beta_1_analytical = 0.5784;
+
+        fl_Y_manual = 3.2291;
+        fl_Y_routine = 2.2223;
+        fl_Y_analytical = 1.7487;
+
+        fl_w1o1_init = 2.3157;
+        fl_w1o2_init = 3.2178;
+        fl_w1o3_init = 4.329;
+
+        fl_w2o1_init = 1.942;
+        fl_w2o2_init = 3.2247;
+        fl_w2o3_init = 3.3738;
+
+        it_data_year = 1989;
+        fl_potwrker_1 = 9.9687;
+        fl_potwrker_2 = 12.5164;
+
+        bl_skilled = false;
+
+        st_exa_string = "homogeneous rho at 0.64, unskilled";
+
+    elseif (it_example_inputs == 3)
+        fl_rho_manual = 0.34186;
+        fl_rho_routine = 0.34186;
+        fl_rho_analytical = 0.34186;
+
+        fl_beta_1_manual = 0.63075;
+        fl_beta_1_routine = 0.6326;
+        fl_beta_1_analytical = 0.53894;
+
+        fl_Y_manual = 5.5703;
+        fl_Y_routine = 4.6673;
+        fl_Y_analytical = 2.5644;
+
+        fl_w1o1_init = 2.263;
+        fl_w1o2_init = 2.5991;
+        fl_w1o3_init = 3.6533;
+
+        fl_w2o1_init = 1.7636;
+        fl_w2o2_init = 2.4062;
+        fl_w2o3_init = 2.8429;
+
+        it_data_year = 2010;
+        fl_potwrker_1 = 16.4952;
+        fl_potwrker_2 = 19.4271;
+
+        bl_skilled = false;
+
+        st_exa_string = "homogeneous rho at 0.34, unskilled";
+
+    elseif (it_example_inputs == 4)
+        fl_rho_manual = 0.75002424;
+        fl_rho_routine = 0.244249613;
+        fl_rho_analytical = 0.244249613;
+
+        fl_beta_1_manual = 0.703785173;
+        fl_beta_1_routine = 0.687107264;
+        fl_beta_1_analytical = 0.706254232;
+
+        fl_Y_manual = 0.124479951;
+        fl_Y_routine = 0.39857586;
+        fl_Y_analytical = 1.388880655;
+
+        fl_w1o1_init = 5.758649;
+        fl_w1o2_init = 6.221019;
+        fl_w1o3_init = 7.977073;
+
+        fl_w2o1_init = 2.376239;
+        fl_w2o2_init = 4.863073;
+        fl_w2o3_init = 5.881686;
+
+        it_data_year = 1996;
+        fl_potwrker_1 = 16.4952;
+        fl_potwrker_2 = 19.4271;
+
+        bl_skilled = true;
+
+        st_exa_string = "heter rho (0.75, 0.24, 0.24), skilled";
+
+    end
+
+    mp_params('fl_rho_manual') = fl_rho_manual;
+    mp_params('fl_rho_routine') = fl_rho_routine;
+    mp_params('fl_rho_analytical') = fl_rho_analytical;
+
+    mp_params('fl_beta_1_manual') = fl_beta_1_manual;
+    mp_params('fl_beta_1_routine') = fl_beta_1_routine;
+    mp_params('fl_beta_1_analytical') = fl_beta_1_analytical;
+
+    mp_params('fl_Y_manual') = fl_Y_manual;
+    mp_params('fl_Y_routine') = fl_Y_routine;
+    mp_params('fl_Y_analytical') = fl_Y_analytical;
+
+    mp_data('fl_w1o1_init') = fl_w1o1_init;
+    mp_data('fl_w1o2_init') = fl_w1o2_init;
+    mp_data('fl_w1o3_init') = fl_w1o3_init;
+
+    mp_data('fl_w2o1_init') = fl_w2o1_init;
+    mp_data('fl_w2o2_init') = fl_w2o2_init;
+    mp_data('fl_w2o3_init') = fl_w2o3_init;
+
+    mp_data('fl_potwrker_1') = fl_potwrker_1;
+    mp_data('fl_potwrker_2') = fl_potwrker_2;
+
+    it_data_year = it_data_year - 1989;
+    bl_checkminmax = true;
+    it_solve_n1n2n3 = 3;
+    [ar_w1_iter_endo, ar_w2_iter_hat, ar_w2_iter_gap, ...
+        mp_wages, mp_fl_labor_demanded, mp_fl_labor_supplied, ...
+        mp_fl_labor_occprbty, fl_mse_excess_demand, mp_fl_labor_excess_demand] = ...
+        bfw_solveequi_kwfw(mp_params, mp_data, mp_func, mp_controls, ...
+        it_solve_n1n2n3, it_data_year, bl_skilled, bl_checkminmax);
+
+    disp('');
+    disp('');
+    disp('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX');
+    disp(['EXAMPLE ' num2str(it_example_inputs) ', ' st_exa_common_str ', ' char(st_exa_string)]);
+    disp('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX');
+    ff_container_map_display(mp_wages);
+    ff_container_map_display(mp_fl_labor_demanded);
+    ff_container_map_display(mp_fl_labor_supplied);
+    ff_container_map_display(mp_fl_labor_occprbty);
+    ff_container_map_display(mp_fl_labor_excess_demand);
+
+end
+%%
+##### SOURCE END #####
+-->
+</div></body></html>

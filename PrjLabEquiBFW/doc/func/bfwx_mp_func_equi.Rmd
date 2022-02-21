@@ -1,0 +1,53 @@
+---
+always_allow_html: 'true'
+core:
+- code: '[bfw_mp_func_equi()](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/func/bfw_mp_func_equi.m)
+
+    '
+  package: PrjLabEquiBFW
+date: '2022-02-20'
+date_start: '2022-02-20'
+description: 'This function generates a container map with key equilibrium equations.
+
+  '
+file: bfwx_mp_func_equi
+output:
+  html_document:
+    includes:
+      in_header: ../../../hdga.html
+    pandoc_args: ../../../_output_kniti_html.yaml
+  pdf_document:
+    includes:
+      in_header: ../../../preamble.tex
+    pandoc_args: ../../../_output_kniti_pdf.yaml
+title: Equilibrium Core Functions
+titleshort: Equilibrium Core Functions
+urlcolor: blue
+---
+
+## Equilibrium Core Functions
+
+This is the example vignette for function:
+[**bfw_mp_func_equi**](https://github.com/FanWangEcon/PrjLabEquiBFW/tree/main/PrjLabEquiBFW/func/bfw_mp_func_equi.m)
+from the [**PrjLabEquiBFW
+Package**](https://fanwangecon.github.io/PrjLabEquiBFW/)**.**
+
+### Default Test
+
+Default test
+
+    bl_verbose = true;
+    mp_func_demand = bfw_mp_func_equi(bl_verbose);
+
+    ----------------------------------------
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    CONTAINER NAME: mp_func Functions
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                                 i     idx                                                                                     functionString                                                                                  
+                                ___    ___    _________________________________________________________________________________________________________________________________________________________________________________
+
+        f_x_root                "1"    "1"    "@(x,price_ratio,yfz_per_input,rho)(1-x)+(x).*(price_ratio.*(x./(1-x))).^((rho)./(1-rho))-(yfz_per_input).^rho"                                                                  
+        fc_p1_of_p2             "2"    "2"    "@(p2,G_2,zeta_2_0,zeta_2_1,Y,Z,rho,beta_1,beta_2)((((((1+exp(-zeta_2_0-zeta_2_1.*p2))./(G_2)).*(Y/Z)).^rho).*(1/beta_1)-(beta_2/beta_1)).^((rho-1)/(rho))).*(beta_1/beta_2).*p2"
+        fc_p1_of_p2andSupply    "3"    "3"    "@(p2,supplyQofP,Y,Z,rho,beta_1,beta_2)((((((Y/Z)./supplyQofP)).^rho).*(1/beta_1)-(beta_2/beta_1)).^((rho-1)/(rho))).*(beta_1/beta_2).*p2"                                       
+        fc_p2_of_p1             "4"    "4"    "@(p1,G_1,zeta_1_0,zeta_1_1,Y,Z,rho,beta_1,beta_2)((((((1+exp(-zeta_1_0-zeta_1_1.*p1))./(G_1)).*(Y/Z)).^rho).*(1/beta_2)-(beta_1/beta_2)).^((rho-1)/(rho))).*(beta_2/beta_1).*p1"
+        fc_p2_of_p1andSupply    "5"    "5"    "@(p1,supplyQofP,Y,Z,rho,beta_1,beta_2)((((((Y/Z)./supplyQofP)).^rho).*(1/beta_2)-(beta_1/beta_2)).^((rho-1)/(rho))).*(beta_2/beta_1).*p1"                                       

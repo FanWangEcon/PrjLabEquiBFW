@@ -1,0 +1,289 @@
+---
+always_allow_html: 'true'
+core:
+- code: '[bfw_mp_control()](https://github.com/FanWangEcon/PrjLabEquiBFW/blob/main/PrjLabEquiBFW/paramsdata/bfw_mp_control.m)
+
+    '
+  package: PrjLabEquiBFW
+date: '2022-02-21'
+date_start: '2022-02-21'
+description: 'bfw_mp_control
+
+  '
+file: bfwx_mp_control
+output:
+  html_document:
+    includes:
+      in_header: ../../../hdga.html
+    pandoc_args: ../../../_output_kniti_html.yaml
+  pdf_document:
+    includes:
+      in_header: ../../../preamble.tex
+    pandoc_args: ../../../_output_kniti_pdf.yaml
+title: bfwx_mp_control
+titleshort: bfwx_mp_control
+urlcolor: blue
+---
+
+## bfw_mp_control
+
+This is the example vignette for function: bfw_mp_control from the
+[**PrjLabEquiBFW
+Package**](https://fanwangecon.github.io/PrjLabEquiBFW/)**.**
+
+### Map of Control Parameters
+
+    [bl_display_status, bl_display_verbose_status, bl_verbose] = deal(true, true, true);
+    mp_func_supply = bfw_mp_control(bl_display_status, bl_display_verbose_status, bl_verbose);
+
+    pos = 7 ; key = fmin_controls_a
+                       Display: 'off'
+                   MaxFunEvals: 2500
+                       MaxIter: 2000
+                        TolFun: 1.0000e-05
+                          TolX: 1.0000e-05
+                   FunValCheck: []
+                     OutputFcn: []
+                      PlotFcns: []
+               ActiveConstrTol: []
+                     Algorithm: []
+        AlwaysHonorConstraints: []
+               DerivativeCheck: []
+                   Diagnostics: []
+                 DiffMaxChange: []
+                 DiffMinChange: []
+                FinDiffRelStep: []
+                   FinDiffType: []
+             GoalsExactAchieve: []
+                    GradConstr: []
+                       GradObj: []
+                       HessFcn: []
+                       Hessian: []
+                      HessMult: []
+                   HessPattern: []
+                    HessUpdate: []
+              InitBarrierParam: []
+         InitTrustRegionRadius: []
+                      Jacobian: []
+                     JacobMult: []
+                  JacobPattern: []
+                    LargeScale: []
+                      MaxNodes: []
+                    MaxPCGIter: []
+                 MaxProjCGIter: []
+                    MaxSQPIter: []
+                       MaxTime: []
+                 MeritFunction: []
+                     MinAbsMax: []
+            NoStopIfFlatInfeas: []
+                ObjectiveLimit: []
+          PhaseOneTotalScaling: []
+                Preconditioner: []
+              PrecondBandWidth: []
+                RelLineSrchBnd: []
+        RelLineSrchBndDuration: []
+                  ScaleProblem: []
+           SubproblemAlgorithm: []
+                        TolCon: []
+                     TolConSQP: []
+                    TolGradCon: []
+                        TolPCG: []
+                     TolProjCG: []
+                  TolProjCGAbs: []
+                      TypicalX: []
+                   UseParallel: []
+
+    pos = 8 ; key = fmin_controls_b
+                       Display: 'off'
+                   MaxFunEvals: []
+                       MaxIter: []
+                        TolFun: []
+                          TolX: []
+                   FunValCheck: []
+                     OutputFcn: []
+                      PlotFcns: []
+               ActiveConstrTol: []
+                     Algorithm: []
+        AlwaysHonorConstraints: []
+               DerivativeCheck: []
+                   Diagnostics: []
+                 DiffMaxChange: []
+                 DiffMinChange: []
+                FinDiffRelStep: []
+                   FinDiffType: []
+             GoalsExactAchieve: []
+                    GradConstr: []
+                       GradObj: []
+                       HessFcn: []
+                       Hessian: []
+                      HessMult: []
+                   HessPattern: []
+                    HessUpdate: []
+              InitBarrierParam: []
+         InitTrustRegionRadius: []
+                      Jacobian: []
+                     JacobMult: []
+                  JacobPattern: []
+                    LargeScale: []
+                      MaxNodes: []
+                    MaxPCGIter: []
+                 MaxProjCGIter: []
+                    MaxSQPIter: []
+                       MaxTime: []
+                 MeritFunction: []
+                     MinAbsMax: []
+            NoStopIfFlatInfeas: []
+                ObjectiveLimit: []
+          PhaseOneTotalScaling: []
+                Preconditioner: []
+              PrecondBandWidth: []
+                RelLineSrchBnd: []
+        RelLineSrchBndDuration: []
+                  ScaleProblem: []
+           SubproblemAlgorithm: []
+                        TolCon: []
+                     TolConSQP: []
+                    TolGradCon: []
+                        TolPCG: []
+                     TolProjCG: []
+                  TolProjCGAbs: []
+                      TypicalX: []
+                   UseParallel: []
+
+    pos = 9 ; key = fmin_controls_c
+                       Display: 'iter'
+                   MaxFunEvals: 750
+                       MaxIter: 500
+                        TolFun: 1.0000e-05
+                          TolX: 1.0000e-05
+                   FunValCheck: []
+                     OutputFcn: []
+                      PlotFcns: []
+               ActiveConstrTol: []
+                     Algorithm: []
+        AlwaysHonorConstraints: []
+               DerivativeCheck: []
+                   Diagnostics: []
+                 DiffMaxChange: []
+                 DiffMinChange: []
+                FinDiffRelStep: []
+                   FinDiffType: []
+             GoalsExactAchieve: []
+                    GradConstr: []
+                       GradObj: []
+                       HessFcn: []
+                       Hessian: []
+                      HessMult: []
+                   HessPattern: []
+                    HessUpdate: []
+              InitBarrierParam: []
+         InitTrustRegionRadius: []
+                      Jacobian: []
+                     JacobMult: []
+                  JacobPattern: []
+                    LargeScale: []
+                      MaxNodes: []
+                    MaxPCGIter: []
+                 MaxProjCGIter: []
+                    MaxSQPIter: []
+                       MaxTime: []
+                 MeritFunction: []
+                     MinAbsMax: []
+            NoStopIfFlatInfeas: []
+                ObjectiveLimit: []
+          PhaseOneTotalScaling: []
+                Preconditioner: []
+              PrecondBandWidth: []
+                RelLineSrchBnd: []
+        RelLineSrchBndDuration: []
+                  ScaleProblem: []
+           SubproblemAlgorithm: []
+                        TolCon: []
+                     TolConSQP: []
+                    TolGradCon: []
+                        TolPCG: []
+                     TolProjCG: []
+                  TolProjCGAbs: []
+                      TypicalX: []
+                   UseParallel: []
+
+    pos = 10 ; key = fmin_controls_d
+                       Display: 'iter'
+                   MaxFunEvals: 5000
+                       MaxIter: 15
+                        TolFun: 1.0000e-06
+                          TolX: 1.0000e-06
+                   FunValCheck: []
+                     OutputFcn: []
+                      PlotFcns: {@optimplotfval  @optimplotx  @optimplotstepsize  @optimplotfunccount}
+               ActiveConstrTol: []
+                     Algorithm: []
+        AlwaysHonorConstraints: []
+               DerivativeCheck: []
+                   Diagnostics: []
+                 DiffMaxChange: []
+                 DiffMinChange: []
+                FinDiffRelStep: []
+                   FinDiffType: []
+             GoalsExactAchieve: []
+                    GradConstr: []
+                       GradObj: []
+                       HessFcn: []
+                       Hessian: []
+                      HessMult: []
+                   HessPattern: []
+                    HessUpdate: []
+              InitBarrierParam: []
+         InitTrustRegionRadius: []
+                      Jacobian: []
+                     JacobMult: []
+                  JacobPattern: []
+                    LargeScale: []
+                      MaxNodes: []
+                    MaxPCGIter: []
+                 MaxProjCGIter: []
+                    MaxSQPIter: []
+                       MaxTime: []
+                 MeritFunction: []
+                     MinAbsMax: []
+            NoStopIfFlatInfeas: []
+                ObjectiveLimit: []
+          PhaseOneTotalScaling: []
+                Preconditioner: []
+              PrecondBandWidth: []
+                RelLineSrchBnd: []
+        RelLineSrchBndDuration: []
+                  ScaleProblem: []
+           SubproblemAlgorithm: []
+                        TolCon: []
+                     TolConSQP: []
+                    TolGradCon: []
+                        TolPCG: []
+                     TolProjCG: []
+                  TolProjCGAbs: []
+                      TypicalX: []
+                   UseParallel: []
+
+    ----------------------------------------
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    CONTAINER NAME: mp_controls Scalars
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                                                  i    idx    value
+                                                  _    ___    _____
+
+        bl_bfw_solveequi_kwfw_display             1     2       1  
+        bl_bfw_solveequi_kwfw_display_verbose     2     3       1  
+        bl_bfw_solveequi_w2q2w_display            3     4       1  
+        bl_bfw_solveequi_w2q2w_display_verbose    4     5       1  
+        bl_timer                                  5     6       1  
+
+    ----------------------------------------
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    CONTAINER NAME: mp_controls String
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                             i     idx       string  
+                            ___    ____    __________
+
+        PES                 "1"    "1"     "_i"      
+        srdp_equi_method    "2"    "11"    "SRDP"    
+        srdp_method         "3"    "12"    "NESTFAST"

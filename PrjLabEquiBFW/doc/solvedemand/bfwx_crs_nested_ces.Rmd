@@ -612,7 +612,6 @@ Second, display created inputs:
 
     celldisp(cl_mn_prho);
 
-    cl_mn_prho
      
     cl_mn_prho{1} =
      
@@ -651,7 +650,6 @@ Second, display created inputs:
 
     celldisp(cl_mn_pshare);
 
-    cl_mn_pshare
      
     cl_mn_pshare{1} =
      
@@ -690,7 +688,6 @@ Second, display created inputs:
 
     celldisp(cl_mn_price);
 
-    cl_mn_price
      
     cl_mn_price{1} =
      
